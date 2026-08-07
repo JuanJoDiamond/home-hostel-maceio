@@ -1,0 +1,124 @@
+/* ==========================================================================
+   RESPONSIVE.CSS
+   Mobile first. Breakpoints: 576 / 768 / 992 / 1200 / 1400.
+   Cada regla se agrega, nunca se pisa: min-width en cascada ascendente.
+   ========================================================================== */
+
+/* ---- Base mobile (< 768px): menú colapsado en off-canvas ---------------- */
+
+.nav-toggle {
+  display: inline-flex;
+}
+
+.nav__list {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  z-index: var(--z-overlay);
+  width: min(80vw, 340px);
+  height: 100svh;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding-inline: var(--space-2xl);
+  background-color: var(--color-ocean-deep);
+  transform: translateX(100%);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.nav__list.is-open {
+  transform: translateX(0);
+}
+
+.nav__link {
+  color: var(--color-white) !important;
+  font-size: var(--fs-md);
+}
+
+.nav .btn--primary {
+  display: none;
+}
+
+.hero__title {
+  max-width: 100%;
+}
+
+/* ---- >= 576px: ajustes de espaciado en hero + tamaño de botones ---------- */
+@media (min-width: 576px) {
+  .hero__actions {
+    flex-wrap: nowrap;
+  }
+
+  .btn {
+    gap: var(--space-xs);
+    padding: 0.85rem 1.6rem;
+    font-size: var(--fs-sm);
+  }
+
+  .btn--icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ---- >= 768px: navegación horizontal visible ----------------------------- */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav__list {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 0;
+    background-color: transparent;
+    transform: none;
+    transition: none;
+  }
+
+  .nav__link {
+    color: inherit !important;
+    font-size: var(--fs-sm);
+  }
+
+  .nav .btn--primary {
+    display: inline-flex;
+  }
+
+  .lang-switch__code {
+    display: inline;
+  }
+
+  .hero__title {
+    max-width: 20ch;
+  }
+}
+
+/* ---- >= 992px: más aire en el contenedor y en el hero --------------------- */
+@media (min-width: 992px) {
+  :root {
+    --section-padding-y: clamp(4rem, 7vw, 7rem);
+  }
+
+  .hero__content {
+    padding-block-end: clamp(6rem, 9vw, 8rem);
+  }
+}
+
+/* ---- >= 1200px: contenedor a su ancho máximo, tipografía tope ------------- */
+@media (min-width: 1200px) {
+  .hero__subtitle {
+    max-width: 46ch;
+  }
+}
+
+/* ---- >= 1400px: techo de la escala fluida (pantallas grandes / 4K) -------- */
+@media (min-width: 1400px) {
+  .container {
+    padding-inline: clamp(2rem, 3vw, 6rem);
+  }
+}

@@ -1,0 +1,16 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuración local del editor (cada uno tiene la suya, no se comparte)
+.vscode/*
+!.vscode/extensions.json
+
+# Si en el futuro se usa Node (por ejemplo "npx serve" instala cosas acá)
+node_modules/
+npm-debug.log
+
+# Archivos temporales varios
+*.tmp
+*.log

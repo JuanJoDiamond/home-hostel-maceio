@@ -1,0 +1,276 @@
+/* ==========================================================================
+   COMPONENTS.CSS
+   Piezas reutilizables: logo, navegación, botones, toggle de menú móvil.
+   ========================================================================== */
+
+/* ---- Logo --------------------------------------------------------------- */
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__badge {
+  width: clamp(44px, 5vw, 56px);
+  height: clamp(44px, 5vw, 56px);
+  border-radius: 50%;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.logo:hover .logo__badge,
+.logo:focus-visible .logo__badge {
+  transform: scale(1.05);
+}
+
+/* ---- Navegación principal ------------------------------------------------ */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav__link {
+  position: relative;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-white);
+  padding-block: var(--space-2xs);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.site-header.is-scrolled .nav__link {
+  color: var(--color-ink);
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  inset-block-end: -2px;
+  inset-inline-start: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-sun);
+  transition: width var(--duration-base) var(--ease-standard);
+}
+
+.nav__link:hover::after,
+.nav__link:focus-visible::after {
+  width: 100%;
+}
+
+/* ---- Botones -------------------------------------------------------------- */
+
+/* Tamaño base = mobile. Se agranda en responsive.css a partir de 576px.
+   Antes tenía un tamaño fijo pensado para escritorio que nunca se achicaba
+   en pantallas chicas -- por eso se veía "gigante" en celular. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  transition: transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* CTA principal: verde palma. Elección deliberada -- evoca el verde de
+   WhatsApp (reconocimiento inmediato de la acción "Reservar por WhatsApp")
+   sin salir de la paleta natural del sitio. */
+.btn--primary {
+  background-color: var(--color-palm);
+  color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: var(--color-palm-dark);
+  box-shadow: var(--shadow-strong);
+}
+
+/* CTA secundario: contorno, para no competir con el principal */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-white);
+}
+
+.btn--icon svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* ---- Selector de idioma ---------------------------------------------------
+   Fondo blanco sólido siempre (no depende de si el header está scrolleado
+   o no), para garantizar legibilidad sobre la foto oscura y sobre el header
+   claro por igual -- mismo criterio que se usó con el logo. */
+
+.lang-switch {
+  position: relative;
+}
+
+.lang-switch__trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.lang-switch__trigger:hover,
+.lang-switch__trigger:focus-visible {
+  box-shadow: var(--shadow-strong);
+}
+
+.lang-switch__flag {
+  display: inline-flex;
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lang-switch__flag svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* El código de idioma (PT/ES/EN) se oculta en mobile para no ocupar
+   espacio en el header; solo se ve la bandera. Vuelve a partir de 768px. */
+.lang-switch__code {
+  display: none;
+}
+
+.lang-switch__menu {
+  position: absolute;
+  inset-block-start: calc(100% + 10px);
+  inset-inline-end: 0;
+  z-index: var(--z-overlay);
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-xs);
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-strong);
+}
+
+.lang-switch__menu[hidden] {
+  display: none;
+}
+
+.lang-switch__menu button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-ink);
+  text-align: start;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.lang-switch__menu button:hover,
+.lang-switch__menu button:focus-visible {
+  background-color: var(--color-sand);
+}
+
+.lang-switch__menu button[aria-selected="true"] {
+  background-color: var(--color-sand);
+  font-weight: var(--fw-semibold);
+}
+
+/* ---- Toggle de menú móvil (hamburguesa accesible) ------------------------- */
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+}
+
+.nav-toggle__bar,
+.nav-toggle__bar::before,
+.nav-toggle__bar::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: transform var(--duration-base) var(--ease-standard),
+    opacity var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard);
+}
+
+.site-header.is-scrolled .nav-toggle__bar,
+.site-header.is-scrolled .nav-toggle__bar::before,
+.site-header.is-scrolled .nav-toggle__bar::after {
+  background-color: var(--color-ocean-deep);
+}
+
+.nav-toggle__bar::before {
+  position: absolute;
+  transform: translateY(-8px);
+}
+
+.nav-toggle__bar::after {
+  position: absolute;
+  transform: translateY(8px);
+}
+
+.nav-toggle__bar {
+  position: relative;
+}
+
+/* Estado abierto: la hamburguesa se transforma en X */
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::after {
+  transform: translateY(0) rotate(-45deg);
+}

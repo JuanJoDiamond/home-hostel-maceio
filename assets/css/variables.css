@@ -1,0 +1,81 @@
+/* ==========================================================================
+   VARIABLES.CSS
+   Design tokens de Home Hostel Maceió.
+   Único lugar donde se define la identidad visual (color, tipografía,
+   espaciado, breakpoints). El resto del CSS solo consume estas variables.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: paleta costa de Alagoas ------------------------------- */
+  --color-ocean-deep: #0c4a5e;   /* Header, textos sobre claro, base oscura */
+  --color-ocean-light: #3f8ca6;  /* Acentos secundarios, links, hover */
+  --color-sand: #f4e8d0;         /* Fondos alternos, cards claras */
+  --color-sand-soft: #faf3e4;    /* Fondo base de sección clara */
+  --color-sun: #f2a44e;          /* Acento cálido, detalles, focus */
+  --color-coral: #e8604c;        /* CTA secundario / hover de énfasis */
+  --color-palm: #2f6b4a;         /* CTA principal (Reservar por WhatsApp) */
+  --color-palm-dark: #234f38;    /* Hover del CTA principal */
+  --color-ink: #17282a;          /* Texto principal */
+  --color-ink-soft: #3c5153;     /* Texto secundario */
+  --color-white: #ffffff;
+
+  /* ---- Tipografía ----------------------------------------------------- */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+
+  /* Escala tipográfica fluida (clamp: mínimo, preferido en vw, máximo) */
+  --fs-xs: clamp(0.8rem, 0.77rem + 0.15vw, 0.9rem);
+  --fs-sm: clamp(0.9rem, 0.86rem + 0.2vw, 1rem);
+  --fs-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-md: clamp(1.15rem, 1.08rem + 0.35vw, 1.4rem);
+  --fs-lg: clamp(1.5rem, 1.3rem + 1vw, 2.1rem);
+  --fs-xl: clamp(2.1rem, 1.7rem + 2vw, 3.2rem);
+  --fs-hero: clamp(2rem, 1.35rem + 3vw, 3.75rem);
+
+  --lh-tight: 1.1;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Espaciado (escala base 8px) ------------------------------------ */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Padding lateral fluido de secciones, mismo criterio en todo el sitio */
+  --section-padding-x: clamp(1.25rem, 4vw, 5rem);
+  --section-padding-y: clamp(3rem, 8vw, 6rem);
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --max-width-content: 1320px;
+  --header-height: 84px;
+  --header-height-scrolled: 64px;
+
+  /* ---- Bordes y sombras --------------------------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  --shadow-soft: 0 8px 24px rgba(12, 74, 94, 0.12);
+  --shadow-strong: 0 16px 40px rgba(12, 74, 94, 0.22);
+
+  /* ---- Transiciones --------------------------------------------------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+
+  /* ---- Z-index scale --------------------------------------------------- */
+  --z-header: 100;
+  --z-overlay: 200;
+}

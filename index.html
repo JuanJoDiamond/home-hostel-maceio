@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Home Hostel Maceió | Hospedagem com clima de casa em Alagoas</title>
+  <meta
+    name="description"
+    content="Sua casa em Maceió. Um hostel acolhedor para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
+  />
+
+  <!-- Open Graph (preparado para Sprint de entrega final: falta imagen real) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Home Hostel Maceió | Hospedagem com clima de casa em Alagoas" />
+  <meta
+    property="og:description"
+    content="Sua casa em Maceió. Um hostel acolhedor para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
+  />
+  <meta property="og:image" content="assets/images/hero/og-cover.jpg" />
+  <meta property="og:url" content="https://www.homehostelmaceio.com/" />
+
+  <link rel="canonical" href="https://www.homehostelmaceio.com/" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+
+  <!-- Tipografía: Fraunces (display, cálida/editorial) + Manrope (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS cargado como <link> individuales (no @import) para que el
+       navegador los pida todos EN PARALELO en vez de uno atrás del otro.
+       El orden en el HTML define la cascada: variables -> reset -> layout
+       -> components -> hero -> responsive. -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Skip-link: permite saltar el menú con teclado/lector de pantalla e ir
+       directo al contenido. Invisible hasta que recibe foco (Tab). -->
+  <a href="#top" class="skip-link">Pular para o conteúdo</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="#top" class="logo" aria-label="Home Hostel Maceió, início" data-i18n-attr="aria-label:aria_logo">
+        <picture>
+          <source srcset="assets/images/logo/home-hostel-logo.webp" type="image/webp" />
+          <img
+            class="logo__badge"
+            src="assets/images/logo/home-hostel-logo.png"
+            alt="Home Hostel Maceió"
+            width="56"
+            height="56"
+          />
+        </picture>
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal" data-i18n-attr="aria-label:aria_nav">
+        <ul class="nav__list" id="nav-list">
+          <li><a class="nav__link" href="#sobre" data-i18n="nav_sobre">Sobre</a></li>
+          <li><a class="nav__link" href="#quartos" data-i18n="nav_quartos">Quartos</a></li>
+          <li><a class="nav__link" href="#experiencias" data-i18n="nav_experiencias">Experiências</a></li>
+          <li><a class="nav__link" href="#localizacao" data-i18n="nav_localizacao">Localização</a></li>
+          <li><a class="nav__link" href="#galeria" data-i18n="nav_galeria">Galeria</a></li>
+          <li><a class="nav__link" href="#depoimentos" data-i18n="nav_depoimentos">Depoimentos</a></li>
+        </ul>
+
+        <!-- Selector de idioma: PT por defecto, ES/EN a elección.
+             Autocontenido: las banderas son SVG propios, sin dependencias externas. -->
+        <div class="lang-switch" data-lang-switch>
+          <button
+            type="button"
+            class="lang-switch__trigger"
+            data-lang-trigger
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="lang-menu"
+            aria-label="Idioma"
+            data-i18n-attr="aria-label:aria_lang"
+          >
+            <span class="lang-switch__flag" data-current-flag></span>
+            <span class="lang-switch__code" data-current-code>PT</span>
+          </button>
+          <ul
+            class="lang-switch__menu"
+            id="lang-menu"
+            role="listbox"
+            aria-label="Selecionar idioma"
+            data-lang-menu
+            hidden
+          ></ul>
+        </div>
+
+        <a
+          href="https://wa.me/5582900000000"
+          class="btn btn--primary btn--icon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.1.2-.3.2-.4a.5.5 0 0 0 0-.5c-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3c0 1.3.9 2.6 1.1 2.8.1.2 2 3 4.7 4.2a15.6 15.6 0 0 0 1.6.6c.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"
+            />
+          </svg>
+          <span data-i18n="cta_header">Reservar</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Abrir menu de navegação"
+          data-i18n-attr="aria-label:aria_toggle"
+          aria-expanded="false"
+          aria-controls="nav-list"
+        >
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============================= HERO ============================= -->
+    <section class="hero" aria-label="Apresentação Home Hostel Maceió">
+      <picture>
+        <source srcset="assets/images/hero/hero-maceio.webp" type="image/webp" />
+        <img
+          class="hero__photo"
+          src="assets/images/hero/hero-maceio.jpg"
+          alt="Vista aérea da orla de Maceió, com coqueiros, prédios à beira-mar e água azul-turquesa"
+          data-i18n-attr="alt:hero_photo_alt"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </picture>
+
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow" data-i18n="hero_eyebrow">Maceió · Alagoas · Brasil</p>
+        <h1 class="hero__title" data-i18n-html="hero_title_html">
+          Mais que uma hospedagem, <em>uma experiência</em> para viver Maceió
+        </h1>
+        <p class="hero__subtitle" data-i18n="hero_subtitle">
+          Sua casa em Maceió. Um hostel acolhedor para viver Alagoas, conhecer
+          pessoas e criar memórias em uma experiência autêntica de viagem.
+        </p>
+
+        <div class="hero__actions">
+          <a
+            href="https://wa.me/5582900000000"
+            class="btn btn--primary btn--icon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.1.2-.3.2-.4a.5.5 0 0 0 0-.5c-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3c0 1.3.9 2.6 1.1 2.8.1.2 2 3 4.7 4.2a15.6 15.6 0 0 0 1.6.6c.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"
+              />
+            </svg>
+            <span data-i18n="cta_hero_whatsapp">Reservar pelo WhatsApp</span>
+          </a>
+          <a href="#sobre" class="btn btn--ghost" data-i18n="cta_hero_ghost">Conheça o Hostel</a>
+        </div>
+      </div>
+
+      <!-- Elemento firma: línea de marea que separa el hero del contenido -->
+      <svg
+        class="hero__wave"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          fill="currentColor"
+          d="M0,64 C240,110 480,10 720,40 C960,70 1200,110 1440,56 L1440,120 L0,120 Z"
+        />
+      </svg>
+
+      <a href="#sobre" class="hero__scroll-hint">
+        <span data-i18n="hero_scroll">Deslize</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 4v16m0 0-6-6m6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- Las próximas secciones (Sobre, Quartos, Experiências, Localização,
+         Galeria, Depoimentos, CTA final) se desarrollan en los Sprints 2-8,
+         según lo acordado en el brief. -->
+  </main>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
