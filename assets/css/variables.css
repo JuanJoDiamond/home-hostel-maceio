@@ -58,7 +58,7 @@
   /* ---- Layout ----------------------------------------------------------- */
   --max-width-content: 1320px;
   --header-height: 84px;
-  --header-height-scrolled: 64px;
+  --header-height-scrolled: 72px;
 
   /* ---- Bordes y sombras --------------------------------------------- */
   --radius-sm: 6px;

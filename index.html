@@ -10,7 +10,10 @@
     content="Sua casa em Maceió. Um hostel acolhedor para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
   />
 
-  <!-- Open Graph (preparado para Sprint de entrega final: falta imagen real) -->
+  <!-- Open Graph: og:image usa URL absoluta a propósito (no relativa).
+       WhatsApp/Facebook/Twitter piden esta URL directamente, sin contexto
+       de navegador, así que una ruta relativa no les resuelve la imagen.
+       Actualizar junto con el canonical cuando esté el dominio real. -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Home Hostel Maceió | Hospedagem com clima de casa em Alagoas" />
@@ -18,10 +21,15 @@
     property="og:description"
     content="Sua casa em Maceió. Um hostel acolhedor para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
   />
-  <meta property="og:image" content="assets/images/hero/og-cover.jpg" />
-  <meta property="og:url" content="https://www.homehostelmaceio.com/" />
+  <meta property="og:image" content="https://juanjodiamond.github.io/home-hostel-maceio/assets/images/hero/og-cover.jpg" />
+  <meta property="og:url" content="https://juanjodiamond.github.io/home-hostel-maceio/" />
 
-  <link rel="canonical" href="https://www.homehostelmaceio.com/" />
+  <!-- TEMPORAL: canonical apunta a la URL real de GitHub Pages mientras no
+       exista el dominio definitivo (homehostelmaceio.com). Un canonical a
+       un dominio que no existe puede hacer que Google no indexe la página.
+       Reemplazar por el dominio real ni bien esté activo -- ver
+       docs/TEMAS-A-REVISAR.md. -->
+  <link rel="canonical" href="https://juanjodiamond.github.io/home-hostel-maceio/" />
   <link rel="icon" href="favicon.ico" sizes="any" />
 
   <!-- Tipografía: Fraunces (display, cálida/editorial) + Manrope (texto) -->
@@ -58,8 +66,8 @@
             class="logo__badge"
             src="assets/images/logo/home-hostel-logo.png"
             alt="Home Hostel Maceió"
-            width="56"
-            height="56"
+            width="64"
+            height="64"
           />
         </picture>
       </a>
@@ -101,7 +109,7 @@
         </div>
 
         <a
-          href="https://wa.me/5582900000000"
+          href="https://wa.me/5582991280921"
           class="btn btn--primary btn--icon"
           target="_blank"
           rel="noopener noreferrer"
@@ -157,7 +165,7 @@
 
         <div class="hero__actions">
           <a
-            href="https://wa.me/5582900000000"
+            href="https://wa.me/5582991280921"
             class="btn btn--primary btn--icon"
             target="_blank"
             rel="noopener noreferrer"
