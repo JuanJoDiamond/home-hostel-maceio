@@ -39,6 +39,14 @@ la fecha y la decisión tomada, para que quede el historial.
 | Sección "Área de serviço" (lavandería/depósito) | Hay una foto (`DSC07478`) de un espacio que no encaja en ninguna sección actual del sitio (freezer, ropero, depósito). Guardada procesada, sin usar todavía. Evaluar si merece su propia mini-sección o si se descarta más adelante. |
 | Footer / sección "Redes" con Instagram + TikTok | Idea del cliente: footer prolijo con los logos de las redes sociales reales del hostel (Instagram `@Homehostelmcz` confirmado; falta el usuario de TikTok, lo va a pasar). Con efecto hover — el logo se agranda al pasar el mouse. Diseño a definir en el Sprint 8 (CTA final / footer). |
 | Imagen "cabecera" para compartir link / Google Maps | Idea del cliente: armar una imagen especial (usando el pasillo de banderas, o la foto del banner+bandera+celular) pensada específicamente para cuando se comparte el link del sitio (vista previa de WhatsApp/redes) o para la ficha de Google Maps del negocio. Distinta del `og-cover.jpg` actual del hero. Pendiente de definir cuál foto usar y el tamaño exacto que pide cada plataforma. |
+| Patrón de grid-areas para intercalar texto y fotos en mobile | Nace en el Sprint 2 (sección Sobre): en vez de un bloque de texto y un bloque de fotos separados, cada elemento es un ítem individual de un grid con `grid-template-areas`, así el orden de lectura puede ser distinto en mobile (intercalado) y desktop (2 columnas) sin duplicar HTML. Reutilizar este mismo patrón en Quartos y Galería (Sprints 3 y 6) para que las fotos no queden todas apiladas juntas en mobile. |
+
+## 🔵 Práctica de proceso (no es código, es flujo de trabajo)
+
+| Tema | Detalle |
+|---|---|
+| Verificar en incógnito antes de reportar un bug visual | Aprendido en el Sprint 2: un cambio recién publicado puede verse roto simplemente por caché del navegador/CDN, no por un error real de código. Antes de reportar algo como bug después de un `git push`, probar primero en una ventana de incógnito (sin caché) para descartar ese caso. |
+| Sincronizar antes de generar un parche nuevo | El asistente siempre trae el commit real del repo (`git fetch` + `git log origin/main`) antes de armar un parche nuevo, en vez de asumir que su copia de trabajo sigue igual a lo último subido. |
 
 ---
 
@@ -54,3 +62,6 @@ la fecha y la decisión tomada, para que quede el historial.
 | 2026-08-08 | Sesión de fotos reales del hostel | Procesadas y curadas ~35 fotos de las ~60 recibidas (baño, cocina/sala de jantar/pátio, entrada-recepção, quartos), en `assets/images/gallery/` (carrusel) y `assets/images/hostel/` (detalle). Edición: balance de blancos, exposición pareja entre cámara ojo de pez y celular, contraste local, tono cálido de marca, nitidez. Efecto ojo de pez respetado sin corregir, por decisión estética del cliente. |
 | 2026-08-08 | Logo del header más grande | Aumentado de 44–56px a 48–64px (clamp), con la barra sticky scrolleada pasando de 64px a 72px de alto para que no quede apretado. |
 | 2026-08-08 | WhatsApp real aplicado al código | `https://wa.me/5582991280921` ya reemplaza el placeholder en los 2 botones de `index.html`. |
+| 2026-08-25 | Sección "Sobre" (Sprint 2) | Copy emocional PT/ES/EN + 2 fotos reales (pasillo con banderas, detalle artesanal del pátio) + hover con frase de prueba social. Ver `AUDITORIA-SPRINT2.md` para el detalle completo. |
+| 2026-08-25 | Header tapaba el título al navegar por ancla | Corregido con `scroll-margin-top: var(--header-height)` genérico en `main section[id]` (`layout.css`) — se aplica automáticamente a toda sección futura, no hace falta repetirlo. |
+| 2026-08-25 | Layout de "Sobre" roto en desktop tras publicar | No era bug de código: el navegador servía `sobre.css` viejo (caché) junto al `index.html` nuevo. Confirmado y resuelto verificando en ventana de incógnito. Sin cambios de código necesarios. |
