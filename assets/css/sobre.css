@@ -1,0 +1,127 @@
+/* ==========================================================================
+   SOBRE.CSS
+   Sprint 2. Primera sección de contenido después del hero: texto emocional
+   + 2 fotos reales del hostel. Fondo sand-soft, continuando el color del
+   hero__wave para que la transición entre hero y sección sea invisible.
+   ========================================================================== */
+
+.sobre {
+  background-color: var(--color-sand-soft);
+  overflow: hidden;
+}
+
+.sobre__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+/* ---- Columna de texto ----------------------------------------------------- */
+
+.sobre__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 16ch;
+  margin-block-end: var(--space-lg);
+}
+
+.sobre__title em {
+  font-style: italic;
+  color: var(--color-palm);
+}
+
+.sobre__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 56ch;
+}
+
+.sobre__text p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+}
+
+.sobre__signature {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  font-style: italic;
+  color: var(--color-ocean-deep);
+  margin-block-start: var(--space-lg);
+}
+
+/* CTA en formato link (no pill button): esta sección empuja a seguir
+   mirando el sitio, no a reservar -- ese rol ya lo cumple el WhatsApp
+   fijo del header. La flecha se desplaza en hover para reforzar la
+   dirección "seguí bajando". */
+.sobre__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-block-start: var(--space-xl);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.sobre__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.sobre__cta:hover,
+.sobre__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.sobre__cta:hover svg,
+.sobre__cta:focus-visible svg {
+  transform: translateX(4px);
+}
+
+/* ---- Columna de fotos ------------------------------------------------------
+   Una columna, 2 fotos apiladas verticalmente -- igual en mobile (después
+   del texto) y en desktop (al lado del texto, ver responsive.css). Evita
+   fotos angostas tipo miniatura que no dejan apreciar el detalle de cada una. */
+
+.sobre__gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.sobre__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4 / 5;
+}
+
+.sobre__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.sobre__photo:hover img {
+  transform: scale(1.04);
+}
+
+/* La foto del patio arranca un poco más abajo que la del pasillo: rompe la
+   grilla perfectamente alineada y le da un aire más orgánico/hogareño a la
+   columna, en vez de que se vea como una ficha de catálogo. */
+.sobre__photo--2 {
+  margin-block-start: var(--space-lg);
+}

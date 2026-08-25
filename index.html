@@ -49,6 +49,7 @@
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/sobre.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 <body>
@@ -202,9 +203,83 @@
       </a>
     </section>
 
-    <!-- Las próximas secciones (Sobre, Quartos, Experiências, Localização,
-         Galeria, Depoimentos, CTA final) se desarrollan en los Sprints 2-8,
-         según lo acordado en el brief. -->
+    <!-- ============================= SOBRE ============================= -->
+    <section id="sobre" class="section sobre" aria-label="Sobre o Home Hostel">
+      <div class="container sobre__grid">
+        <div class="sobre__content" data-animate>
+          <h2 class="sobre__title" data-i18n-html="sobre_title_html">
+            Sinta-se em <em>casa</em>. Viva Maceió.
+          </h2>
+
+          <div class="sobre__text">
+            <p data-i18n="sobre_p1">
+              Viajar é muito mais do que conhecer um lugar. É acordar sem
+              pressa, descobrir uma praia nova, compartilhar uma conversa e
+              voltar para um lugar onde você se sente bem.
+            </p>
+            <p data-i18n="sobre_p2">
+              É isso que queremos que seja o Home Hostel: um lugar para
+              deixar a rotina para trás, viver Maceió de verdade e
+              transformar alguns dias de viagem em memórias que ficam.
+            </p>
+            <p data-i18n="sobre_p3">
+              Aqui, você encontra mais do que um lugar para dormir. Você
+              chega como viajante. Pode sair levando histórias — de pessoas
+              que conheceu, lugares que descobriu e momentos que não estavam
+              no roteiro.
+            </p>
+            <p data-i18n="sobre_p4">
+              Porque, quando você se sente em casa, fica muito mais fácil
+              aproveitar tudo o que Alagoas tem para te oferecer.
+            </p>
+          </div>
+
+          <p class="sobre__signature" data-i18n="sobre_signature">
+            Home Hostel. Sua casa em Maceió.
+          </p>
+
+          <a href="#quartos" class="sobre__cta">
+            <span data-i18n="sobre_cta">Conheça os quartos</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14m0 0-6-6m6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="sobre__gallery" data-animate>
+          <figure class="sobre__photo sobre__photo--1">
+            <picture>
+              <source srcset="assets/images/hostel/home-hostel-maceio_entrada_06.webp" type="image/webp" />
+              <img
+                src="assets/images/hostel/home-hostel-maceio_entrada_06.jpg"
+                alt="Corredor de entrada do Home Hostel decorado com bandeiras dos países de hóspedes que já passaram por aqui"
+                data-i18n-attr="alt:sobre_photo1_alt"
+                loading="lazy"
+                width="1200"
+                height="1500"
+              />
+            </picture>
+          </figure>
+          <figure class="sobre__photo sobre__photo--2">
+            <picture>
+              <source srcset="assets/images/hostel/home-hostel-maceio_patio_02.webp" type="image/webp" />
+              <img
+                src="assets/images/hostel/home-hostel-maceio_patio_02.jpg"
+                alt="Detalhe artesanal e plantas no pátio do Home Hostel, trazendo cor e identidade local ao ambiente"
+                data-i18n-attr="alt:sobre_photo2_alt"
+                loading="lazy"
+                width="1200"
+                height="1500"
+              />
+            </picture>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Las próximas secciones (Quartos, Experiências, Localização, Galeria,
+         Depoimentos, CTA final) se desarrollan en los Sprints 3-8, según lo
+         acordado en el brief. -->
   </main>
 
   <script type="module" src="assets/js/main.js"></script>

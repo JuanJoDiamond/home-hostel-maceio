@@ -15,8 +15,33 @@
   padding-block: var(--section-padding-y);
 }
 
+/* Compensa el header fijo al saltar por ancla (nav, o el CTA "Conheça os
+   quartos" de Sobre): sin esto, el título de la sección de destino queda
+   tapado detrás del header al hacer scroll-behavior: smooth. */
+main section[id] {
+  scroll-margin-top: var(--header-height);
+}
+
 .section--sand {
   background-color: var(--color-sand);
+}
+
+/* ---- Reveal on-scroll genérico -------------------------------------------
+   animations.js le agrega .is-visible a cualquier [data-animate] cuando
+   entra en viewport. Definido acá (no en el CSS de cada sección) porque
+   se reutiliza en todas las secciones de los próximos sprints. Respeta
+   prefers-reduced-motion: animations.js ya marca todo como visible de
+   entrada si el usuario lo pide, así que esta transición nunca corre. */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-standard);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ---- Header ------------------------------------------------------------ */
