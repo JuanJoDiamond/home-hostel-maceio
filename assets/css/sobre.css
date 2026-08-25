@@ -3,6 +3,19 @@
    Sprint 2. Primera sección de contenido después del hero: texto emocional
    + 2 fotos reales del hostel. Fondo sand-soft, continuando el color del
    hero__wave para que la transición entre hero y sección sea invisible.
+
+   ESTRUCTURA: cada título/párrafo/foto es un ítem independiente de un único
+   CSS Grid, ubicado por nombre de área (grid-template-areas). Esto permite
+   que el ORDEN VISUAL cambie completamente entre mobile y desktop sin tocar
+   el HTML ni duplicar marcado:
+     - Mobile: texto y fotos intercalados (título, p1, p2, foto1, p3, p4,
+       firma, cta, foto2), para que no se forme un bloque largo de solo
+       texto seguido de un bloque largo de solo fotos.
+     - Desktop (>=992px, ver responsive.css): texto en una columna, las 2
+       fotos lado a lado en la columna derecha.
+   Este mismo patrón se reutiliza en las próximas secciones con fotos
+   (Quartos, Experiências) para evitar que todas las galerías "se peguen"
+   una atrás de la otra en mobile.
    ========================================================================== */
 
 .sobre {
@@ -13,11 +26,48 @@
 .sobre__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-2xl);
-  align-items: center;
+  gap: var(--space-lg);
+  grid-template-areas:
+    "title"
+    "p1"
+    "p2"
+    "photo1"
+    "p3"
+    "p4"
+    "signature"
+    "cta"
+    "photo2";
 }
 
-/* ---- Columna de texto ----------------------------------------------------- */
+.sobre__area-title {
+  grid-area: title;
+}
+.sobre__area-p1 {
+  grid-area: p1;
+}
+.sobre__area-p2 {
+  grid-area: p2;
+}
+.sobre__area-p3 {
+  grid-area: p3;
+}
+.sobre__area-p4 {
+  grid-area: p4;
+}
+.sobre__area-signature {
+  grid-area: signature;
+}
+.sobre__area-cta {
+  grid-area: cta;
+}
+.sobre__area-photo1 {
+  grid-area: photo1;
+}
+.sobre__area-photo2 {
+  grid-area: photo2;
+}
+
+/* ---- Texto ------------------------------------------------------------ */
 
 .sobre__title {
   font-family: var(--font-display);
@@ -26,7 +76,6 @@
   line-height: var(--lh-tight);
   color: var(--color-ink);
   max-width: 16ch;
-  margin-block-end: var(--space-lg);
 }
 
 .sobre__title em {
@@ -34,17 +83,11 @@
   color: var(--color-palm);
 }
 
-.sobre__text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  max-width: 56ch;
-}
-
-.sobre__text p {
+.sobre__grid > p {
   font-size: var(--fs-base);
   line-height: var(--lh-relaxed);
   color: var(--color-ink-soft);
+  max-width: 56ch;
 }
 
 .sobre__signature {
@@ -53,7 +96,6 @@
   font-weight: var(--fw-medium);
   font-style: italic;
   color: var(--color-ocean-deep);
-  margin-block-start: var(--space-lg);
 }
 
 /* CTA en formato link (no pill button): esta sección empuja a seguir
@@ -64,7 +106,6 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  margin-block-start: var(--space-xl);
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
   color: var(--color-palm);
@@ -88,16 +129,7 @@
   transform: translateX(4px);
 }
 
-/* ---- Columna de fotos ------------------------------------------------------
-   Una columna, 2 fotos apiladas verticalmente -- igual en mobile (después
-   del texto) y en desktop (al lado del texto, ver responsive.css). Evita
-   fotos angostas tipo miniatura que no dejan apreciar el detalle de cada una. */
-
-.sobre__gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-}
+/* ---- Fotos -------------------------------------------------------------- */
 
 .sobre__photo {
   position: relative;
@@ -105,6 +137,8 @@
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   aspect-ratio: 4 / 5;
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
 }
 
 .sobre__photo img {
@@ -115,13 +149,75 @@
   transition: transform var(--duration-slow) var(--ease-standard);
 }
 
-.sobre__photo:hover img {
-  transform: scale(1.04);
+/* Overlay + frase que aparecen en hover/foco. En vez de un zoom genérico,
+   la foto revela un dato concreto (prueba social en la foto 1, detalle de
+   marca en la foto 2) -- refuerza confianza, no es solo un efecto visual. */
+.sobre__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.82) 0%,
+    rgba(23, 40, 42, 0.25) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
 }
 
-/* La foto del patio arranca un poco más abajo que la del pasillo: rompe la
-   grilla perfectamente alineada y le da un aire más orgánico/hogareño a la
-   columna, en vez de que se vea como una ficha de catálogo. */
-.sobre__photo--2 {
-  margin-block-start: var(--space-lg);
+.sobre__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-normal);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.sobre__photo:hover,
+.sobre__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.sobre__photo:hover img,
+.sobre__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.sobre__photo:hover::after,
+.sobre__photo:focus-within::after {
+  opacity: 1;
+}
+
+.sobre__photo:hover figcaption,
+.sobre__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* En touch (sin hover real) la frase queda siempre visible sobre un
+   degradé sutil: en mobile no hay forma de "pasar el mouse", así que el
+   dato de la foto no puede depender de una interacción que no existe ahí. */
+@media (hover: none) {
+  .sobre__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.75) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .sobre__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

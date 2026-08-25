@@ -108,22 +108,27 @@
     padding-block-end: clamp(6rem, 9vw, 8rem);
   }
 
-  /* Sobre pasa de apilado (texto, luego las 2 fotos) a 2 columnas lado
-     a lado: texto a la izquierda, las 2 fotos apiladas a la derecha. */
+  /* Sobre pasa de intercalado (mobile) a 2 columnas: el texto ocupa la
+     columna izquierda (spaneando todas las filas de texto) y las 2 fotos
+     quedan lado a lado en la derecha, alineadas con el arranque del texto
+     -- mismo resultado visual que antes, ahora logrado reordenando las
+     grid-areas en vez de mover el HTML. */
   .sobre__grid {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: var(--space-2xl);
-    align-items: center;
+    grid-template-columns: 1.15fr 0.42fr 0.42fr;
+    column-gap: var(--space-md);
+    row-gap: var(--space-md);
+    align-items: start;
+    grid-template-areas:
+      "title  photo1 photo2"
+      "p1     photo1 photo2"
+      "p2     photo1 photo2"
+      "p3     .      ."
+      "p4     .      ."
+      "signature . ."
+      "cta    .      .";
   }
 
-  /* De apiladas (mobile) a lado a lado (desktop): 2 fotos apiladas
-     verticalmente casi duplican la altura de una foto portrait sola,
-     lo que deja la columna de galería mucho más alta que el texto. */
-  .sobre__gallery {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .sobre__photo--2 {
+  .sobre__area-photo2 {
     margin-block-start: var(--space-2xl);
   }
 }

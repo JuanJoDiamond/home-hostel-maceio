@@ -65,6 +65,8 @@ export const translations = {
       "Corredor de entrada do Home Hostel decorado com bandeiras dos países de hóspedes que já passaram por aqui",
     sobre_photo2_alt:
       "Detalhe artesanal e plantas no pátio do Home Hostel, trazendo cor e identidade local ao ambiente",
+    sobre_photo1_caption: "Gente de todo o mundo já passou por aqui",
+    sobre_photo2_caption: "Cada detalhe conta uma história",
   },
   es: {
     aria_nav: "Navegación principal",
@@ -103,6 +105,8 @@ export const translations = {
       "Pasillo de entrada del Home Hostel decorado con banderas de los países de huéspedes que ya pasaron por acá",
     sobre_photo2_alt:
       "Detalle artesanal y plantas en el patio del Home Hostel, que le dan color e identidad local al ambiente",
+    sobre_photo1_caption: "Gente de todo el mundo ya pasó por acá",
+    sobre_photo2_caption: "Cada detalle cuenta una historia",
   },
   en: {
     aria_nav: "Main navigation",
@@ -141,6 +145,8 @@ export const translations = {
       "Home Hostel's entrance corridor decorated with flags from guests' home countries",
     sobre_photo2_alt:
       "Handcrafted decor and plants in the Home Hostel patio, adding color and local character to the space",
+    sobre_photo1_caption: "People from all over the world have stayed here",
+    sobre_photo2_caption: "Every detail tells a story",
   },
 };
 
