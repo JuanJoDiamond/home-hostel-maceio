@@ -52,6 +52,7 @@
   <link rel="stylesheet" href="assets/css/sobre.css" />
   <link rel="stylesheet" href="assets/css/quartos.css" />
   <link rel="stylesheet" href="assets/css/carousel.css" />
+  <link rel="stylesheet" href="assets/css/experiencias.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 <body>
@@ -487,9 +488,185 @@
       </div>
     </section>
 
-    <!-- Las próximas secciones (Experiências, Localização, Galeria,
-         Depoimentos, CTA final) se desarrollan en los Sprints 4-8, según lo
-         acordado en el brief. -->
+    <!-- ============================= EXPERIÊNCIAS ============================= -->
+    <section id="experiencias" class="section experiencias" aria-label="Experiências no Home Hostel">
+      <div class="container experiencias__grid" data-animate>
+        <p class="experiencias__eyebrow experiencias__area-eyebrow" data-i18n="exp_eyebrow">
+          EXPERIÊNCIAS
+        </p>
+        <h2 class="experiencias__title experiencias__area-title" data-i18n="exp_title">
+          A viagem começa quando você se sente à vontade.
+        </h2>
+        <p class="experiencias__p experiencias__area-p1" data-i18n="exp_p1">
+          Maceió está lá fora, esperando para ser descoberta. Aqui dentro,
+          você encontra um lugar para chegar, respirar, descansar e
+          compartilhar.
+        </p>
+        <p class="experiencias__p experiencias__area-p2" data-i18n-html="exp_p2_html">
+          No Home, cada estadia pode ser diferente: novos lugares, novas
+          pessoas, novas histórias. Mas existe algo que queremos que
+          permaneça igual: <strong>a sensação de ser bem recebido.</strong>
+        </p>
+
+        <p class="experiencias__tagline experiencias__area-tagline1" data-i18n="exp_tagline1">
+          Mais do que ficar. Viver.
+        </p>
+
+        <figure class="experiencias__photo experiencias__area-photo1">
+          <picture>
+            <source srcset="assets/images/hostel/home-hostel-maceio_experiencias_01.webp" type="image/webp" />
+            <img
+              src="assets/images/hostel/home-hostel-maceio_experiencias_01.jpg"
+              alt="Espaço compartilhado do Home Hostel, com mesa ao ar livre e decoração artesanal"
+              data-i18n-attr="alt:exp_photo1_alt"
+              loading="lazy"
+              width="1200"
+              height="1500"
+            />
+          </picture>
+          <figcaption data-i18n="exp_photo1_caption">Um lugar para se encontrar</figcaption>
+        </figure>
+
+        <article class="experiencias__concept experiencias__area-concept1">
+          <svg class="experiencias__concept-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="9" cy="9" r="3" />
+            <circle cx="17" cy="11" r="2.3" />
+            <path d="M4 20c0-3.2 2.2-5.3 5-5.3s5 2.1 5 5.3" stroke-linecap="round" />
+            <path d="M14.3 20c0-2.2 1.4-3.9 3.4-3.9" stroke-linecap="round" />
+          </svg>
+          <p class="experiencias__concept-title" data-i18n="exp_concept1_title">Encontros</p>
+          <p class="experiencias__concept-desc" data-i18n="exp_concept1_desc">
+            Conheça pessoas, compartilhe histórias e leve novas amizades com você.
+          </p>
+        </article>
+
+        <article class="experiencias__concept experiencias__area-concept2">
+          <svg class="experiencias__concept-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M4 11.5 12 4l8 7.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6 10.5V20h12v-9.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10 20v-5h4v5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <p class="experiencias__concept-title" data-i18n="exp_concept2_title">Acolhimento</p>
+          <p class="experiencias__concept-desc" data-i18n="exp_concept2_desc">
+            Um ambiente tranquilo e descontraído para se sentir à vontade desde a chegada.
+          </p>
+        </article>
+
+        <figure class="experiencias__photo experiencias__area-photo2">
+          <picture>
+            <source srcset="assets/images/hostel/home-hostel-maceio_experiencias_02.webp" type="image/webp" />
+            <img
+              src="assets/images/hostel/home-hostel-maceio_experiencias_02.jpg"
+              alt="O gatinho que vive no Home Hostel, deitado ao sol no corredor"
+              data-i18n-attr="alt:exp_photo2_alt"
+              loading="lazy"
+              width="1200"
+              height="1500"
+            />
+          </picture>
+          <figcaption data-i18n="exp_photo2_caption">O gatinho da casa também vive por aqui</figcaption>
+        </figure>
+
+        <article class="experiencias__concept experiencias__area-concept3">
+          <svg class="experiencias__concept-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5" />
+            <path d="M14.8 9.2 13 13l-3.8 1.8L11 11z" stroke-linejoin="round" />
+          </svg>
+          <p class="experiencias__concept-title" data-i18n="exp_concept3_title">Descobertas</p>
+          <p class="experiencias__concept-desc" data-i18n="exp_concept3_desc">
+            Use o Home como ponto de partida para viver Maceió, conhecer Alagoas e criar suas próprias histórias.
+          </p>
+        </article>
+
+        <p class="experiencias__tagline experiencias__area-tagline2" data-i18n="exp_tagline2">
+          E quem já esteve aqui, sentiu isso.
+        </p>
+
+        <div class="experiencias__area-testimonials">
+          <div class="testimonials">
+            <div class="testimonials__badge">
+              <span class="testimonials__badge-score" data-i18n="exp_reviews_badge_score">9,3</span>
+              <span class="testimonials__badge-text">
+                <strong data-i18n="exp_reviews_badge_text">Fantástico</strong>
+                <span data-i18n="exp_reviews_badge_sub">10 comentários no Booking.com</span>
+              </span>
+            </div>
+
+            <div class="testimonials__grid">
+              <article class="testimonials__card">
+                <div class="testimonials__card-head">
+                  <div class="testimonials__avatar">J</div>
+                  <div>
+                    <p class="testimonials__name" data-i18n="exp_review1_name">Juan</p>
+                    <p class="testimonials__place" data-i18n="exp_review1_place">Argentina</p>
+                  </div>
+                  <span class="testimonials__score">9,0</span>
+                </div>
+                <p class="testimonials__title" data-i18n="exp_review1_title">
+                  Instalação nova, muito conforto, clima de lar e boa vibe. Bem perto do centro e das praias.
+                </p>
+                <p class="testimonials__text" data-i18n="exp_review1_text">
+                  O Hostel é excelente, tudo novo, quartos amplos e com ar-condicionado. Perto do centro, dá pra ir a pé até as praias de Pajuçara também. O ambiente é acolhedor, e os donos que atendem são uns gênios, muito atenciosos, dá pra ver que gostam do que fazem.
+                </p>
+                <p class="testimonials__tag" data-i18n="exp_review_tag">Avaliação real no Booking.com</p>
+              </article>
+
+              <article class="testimonials__card">
+                <div class="testimonials__card-head">
+                  <div class="testimonials__avatar">P</div>
+                  <div>
+                    <p class="testimonials__name" data-i18n="exp_review2_name">Pamela</p>
+                    <p class="testimonials__place" data-i18n="exp_review2_place">Brasil</p>
+                  </div>
+                  <span class="testimonials__score">10</span>
+                </div>
+                <p class="testimonials__title" data-i18n="exp_review2_title">O melhor de Maceió</p>
+                <p class="testimonials__text" data-i18n="exp_review2_text">
+                  Gostei de tudo. A Andréa e o Enzo me receberam muito bem, o lugar é lindo e muito bem organizado, e todos os quartos têm ar-condicionado. Amei tudo e com certeza vou voltar.
+                </p>
+                <p class="testimonials__tag" data-i18n="exp_review_tag">Avaliação real no Booking.com</p>
+              </article>
+
+              <article class="testimonials__card">
+                <div class="testimonials__card-head">
+                  <div class="testimonials__avatar">J</div>
+                  <div>
+                    <p class="testimonials__name" data-i18n="exp_review3_name">Josu</p>
+                    <p class="testimonials__place" data-i18n="exp_review3_place">Espanha</p>
+                  </div>
+                  <span class="testimonials__score">10</span>
+                </div>
+                <p class="testimonials__title" data-i18n="exp_review3_title">Excepcional</p>
+                <p class="testimonials__text" data-i18n="exp_review3_text">
+                  O ambiente maravilhoso que a Andrea e o Enzo criam desde o momento em que você chega ao Home Hostel deles é exatamente assim.
+                </p>
+                <p class="testimonials__tag" data-i18n="exp_review_tag">Avaliação real no Booking.com</p>
+              </article>
+            </div>
+
+            <p class="testimonials__disclaimer" data-i18n="exp_reviews_disclaimer">
+              Comentários reais de hóspedes no Booking.com, traduzidos automaticamente quando necessário.
+            </p>
+          </div>
+        </div>
+
+        <p class="experiencias__closing experiencias__area-closing" data-i18n="exp_closing">
+          Cada viagem tem uma história. Talvez a próxima seja a sua.
+        </p>
+
+        <a href="#localizacao" class="experiencias__cta experiencias__area-cta">
+          <span data-i18n="exp_cta">Conheça a localização</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14m0 0-6-6m6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Las próximas secciones (Localização, Galeria,
+         Contatos) se desarrollan en los Sprints 5-7, según lo
+         acordado en el brief (Depoimentos se fusionó dentro de
+         Experiências, ver docs/TEMAS-A-REVISAR.md). -->
   </main>
 
   <script type="module" src="assets/js/main.js"></script>

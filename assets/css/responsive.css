@@ -96,6 +96,10 @@
   .hero__title {
     max-width: 20ch;
   }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ---- >= 992px: más aire en el contenedor y en el hero --------------------- */
@@ -153,6 +157,30 @@
       "checklist      checklist checklist"
       "carousel       carousel  carousel"
       "cta            cta     cta";
+  }
+
+  /* Experiências: mismo criterio que Quartos -- texto agrupado a la
+     izquierda (spaneando varias filas), las 2 fotos lado a lado a la
+     derecha como una sola unidad. Testimonios/cierre/CTA a ancho
+     completo abajo. */
+  .experiencias__grid {
+    grid-template-columns: 1.15fr 0.42fr 0.42fr;
+    column-gap: var(--space-md);
+    row-gap: var(--space-lg);
+    align-items: start;
+    grid-template-areas:
+      "eyebrow  eyebrow eyebrow"
+      "title    title   title"
+      "p1       photo1  photo2"
+      "p2       photo1  photo2"
+      "tagline1 photo1  photo2"
+      "concept1 photo1  photo2"
+      "concept2 .       ."
+      "concept3 .       ."
+      "tagline2 .       ."
+      "testimonials testimonials testimonials"
+      "closing  closing closing"
+      "cta      cta     cta";
   }
 }
 

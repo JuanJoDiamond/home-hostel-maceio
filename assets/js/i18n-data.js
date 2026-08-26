@@ -106,6 +106,54 @@ export const translations = {
     quartos_carousel_4_alt:
       "Quarto com camas organizadas lado a lado, ambiente tranquilo",
     quartos_carousel_4_caption: "Ambiente tranquilo, do jeito Home",
+
+    exp_eyebrow: "EXPERIÊNCIAS",
+    exp_title: "A viagem começa quando você se sente à vontade.",
+    exp_p1:
+      "Maceió está lá fora, esperando para ser descoberta. Aqui dentro, você encontra um lugar para chegar, respirar, descansar e compartilhar.",
+    exp_p2_html:
+      "No Home, cada estadia pode ser diferente: novos lugares, novas pessoas, novas histórias. Mas existe algo que queremos que permaneça igual: <strong>a sensação de ser bem recebido.</strong>",
+    exp_tagline1: "Mais do que ficar. Viver.",
+    exp_concept1_title: "Encontros",
+    exp_concept1_desc:
+      "Conheça pessoas, compartilhe histórias e leve novas amizades com você.",
+    exp_concept2_title: "Acolhimento",
+    exp_concept2_desc:
+      "Um ambiente tranquilo e descontraído para se sentir à vontade desde a chegada.",
+    exp_concept3_title: "Descobertas",
+    exp_concept3_desc:
+      "Use o Home como ponto de partida para viver Maceió, conhecer Alagoas e criar suas próprias histórias.",
+    exp_tagline2: "E quem já esteve aqui, sentiu isso.",
+    exp_photo1_alt:
+      "Espaço compartilhado do Home Hostel, com mesa ao ar livre e decoração artesanal",
+    exp_photo1_caption: "Um lugar para se encontrar",
+    exp_photo2_alt:
+      "O gatinho que vive no Home Hostel, deitado ao sol no corredor",
+    exp_photo2_caption: "O gatinho da casa também vive por aqui",
+    exp_reviews_badge_score: "9,3",
+    exp_reviews_badge_text: "Fantástico",
+    exp_reviews_badge_sub: "10 comentários no Booking.com",
+    exp_reviews_disclaimer:
+      "Comentários reais de hóspedes no Booking.com, traduzidos automaticamente quando necessário.",
+    exp_review1_name: "Juan",
+    exp_review1_place: "Argentina",
+    exp_review1_title:
+      "Instalação nova, muito conforto, clima de lar e boa vibe. Bem perto do centro e das praias.",
+    exp_review1_text:
+      "O Hostel é excelente, tudo novo, quartos amplos e com ar-condicionado. Perto do centro, dá pra ir a pé até as praias de Pajuçara também. O ambiente é acolhedor, e os donos que atendem são uns gênios, muito atenciosos, dá pra ver que gostam do que fazem.",
+    exp_review2_name: "Pamela",
+    exp_review2_place: "Brasil",
+    exp_review2_title: "O melhor de Maceió",
+    exp_review2_text:
+      "Gostei de tudo. A Andréa e o Enzo me receberam muito bem, o lugar é lindo e muito bem organizado, e todos os quartos têm ar-condicionado. Amei tudo e com certeza vou voltar.",
+    exp_review3_name: "Josu",
+    exp_review3_place: "Espanha",
+    exp_review3_title: "Excepcional",
+    exp_review3_text:
+      "O ambiente maravilhoso que a Andrea e o Enzo criam desde o momento em que você chega ao Home Hostel deles é exatamente assim.",
+    exp_review_tag: "Avaliação real no Booking.com",
+    exp_closing: "Cada viagem tem uma história. Talvez a próxima seja a sua.",
+    exp_cta: "Conheça a localização",
   },
   es: {
     aria_nav: "Navegación principal",
@@ -185,6 +233,54 @@ export const translations = {
     quartos_carousel_4_alt:
       "Habitación con camas organizadas una al lado de la otra, ambiente tranquilo",
     quartos_carousel_4_caption: "Ambiente tranquilo, a la manera Home",
+
+    exp_eyebrow: "EXPERIENCIAS",
+    exp_title: "El viaje empieza cuando te sentís cómodo.",
+    exp_p1:
+      "Maceió está ahí afuera, esperando ser descubierta. Acá adentro, encontrás un lugar para llegar, respirar, descansar y compartir.",
+    exp_p2_html:
+      "En el Home, cada estadía puede ser diferente: nuevos lugares, nuevas personas, nuevas historias. Pero hay algo que queremos que se mantenga igual: <strong>la sensación de sentirte bien recibido.</strong>",
+    exp_tagline1: "Más que quedarte. Vivir.",
+    exp_concept1_title: "Encuentros",
+    exp_concept1_desc:
+      "Conocé gente, compartí historias y llevate nuevas amistades con vos.",
+    exp_concept2_title: "Calidez",
+    exp_concept2_desc:
+      "Un ambiente tranquilo y relajado para sentirte cómodo desde que llegás.",
+    exp_concept3_title: "Descubrimientos",
+    exp_concept3_desc:
+      "Usá el Home como punto de partida para vivir Maceió, conocer Alagoas y crear tus propias historias.",
+    exp_tagline2: "Y quienes ya estuvieron acá, lo sintieron.",
+    exp_photo1_alt:
+      "Espacio compartido del Home Hostel, con mesa al aire libre y decoración artesanal",
+    exp_photo1_caption: "Un lugar para encontrarse",
+    exp_photo2_alt:
+      "El gato que vive en el Home Hostel, tirado al sol en el pasillo",
+    exp_photo2_caption: "El gato de la casa también vive acá",
+    exp_reviews_badge_score: "9,3",
+    exp_reviews_badge_text: "Fantástico",
+    exp_reviews_badge_sub: "10 comentarios en Booking.com",
+    exp_reviews_disclaimer:
+      "Comentarios reales de huéspedes en Booking.com, traducidos automáticamente cuando corresponde.",
+    exp_review1_name: "Juan",
+    exp_review1_place: "Argentina",
+    exp_review1_title:
+      "Instalación nueva, mucha comodidad, ambiente de hogar y buena onda. Muy cerca del centro y las playas.",
+    exp_review1_text:
+      "El Hostel es excelente, todo a nuevo, habitaciones amplias y con aire acondicionado. Cerca del centro, de a pie se puede ir a las playas de Pajuzara también. El ambiente es cálido, y los dueños que lo atienden son unos genios, muy serviciales, se nota que le gusta lo que hacen.",
+    exp_review2_name: "Pamela",
+    exp_review2_place: "Brasil",
+    exp_review2_title: "Lo mejor de Maceió",
+    exp_review2_text:
+      "Me gustó todo. Andréa y Enzo me recibieron muy bien, el lugar es precioso y está muy bien organizado, y todas las habitaciones tienen aire acondicionado. Me encantó todo y sin duda volveré.",
+    exp_review3_name: "Josu",
+    exp_review3_place: "España",
+    exp_review3_title: "Excepcional",
+    exp_review3_text:
+      "El ambiente estupendo que Andrea y Enzo crean desde el momento en que llegas a su Home Hostel es realmente así.",
+    exp_review_tag: "Reseña real en Booking.com",
+    exp_closing: "Cada viaje tiene una historia. Quizás la próxima sea la tuya.",
+    exp_cta: "Conocé la ubicación",
   },
   en: {
     aria_nav: "Main navigation",
@@ -263,6 +359,54 @@ export const translations = {
     quartos_carousel_4_alt:
       "Room with beds organized side by side, quiet atmosphere",
     quartos_carousel_4_caption: "A quiet atmosphere, the Home way",
+
+    exp_eyebrow: "EXPERIENCES",
+    exp_title: "The trip begins the moment you feel at ease.",
+    exp_p1:
+      "Maceió is out there, waiting to be discovered. In here, you'll find a place to arrive, breathe, rest and share.",
+    exp_p2_html:
+      "At Home, every stay can be different: new places, new people, new stories. But there's one thing we want to stay the same: <strong>the feeling of being truly welcomed.</strong>",
+    exp_tagline1: "More than a stay. A life lived.",
+    exp_concept1_title: "Encounters",
+    exp_concept1_desc:
+      "Meet people, share stories, and take new friendships with you.",
+    exp_concept2_title: "Warmth",
+    exp_concept2_desc:
+      "A calm, easygoing atmosphere that makes you feel at home from the moment you arrive.",
+    exp_concept3_title: "Discoveries",
+    exp_concept3_desc:
+      "Use Home as your starting point to live Maceió, explore Alagoas, and create your own stories.",
+    exp_tagline2: "And those who've been here, felt it.",
+    exp_photo1_alt:
+      "Home Hostel's shared patio, with an outdoor table and handmade decor",
+    exp_photo1_caption: "A place to meet",
+    exp_photo2_alt:
+      "The cat who lives at Home Hostel, lying in the sun in the corridor",
+    exp_photo2_caption: "The house cat lives here too",
+    exp_reviews_badge_score: "9.3",
+    exp_reviews_badge_text: "Fantastic",
+    exp_reviews_badge_sub: "10 reviews on Booking.com",
+    exp_reviews_disclaimer:
+      "Real guest reviews from Booking.com, automatically translated when needed.",
+    exp_review1_name: "Juan",
+    exp_review1_place: "Argentina",
+    exp_review1_title:
+      "Brand-new place, super comfortable, homey feel and great vibe. Very close to downtown and the beaches.",
+    exp_review1_text:
+      "The Hostel is excellent, everything brand new, spacious rooms with air conditioning. Close to downtown, you can even walk to Pajuçara beach. The atmosphere is warm, and the owners who run it are amazing, very attentive, you can tell they love what they do.",
+    exp_review2_name: "Pamela",
+    exp_review2_place: "Brazil",
+    exp_review2_title: "The best of Maceió",
+    exp_review2_text:
+      "I loved everything. Andréa and Enzo welcomed me so well, the place is beautiful and very well organized, and every room has air conditioning. I loved it all and I'll definitely be back.",
+    exp_review3_name: "Josu",
+    exp_review3_place: "Spain",
+    exp_review3_title: "Exceptional",
+    exp_review3_text:
+      "The wonderful atmosphere that Andrea and Enzo create from the moment you arrive at their Home Hostel is exactly like that.",
+    exp_review_tag: "Real review on Booking.com",
+    exp_closing: "Every trip has a story. Maybe the next one is yours.",
+    exp_cta: "Discover the location",
   },
 };
 

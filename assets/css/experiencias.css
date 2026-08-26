@@ -1,0 +1,383 @@
+/* ==========================================================================
+   EXPERIENCIAS.CSS
+   Sprint 4. Sección emocional que retoma el "cómo se siente" de Sobre pero
+   proyectado hacia la estadía completa, y cierra con testimonios reales
+   (reemplaza a la sección Depoimentos, que no se justificaba como bloque
+   propio con solo ~10 reseñas -- ver docs/TEMAS-A-REVISAR.md).
+
+   Mismo patrón de grid-areas reordenable que Sobre/Quartos: en mobile el
+   contenido queda intercalado (texto, foto, conceptos, foto, testimonios),
+   en desktop el texto se agrupa a la izquierda y las 2 fotos quedan lado a
+   lado a la derecha.
+   ========================================================================== */
+
+.experiencias {
+  background-color: var(--color-sand-soft);
+  overflow: hidden;
+}
+
+.experiencias__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  grid-template-areas:
+    "eyebrow"
+    "title"
+    "p1"
+    "p2"
+    "tagline1"
+    "photo1"
+    "concept1"
+    "concept2"
+    "photo2"
+    "concept3"
+    "tagline2"
+    "testimonials"
+    "closing"
+    "cta";
+}
+
+.experiencias__area-eyebrow { grid-area: eyebrow; }
+.experiencias__area-title { grid-area: title; }
+.experiencias__area-p1 { grid-area: p1; }
+.experiencias__area-p2 { grid-area: p2; }
+.experiencias__area-tagline1 { grid-area: tagline1; }
+.experiencias__area-photo1 { grid-area: photo1; }
+.experiencias__area-concept1 { grid-area: concept1; }
+.experiencias__area-concept2 { grid-area: concept2; }
+.experiencias__area-photo2 { grid-area: photo2; }
+.experiencias__area-concept3 { grid-area: concept3; }
+.experiencias__area-tagline2 { grid-area: tagline2; }
+.experiencias__area-testimonials { grid-area: testimonials; }
+.experiencias__area-closing { grid-area: closing; }
+.experiencias__area-cta { grid-area: cta; }
+
+/* ---- Encabezado --------------------------------------------------------- */
+
+.experiencias__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-palm);
+}
+
+.experiencias__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 20ch;
+}
+
+.experiencias__p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 52ch;
+}
+
+.experiencias__p strong {
+  color: var(--color-ink);
+  font-weight: var(--fw-semibold);
+}
+
+.experiencias__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--color-ocean-deep);
+}
+
+/* ---- Conceptos (Encontros / Acolhimento / Descobertas) ------------------ */
+
+.experiencias__concept {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-block-start: var(--space-md);
+  border-top: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.experiencias__concept-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--color-palm);
+}
+
+.experiencias__concept-title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  color: var(--color-ink);
+}
+
+.experiencias__concept-desc {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 42ch;
+}
+
+/* ---- Fotos (mismo lenguaje visual que Sobre/Quartos) -------------------- */
+
+.experiencias__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4 / 5;
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.experiencias__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.experiencias__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.78) 0%,
+    rgba(23, 40, 42, 0.2) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.experiencias__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.experiencias__photo:hover,
+.experiencias__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.experiencias__photo:hover img,
+.experiencias__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.experiencias__photo:hover::after,
+.experiencias__photo:focus-within::after {
+  opacity: 1;
+}
+
+.experiencias__photo:hover figcaption,
+.experiencias__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .experiencias__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.7) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .experiencias__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Testimonios reales -------------------------------------------------- */
+
+.testimonials {
+  padding-block: var(--space-lg);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.testimonials__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-white);
+  border-radius: var(--radius-full);
+  padding: 8px 18px;
+  box-shadow: var(--shadow-soft);
+  margin-block-end: var(--space-lg);
+}
+
+.testimonials__badge-score {
+  background: var(--color-palm);
+  color: var(--color-white);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  border-radius: 8px;
+  padding: 3px 9px;
+}
+
+.testimonials__badge-text {
+  font-size: var(--fs-sm);
+  color: var(--color-ink);
+}
+
+.testimonials__badge-text strong {
+  font-weight: var(--fw-semibold);
+}
+
+.testimonials__badge-text span {
+  color: var(--color-ink-soft);
+  font-weight: var(--fw-regular, 400);
+  margin-inline-start: 4px;
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.testimonials__card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.testimonials__card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.testimonials__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-sand);
+  color: var(--color-ocean-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  flex-shrink: 0;
+}
+
+.testimonials__name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  color: var(--color-ink);
+}
+
+.testimonials__place {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-soft);
+}
+
+.testimonials__score {
+  margin-inline-start: auto;
+  background: var(--color-palm);
+  color: var(--color-white);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-xs);
+  border-radius: 8px;
+  padding: 3px 8px;
+  align-self: flex-start;
+}
+
+.testimonials__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+}
+
+.testimonials__text {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  flex-grow: 1;
+}
+
+.testimonials__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  color: var(--color-ink-soft);
+  border-top: 1px solid rgba(12, 74, 94, 0.12);
+  padding-top: var(--space-sm);
+}
+
+.testimonials__tag::before {
+  content: "✓";
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
+.testimonials__disclaimer {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-soft);
+  font-style: italic;
+  margin-block-start: var(--space-md);
+}
+
+/* ---- Cierre y CTA -------------------------------------------------------- */
+
+.experiencias__closing {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 30ch;
+}
+
+.experiencias__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.experiencias__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.experiencias__cta:hover,
+.experiencias__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.experiencias__cta:hover svg,
+.experiencias__cta:focus-visible svg {
+  transform: translateX(4px);
+}
