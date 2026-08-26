@@ -159,6 +159,14 @@
       "cta            cta     cta";
   }
 
+  /* Mismo desfase vertical que en Sobre: la foto 2 arranca un poco más
+     abajo que la 1, rompe la alineación perfecta y le da un aire más
+     orgánico al conjunto. Este criterio se aplica a todas las secciones
+     con 2 fotos lado a lado (Sobre, Quartos, Experiências...). */
+  .quartos__area-photo2 {
+    margin-block-start: var(--space-2xl);
+  }
+
   /* Experiências: mismo criterio que Quartos -- texto agrupado a la
      izquierda (spaneando varias filas), las 2 fotos lado a lado a la
      derecha como una sola unidad. Testimonios/cierre/CTA a ancho
@@ -181,6 +189,11 @@
       "testimonials testimonials testimonials"
       "closing  closing closing"
       "cta      cta     cta";
+  }
+
+  /* Mismo desfase que en Sobre y Quartos, ver comentario ahí. */
+  .experiencias__area-photo2 {
+    margin-block-start: var(--space-2xl);
   }
 }
 

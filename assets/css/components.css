@@ -52,6 +52,16 @@
   color: var(--color-ink);
 }
 
+/* Link activo (scrollspy): además del subrayado de abajo, el texto pasa
+   a negrita y a un color propio -- necesita la misma especificidad que
+   la regla de arriba (site-header.is-scrolled .nav__link) para no
+   perder el color cuando el header ya está scrolleado. */
+.nav__link.is-active,
+.site-header.is-scrolled .nav__link.is-active {
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
 .nav__link::after {
   content: "";
   position: absolute;
