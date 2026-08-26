@@ -1,0 +1,274 @@
+/* ==========================================================================
+   QUARTOS.CSS
+   Sprint 3. Primera sección "funcional" del sitio: responde a "¿dónde voy a
+   dormir?". Reusa el mismo patrón de grid-areas de sobre.css para poder
+   reordenar el contenido entre mobile (intercalado) y desktop (2 columnas)
+   sin duplicar HTML -- ver el comentario largo en sobre.css para el porqué.
+
+   Fotos: las 2 fijas junto al texto son verticales (4:5) -- a propósito NO
+   están asociadas a "compartilhados" o "privativos" específicamente
+   (todavía no hay foto real del quarto privativo, que es nuevo). Debajo,
+   un carrusel con las 4 fotos horizontales (16:9) restantes, mezclando
+   vista general y detalle -- ver docs/GUIA-FOTOS.md: un carrusel usa un
+   solo formato, por eso separamos verticales (fijas) de horizontales
+   (carrusel) en vez de mezclarlas.
+
+   Nota de mantenimiento: las reglas de foto (.quartos__photo) duplican a
+   propósito el estilo de .sobre__photo en vez de reutilizar esa clase
+   directamente. Es una duplicación consciente para no tocar el CSS de
+   Sobre (ya validado en producción) -- candidato a extraer a una clase
+   común más adelante, anotado en docs/TEMAS-A-REVISAR.md.
+   ========================================================================== */
+
+.quartos {
+  background-color: var(--color-white);
+}
+
+.quartos__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  grid-template-areas:
+    "eyebrow"
+    "title"
+    "intro"
+    "compartilhados"
+    "photo1"
+    "privativos"
+    "photo2"
+    "checklist"
+    "carousel"
+    "cta";
+}
+
+.quartos__area-eyebrow { grid-area: eyebrow; }
+.quartos__area-title { grid-area: title; }
+.quartos__area-intro { grid-area: intro; }
+.quartos__area-compartilhados { grid-area: compartilhados; }
+.quartos__area-privativos { grid-area: privativos; }
+.quartos__area-photo1 { grid-area: photo1; }
+.quartos__area-photo2 { grid-area: photo2; }
+.quartos__area-checklist { grid-area: checklist; }
+.quartos__area-carousel { grid-area: carousel; }
+.quartos__area-cta { grid-area: cta; }
+
+/* ---- Encabezado de sección ------------------------------------------- */
+
+.quartos__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-palm);
+}
+
+.quartos__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 20ch;
+}
+
+.quartos__intro {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 52ch;
+}
+
+/* ---- Bloques de tipo de quarto ----------------------------------------- */
+
+.quartos__type {
+  padding-block-start: var(--space-md);
+  border-top: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.quartos__type-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  color: var(--color-palm);
+  margin-block-end: var(--space-xs);
+}
+
+.quartos__type-tagline {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  margin-block-end: var(--space-sm);
+}
+
+.quartos__type-desc {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 48ch;
+}
+
+.quartos__type-note {
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+  margin-block-start: var(--space-xs);
+  font-style: italic;
+}
+
+/* ---- Fotos (mismo lenguaje visual que Sobre, ver nota arriba) ---------- */
+
+.quartos__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.quartos__area-photo1,
+.quartos__area-photo2 {
+  aspect-ratio: 4 / 5;
+}
+
+.quartos__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.quartos__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.78) 0%,
+    rgba(23, 40, 42, 0.2) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.quartos__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.quartos__photo:hover,
+.quartos__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.quartos__photo:hover img,
+.quartos__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.quartos__photo:hover::after,
+.quartos__photo:focus-within::after {
+  opacity: 1;
+}
+
+.quartos__photo:hover figcaption,
+.quartos__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .quartos__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.7) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .quartos__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Checklist compartida (una sola vez, no repetida por tipo) --------- */
+
+.quartos__checklist {
+  padding-block: var(--space-lg);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.quartos__checklist-heading {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+  margin-block-end: var(--space-sm);
+}
+
+.quartos__checklist-items {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  padding: 0;
+  margin: 0;
+}
+
+.quartos__checklist-items li {
+  position: relative;
+  padding-inline-start: 1.5em;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+}
+
+.quartos__checklist-items li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
+/* ---- CTA suave (igual criterio que Sobre: empuja a seguir mirando) ----- */
+
+.quartos__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.quartos__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.quartos__cta:hover,
+.quartos__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.quartos__cta:hover svg,
+.quartos__cta:focus-visible svg {
+  transform: translateX(4px);
+}

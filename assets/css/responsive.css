@@ -131,6 +131,29 @@
   .sobre__area-photo2 {
     margin-block-start: var(--space-2xl);
   }
+
+  /* Quartos: eyebrow/título/intro arriba a todo el ancho; después el
+     bloque de texto (compartilhados + privativos, uno debajo del otro)
+     al lado de las 2 fotos EN PAREJA (lado a lado, no una por bloque) --
+     mismo motivo que en Sobre: si cada foto queda pareada 1 a 1 con "su"
+     bloque de texto, el texto (mucho más corto) deja un hueco enorme antes
+     del siguiente bloque. Con las fotos lado a lado como una sola unidad,
+     su altura combinada se parece más a la del texto combinado. */
+  .quartos__grid {
+    grid-template-columns: 1.15fr 0.42fr 0.42fr;
+    column-gap: var(--space-md);
+    row-gap: var(--space-lg);
+    align-items: start;
+    grid-template-areas:
+      "eyebrow        eyebrow eyebrow"
+      "title          title   title"
+      "intro          intro   intro"
+      "compartilhados photo1  photo2"
+      "privativos     photo1  photo2"
+      "checklist      checklist checklist"
+      "carousel       carousel  carousel"
+      "cta            cta     cta";
+  }
 }
 
 /* ---- >= 1200px: contenedor a su ancho máximo, tipografía tope ------------- */

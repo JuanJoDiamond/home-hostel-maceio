@@ -67,6 +67,45 @@ export const translations = {
       "Detalhe artesanal e plantas no pátio do Home Hostel, trazendo cor e identidade local ao ambiente",
     sobre_photo1_caption: "Gente de todo o mundo já passou por aqui",
     sobre_photo2_caption: "Cada detalhe conta uma história",
+
+    quartos_eyebrow: "QUARTOS",
+    quartos_title: "Seu espaço para descansar, do seu jeito.",
+    quartos_intro:
+      "Entre quartos compartilhados e privativos, encontre o espaço que combina com a sua viagem.",
+    quartos_compartilhados_label: "QUARTOS COMPARTILHADOS",
+    quartos_compartilhados_tagline: "Compartilhe a viagem, não apenas o quarto.",
+    quartos_compartilhados_desc:
+      "Para quem gosta de viajar, conhecer pessoas e compartilhar experiências.",
+    quartos_compartilhados_note:
+      "Disponível em dormitório feminino ou masculino.",
+    quartos_privativos_label: "QUARTOS PRIVATIVOS",
+    quartos_privativos_tagline: "Mais privacidade. O mesmo clima de Home.",
+    quartos_privativos_desc:
+      "Para quem prefere mais privacidade, sem abrir mão do clima acolhedor do Home. Nosso espaço privativo mais novo, pensado para quem busca ainda mais conforto e tranquilidade.",
+    quartos_checklist_heading: "Em todos os quartos, sem exceção:",
+    quartos_check_1: "Roupa de cama incluída",
+    quartos_check_2: "Toalhas",
+    quartos_check_3: "Armário individual com fechadura",
+    quartos_check_4: "Ar-condicionado",
+    quartos_check_5: "Wi-Fi gratuito",
+    quartos_cta: "Conheça as experiências",
+    quartos_photo1_alt:
+      "Detalhe de toalha dobrada e roupa de cama bordada sobre a cama",
+    quartos_photo2_alt: "Detalhe de colar de conchas e toalha sobre a cama",
+    quartos_photo1_caption: "Tudo pronto para você chegar e descansar",
+    quartos_photo2_caption: "Pequenos detalhes que fazem a diferença",
+    quartos_carousel_1_alt:
+      "Beliche com roupa de cama vermelha em um dos quartos do Home Hostel",
+    quartos_carousel_1_caption: "Cores diferentes, o mesmo aconchego",
+    quartos_carousel_2_alt:
+      "Cama com roupa de cama branca bordada e toalha, beliche ao fundo",
+    quartos_carousel_2_caption: "Cada detalhe pensado para o seu conforto",
+    quartos_carousel_3_alt:
+      "Quarto do Home Hostel com camas organizadas e armários individuais numerados",
+    quartos_carousel_3_caption: "Um armário individual para cada hóspede",
+    quartos_carousel_4_alt:
+      "Quarto com camas organizadas lado a lado, ambiente tranquilo",
+    quartos_carousel_4_caption: "Ambiente tranquilo, do jeito Home",
   },
   es: {
     aria_nav: "Navegación principal",
@@ -107,6 +146,45 @@ export const translations = {
       "Detalle artesanal y plantas en el patio del Home Hostel, que le dan color e identidad local al ambiente",
     sobre_photo1_caption: "Gente de todo el mundo ya pasó por acá",
     sobre_photo2_caption: "Cada detalle cuenta una historia",
+
+    quartos_eyebrow: "HABITACIONES",
+    quartos_title: "Tu espacio para descansar, a tu manera.",
+    quartos_intro:
+      "Entre habitaciones compartidas y privadas, encontrá el espacio que se adapta a tu viaje.",
+    quartos_compartilhados_label: "HABITACIONES COMPARTIDAS",
+    quartos_compartilhados_tagline: "Compartí el viaje, no solo la habitación.",
+    quartos_compartilhados_desc:
+      "Para quienes disfrutan viajar, conocer gente y compartir experiencias.",
+    quartos_compartilhados_note:
+      "Disponible en dormitorio femenino o masculino.",
+    quartos_privativos_label: "HABITACIONES PRIVADAS",
+    quartos_privativos_tagline: "Más privacidad. El mismo clima de Home.",
+    quartos_privativos_desc:
+      "Para quienes prefieren más privacidad, sin resignar el clima acogedor del Home. Nuestro espacio privado más nuevo, pensado para quienes buscan aún más comodidad y tranquilidad.",
+    quartos_checklist_heading: "En todas las habitaciones, sin excepción:",
+    quartos_check_1: "Ropa de cama incluida",
+    quartos_check_2: "Toallas",
+    quartos_check_3: "Placard individual con cerradura",
+    quartos_check_4: "Aire acondicionado",
+    quartos_check_5: "Wi-Fi gratuito",
+    quartos_cta: "Conocé las experiencias",
+    quartos_photo1_alt:
+      "Detalle de toalla doblada y ropa de cama bordada sobre la cama",
+    quartos_photo2_alt: "Detalle de collar de conchas y toalla sobre la cama",
+    quartos_photo1_caption: "Todo listo para que llegues y descanses",
+    quartos_photo2_caption: "Pequeños detalles que hacen la diferencia",
+    quartos_carousel_1_alt:
+      "Litera con ropa de cama roja en una de las habitaciones del Home Hostel",
+    quartos_carousel_1_caption: "Colores distintos, la misma calidez",
+    quartos_carousel_2_alt:
+      "Cama con ropa de cama blanca bordada y toalla, litera de fondo",
+    quartos_carousel_2_caption: "Cada detalle pensado para tu comodidad",
+    quartos_carousel_3_alt:
+      "Habitación del Home Hostel con camas organizadas y placares individuales numerados",
+    quartos_carousel_3_caption: "Un placard individual para cada huésped",
+    quartos_carousel_4_alt:
+      "Habitación con camas organizadas una al lado de la otra, ambiente tranquilo",
+    quartos_carousel_4_caption: "Ambiente tranquilo, a la manera Home",
   },
   en: {
     aria_nav: "Main navigation",
@@ -147,6 +225,44 @@ export const translations = {
       "Handcrafted decor and plants in the Home Hostel patio, adding color and local character to the space",
     sobre_photo1_caption: "People from all over the world have stayed here",
     sobre_photo2_caption: "Every detail tells a story",
+
+    quartos_eyebrow: "ROOMS",
+    quartos_title: "Your space to rest, your way.",
+    quartos_intro:
+      "Between shared and private rooms, find the space that fits your trip.",
+    quartos_compartilhados_label: "SHARED ROOMS",
+    quartos_compartilhados_tagline: "Share the trip, not just the room.",
+    quartos_compartilhados_desc:
+      "For travelers who enjoy meeting people and sharing experiences.",
+    quartos_compartilhados_note: "Available in female or male dorms.",
+    quartos_privativos_label: "PRIVATE ROOMS",
+    quartos_privativos_tagline: "More privacy. Same Home feeling.",
+    quartos_privativos_desc:
+      "For those who prefer more privacy, without giving up the warmth of Home. Our newest private space, designed for even more comfort and quiet.",
+    quartos_checklist_heading: "In every room, no exceptions:",
+    quartos_check_1: "Bed linens included",
+    quartos_check_2: "Towels",
+    quartos_check_3: "Individual locker with lock",
+    quartos_check_4: "Air conditioning",
+    quartos_check_5: "Free Wi-Fi",
+    quartos_cta: "Discover the experiences",
+    quartos_photo1_alt:
+      "Detail of a folded towel and embroidered bed linens on the bed",
+    quartos_photo2_alt: "Detail of a shell necklace and towel on the bed",
+    quartos_photo1_caption: "Everything ready for you to arrive and rest",
+    quartos_photo2_caption: "Small details that make the difference",
+    quartos_carousel_1_alt:
+      "Bunk bed with red bed linens in one of Home Hostel's rooms",
+    quartos_carousel_2_alt:
+      "Bed with embroidered white linens and a towel, bunk bed in the background",
+    quartos_carousel_1_caption: "Different colors, the same warmth",
+    quartos_carousel_2_caption: "Every detail designed for your comfort",
+    quartos_carousel_3_alt:
+      "Home Hostel room with organized beds and numbered individual lockers",
+    quartos_carousel_3_caption: "An individual locker for every guest",
+    quartos_carousel_4_alt:
+      "Room with beds organized side by side, quiet atmosphere",
+    quartos_carousel_4_caption: "A quiet atmosphere, the Home way",
   },
 };
 

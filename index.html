@@ -50,6 +50,8 @@
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/hero.css" />
   <link rel="stylesheet" href="assets/css/sobre.css" />
+  <link rel="stylesheet" href="assets/css/quartos.css" />
+  <link rel="stylesheet" href="assets/css/carousel.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 <body>
@@ -286,8 +288,207 @@
       </div>
     </section>
 
-    <!-- Las próximas secciones (Quartos, Experiências, Localização, Galeria,
-         Depoimentos, CTA final) se desarrollan en los Sprints 3-8, según lo
+    <!-- ============================= QUARTOS ============================= -->
+    <section id="quartos" class="section quartos" aria-label="Quartos do Home Hostel">
+      <div class="container quartos__grid" data-animate>
+        <p class="quartos__eyebrow quartos__area-eyebrow" data-i18n="quartos_eyebrow">
+          QUARTOS
+        </p>
+        <h2 class="quartos__title quartos__area-title" data-i18n="quartos_title">
+          Seu espaço para descansar, do seu jeito.
+        </h2>
+        <p class="quartos__intro quartos__area-intro" data-i18n="quartos_intro">
+          Entre quartos compartilhados e privativos, encontre o espaço que
+          combina com a sua viagem.
+        </p>
+
+        <article class="quartos__type quartos__area-compartilhados">
+          <p class="quartos__type-label" data-i18n="quartos_compartilhados_label">
+            QUARTOS COMPARTILHADOS
+          </p>
+          <p class="quartos__type-tagline" data-i18n="quartos_compartilhados_tagline">
+            Compartilhe a viagem, não apenas o quarto.
+          </p>
+          <p class="quartos__type-desc" data-i18n="quartos_compartilhados_desc">
+            Para quem gosta de viajar, conhecer pessoas e compartilhar
+            experiências.
+          </p>
+          <p class="quartos__type-note" data-i18n="quartos_compartilhados_note">
+            Disponível em dormitório feminino ou masculino.
+          </p>
+        </article>
+
+        <figure class="quartos__photo quartos__area-photo1">
+          <picture>
+            <source srcset="assets/images/hostel/home-hostel-maceio_quartos_06.webp" type="image/webp" />
+            <img
+              src="assets/images/hostel/home-hostel-maceio_quartos_06.jpg"
+              alt="Detalhe de toalha dobrada e roupa de cama bordada sobre a cama"
+              data-i18n-attr="alt:quartos_photo1_alt"
+              loading="lazy"
+              width="1200"
+              height="1500"
+            />
+          </picture>
+          <figcaption data-i18n="quartos_photo1_caption">
+            Tudo pronto para você chegar e descansar
+          </figcaption>
+        </figure>
+
+        <article class="quartos__type quartos__area-privativos">
+          <p class="quartos__type-label" data-i18n="quartos_privativos_label">
+            QUARTOS PRIVATIVOS
+          </p>
+          <p class="quartos__type-tagline" data-i18n="quartos_privativos_tagline">
+            Mais privacidade. O mesmo clima de Home.
+          </p>
+          <p class="quartos__type-desc" data-i18n="quartos_privativos_desc">
+            Para quem prefere mais privacidade, sem abrir mão do clima
+            acolhedor do Home. Nosso espaço privativo mais novo, pensado
+            para quem busca ainda mais conforto e tranquilidade.
+          </p>
+        </article>
+
+        <figure class="quartos__photo quartos__area-photo2">
+          <picture>
+            <source srcset="assets/images/hostel/home-hostel-maceio_quartos_07.webp" type="image/webp" />
+            <img
+              src="assets/images/hostel/home-hostel-maceio_quartos_07.jpg"
+              alt="Detalhe de colar de conchas e toalha sobre a cama"
+              data-i18n-attr="alt:quartos_photo2_alt"
+              loading="lazy"
+              width="1200"
+              height="1500"
+            />
+          </picture>
+          <figcaption data-i18n="quartos_photo2_caption">
+            Pequenos detalhes que fazem a diferença
+          </figcaption>
+        </figure>
+
+        <div class="quartos__checklist quartos__area-checklist">
+          <p class="quartos__checklist-heading" data-i18n="quartos_checklist_heading">
+            Em todos os quartos, sem exceção:
+          </p>
+          <ul class="quartos__checklist-items">
+            <li data-i18n="quartos_check_1">Roupa de cama incluída</li>
+            <li data-i18n="quartos_check_2">Toalhas</li>
+            <li data-i18n="quartos_check_3">Armário individual com fechadura</li>
+            <li data-i18n="quartos_check_4">Ar-condicionado</li>
+            <li data-i18n="quartos_check_5">Wi-Fi gratuito</li>
+          </ul>
+        </div>
+
+        <div class="quartos__area-carousel">
+          <div
+            class="carousel"
+            data-carousel
+            aria-roledescription="carrossel"
+            aria-label="Mais fotos dos quartos"
+          >
+            <div class="carousel__stage" data-carousel-stage>
+              <button type="button" class="carousel__slide" aria-label="Foto 1">
+                <picture>
+                  <source srcset="assets/images/gallery/home-hostel-maceio_quartos_01.webp" type="image/webp" />
+                  <img
+                    src="assets/images/gallery/home-hostel-maceio_quartos_01.jpg"
+                    alt="Beliche com roupa de cama vermelha em um dos quartos do Home Hostel"
+                    data-i18n-attr="alt:quartos_carousel_1_alt"
+                    loading="lazy"
+                    width="1600"
+                    height="900"
+                  />
+                </picture>
+                <p class="carousel__caption" data-i18n="quartos_carousel_1_caption">
+                  Cores diferentes, o mesmo aconchego
+                </p>
+              </button>
+              <button type="button" class="carousel__slide" aria-label="Foto 2">
+                <picture>
+                  <source srcset="assets/images/gallery/home-hostel-maceio_quartos_02.webp" type="image/webp" />
+                  <img
+                    src="assets/images/gallery/home-hostel-maceio_quartos_02.jpg"
+                    alt="Cama com roupa de cama branca bordada e toalha, beliche ao fundo"
+                    data-i18n-attr="alt:quartos_carousel_2_alt"
+                    loading="lazy"
+                    width="1600"
+                    height="900"
+                  />
+                </picture>
+                <p class="carousel__caption" data-i18n="quartos_carousel_2_caption">
+                  Cada detalhe pensado para o seu conforto
+                </p>
+              </button>
+              <button type="button" class="carousel__slide" aria-label="Foto 3">
+                <picture>
+                  <source srcset="assets/images/gallery/home-hostel-maceio_quartos_03.webp" type="image/webp" />
+                  <img
+                    src="assets/images/gallery/home-hostel-maceio_quartos_03.jpg"
+                    alt="Quarto do Home Hostel com camas organizadas e armários individuais numerados"
+                    data-i18n-attr="alt:quartos_carousel_3_alt"
+                    loading="lazy"
+                    width="1600"
+                    height="900"
+                  />
+                </picture>
+                <p class="carousel__caption" data-i18n="quartos_carousel_3_caption">
+                  Um armário individual para cada hóspede
+                </p>
+              </button>
+              <button type="button" class="carousel__slide" aria-label="Foto 4">
+                <picture>
+                  <source srcset="assets/images/gallery/home-hostel-maceio_quartos_04.webp" type="image/webp" />
+                  <img
+                    src="assets/images/gallery/home-hostel-maceio_quartos_04.jpg"
+                    alt="Quarto com camas organizadas lado a lado, ambiente tranquilo"
+                    data-i18n-attr="alt:quartos_carousel_4_alt"
+                    loading="lazy"
+                    width="1600"
+                    height="900"
+                  />
+                </picture>
+                <p class="carousel__caption" data-i18n="quartos_carousel_4_caption">
+                  Ambiente tranquilo, do jeito Home
+                </p>
+              </button>
+            </div>
+
+            <button
+              type="button"
+              class="carousel__arrow carousel__arrow--prev"
+              data-carousel-prev
+              aria-label="Foto anterior"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="carousel__arrow carousel__arrow--next"
+              data-carousel-next
+              aria-label="Próxima foto"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class="carousel__dots" data-carousel-dots></div>
+          </div>
+        </div>
+
+        <a href="#experiencias" class="quartos__cta quartos__area-cta">
+          <span data-i18n="quartos_cta">Conheça as experiências</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14m0 0-6-6m6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Las próximas secciones (Experiências, Localização, Galeria,
+         Depoimentos, CTA final) se desarrollan en los Sprints 4-8, según lo
          acordado en el brief. -->
   </main>
 

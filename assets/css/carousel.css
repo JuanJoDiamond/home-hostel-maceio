@@ -1,0 +1,188 @@
+/* ==========================================================================
+   CAROUSEL.CSS
+   Carrusel tipo "coverflow": la foto activa queda grande y de frente, las
+   demás se acomodan más chicas y giradas en perspectiva a los costados.
+   El posicionamiento (translateX/scale/rotateY/opacity) lo calcula
+   carousel.js según la distancia de cada foto a la activa; acá solo se
+   define la base visual y las transiciones.
+
+   Componente genérico, no específico de Quartos -- pensado para reusarse
+   en Galeria y Depoimentos (Sprints 6-7).
+   ========================================================================== */
+
+.carousel {
+  position: relative;
+  height: clamp(230px, 34vw, 400px);
+  margin-inline: auto;
+  /* Un halo suave detrás de las fotos, sutil, en tono marca -- le da
+     profundidad al efecto 3D sin volverse un fondo llamativo. */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(47, 107, 74, 0.08) 0%,
+    rgba(47, 107, 74, 0) 70%
+  );
+}
+
+.carousel__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1400px;
+}
+
+.carousel__slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(58%, 380px);
+  aspect-ratio: 16 / 9;
+  border: none;
+  padding: 0;
+  background: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+  cursor: pointer;
+  transition: transform 650ms var(--ease-standard),
+    opacity 650ms var(--ease-standard);
+  transform-style: preserve-3d;
+}
+
+.carousel__slide:focus-visible {
+  outline: 3px solid var(--color-sun);
+  outline-offset: 4px;
+}
+
+.carousel__slide picture,
+.carousel__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms var(--ease-standard);
+}
+
+/* Un empujoncito extra de zoom al pasar el mouse/tocar, además de lo que
+   ya la hace grande el hecho de estar activa -- refuerza la sensación
+   "esto es interactivo, no una foto fija". */
+.carousel__slide:hover img,
+.carousel__slide:focus-visible img {
+  transform: scale(1.08);
+}
+
+.carousel__slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.8) 0%,
+    rgba(23, 40, 42, 0.15) 45%,
+    rgba(23, 40, 42, 0) 65%
+  );
+  opacity: 0;
+  transition: opacity 400ms var(--ease-standard);
+}
+
+/* La frase de cada foto solo se lee cuando esa foto está al frente --
+   mientras es una miniatura lateral, mostrar texto ilegible por el
+   tamaño y el ángulo no suma nada. */
+.carousel__slide[data-active="true"]::after {
+  opacity: 1;
+}
+
+.carousel__caption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 400ms var(--ease-standard),
+    transform 400ms var(--ease-standard);
+}
+
+.carousel__slide[data-active="true"] .carousel__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Flechas ------------------------------------------------------------ */
+
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: background var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.carousel__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.carousel__arrow:hover {
+  background: var(--color-palm);
+  color: var(--color-white);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel__arrow--prev {
+  left: clamp(0px, 2vw, var(--space-lg));
+}
+
+.carousel__arrow--next {
+  right: clamp(0px, 2vw, var(--space-lg));
+}
+
+/* En mobile el deslizamiento táctil ya es la interacción natural, y las
+   flechas superpuestas sobre fotos angostas quedan apretadas -- se
+   ocultan y el swipe (ver carousel.js) las reemplaza. */
+@media (max-width: 767px) {
+  .carousel__arrow {
+    display: none;
+  }
+}
+
+/* ---- Dots ---------------------------------------------------------------- */
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-block-start: var(--space-sm);
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(23, 40, 42, 0.25);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.carousel__dot--active {
+  background: var(--color-palm);
+  transform: scale(1.3);
+}

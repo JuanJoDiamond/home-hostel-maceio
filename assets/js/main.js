@@ -8,9 +8,11 @@
 import { initNavbar } from "./navbar.js";
 import { initAnimations } from "./animations.js";
 import { initI18n } from "./i18n.js";
+import { initCarousels } from "./carousel.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   initAnimations();
   initI18n();
+  initCarousels();
 });
