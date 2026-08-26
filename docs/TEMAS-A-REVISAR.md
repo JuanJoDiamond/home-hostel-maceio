@@ -19,6 +19,12 @@ la fecha y la decisión tomada, para que quede el historial.
 | Dirección física completa | Futuro Schema.org / SEO local, sección Ubicación (Sprint 5) | Necesaria para que Google muestre el hostel con dirección/mapa en los resultados de búsqueda. |
 | Teléfono / email de contacto | Futuro Schema.org, sección de contacto | Mismo caso que la dirección. |
 
+## 🟠 Confirmado con el cliente — implementar en el próximo sprint
+
+| Tema | Detalle |
+|---|---|
+| Indicador de sección activa en el nav de desktop (decidido 2026-08-25) | Hoy el link de la sección activa solo se marca con una línea naranja de 2px debajo del texto — funciona bien (confirmado por código) pero es poco visible en desktop; en el menú hamburguesa de mobile sí se nota. Decisión tomada con el cliente: además de la línea, el texto del link activo también cambia de color. Pendiente de implementar en `components.css` / `navbar.js`. |
+
 ## 🟡 Decisión de diseño pendiente
 
 | Tema | Detalle |
@@ -65,3 +71,7 @@ la fecha y la decisión tomada, para que quede el historial.
 | 2026-08-25 | Sección "Sobre" (Sprint 2) | Copy emocional PT/ES/EN + 2 fotos reales (pasillo con banderas, detalle artesanal del pátio) + hover con frase de prueba social. Ver `AUDITORIA-SPRINT2.md` para el detalle completo. |
 | 2026-08-25 | Header tapaba el título al navegar por ancla | Corregido con `scroll-margin-top: var(--header-height)` genérico en `main section[id]` (`layout.css`) — se aplica automáticamente a toda sección futura, no hace falta repetirlo. |
 | 2026-08-25 | Layout de "Sobre" roto en desktop tras publicar | No era bug de código: el navegador servía `sobre.css` viejo (caché) junto al `index.html` nuevo. Confirmado y resuelto verificando en ventana de incógnito. Sin cambios de código necesarios. |
+| 2026-08-26 | Sección "Quartos" (Sprint 3) | Copy PT/ES/EN + checklist de amenities compartida + 2 fotos fijas + carrusel 3D tipo "coverflow" (componente reutilizable, sin librerías). Ver `AUDITORIA-SPRINT3.md` para el detalle completo. |
+| 2026-08-26 | Hueco en blanco entre fotos de distinto formato junto al texto | Mismo aprendizaje que en Sobre: agrupar fotos del mismo formato (ambas verticales) en vez de emparejar cada una 1 a 1 con su bloque de texto. |
+| 2026-08-26 | Carrusel corría la página hacia la derecha en mobile | Faltaba `overflow: hidden` en el contenedor del carrusel; las fotos giradas en 3D quedaban parcialmente fuera del viewport. Confirmado con medición real de `scrollWidth` antes/después. |
+| 2026-08-26 | Scrollspy (sección activa en el nav) | Funcionalidad nueva, no existía antes: el link del menú se marca solo según la sección visible, con click o con scroll libre. Verificado en PT/ES/EN. |
