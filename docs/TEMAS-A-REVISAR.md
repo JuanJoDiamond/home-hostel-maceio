@@ -23,7 +23,8 @@ la fecha y la decisión tomada, para que quede el historial.
 
 | Tema | Detalle |
 |---|---|
-| Reestructuración del final de la landing (decidido 2026-08-27) | Se descarta una sección "Depoimentos" independiente: con ~10 reseñas en Booking todavía no hay volumen para justificar un bloque propio. Los 3 mejores testimonios reales se movieron dentro de Experiências (Sprint 4, ya hecho). La última sección de la landing pasa a ser **"Contatos"**: redes sociales (Instagram) + WhatsApp, tipo "seguinos" / "hablemos". Los 2 videos de YouTube del hostel van a vivir dentro de Galeria (Sprint 6), no en una sección aparte. Pendiente: contenido final de Contatos (Sprint 7) y los links de YouTube para Galeria. |
+| Contenido real de la sección Contatos | Redes sociales (Instagram) + WhatsApp. Falta definir copy exacto. Sprint 7. |
+| Links de YouTube para Galeria | El cliente tiene 2 videos lindos del hostel — pendiente que los pase para armar las tarjetas de preview. Sprint 6. |
 
 ## 🟡 Decisión de diseño pendiente
 
@@ -78,3 +79,6 @@ la fecha y la decisión tomada, para que quede el historial.
 | 2026-08-26 | Sección "Experiências" (Sprint 4) | Copy PT/ES/EN con 3 conceptos (Encontros/Acolhimento/Descobertas), 2 fotos reales, y 3 testimonios reales de Booking.com replicados con diseño propio (no clonando el estilo visual de Booking, para no insinuar una integración que no existe). Reemplaza a la sección "Depoimentos" original -- ver nota de decisión más abajo. |
 | 2026-08-26 | Indicador de sección activa en el nav de desktop poco visible | Corregido: además del subrayado, el link activo ahora también cambia a negrita y color propio (`--color-palm`). |
 | 2026-08-26 | Link "Depoimentos" del nav apuntaba a una sección que ya no se iba a construir | Renombrado a "Contatos" (`#contatos`) en los 3 idiomas -- va a alojar redes sociales y WhatsApp cuando se construya esa sección (ver decisión de fusionar Depoimentos dentro de Experiências, abajo). |
+| 2026-08-27 | Reestructuración del final de la landing | Se descartó "Depoimentos" como sección independiente (con ~10 reseñas en Booking no había volumen). Los 3 testimonios reales se movieron dentro de Experiências (Sprint 4). El nav ya se renombró de "Depoimentos" a "Contatos". |
+| 2026-08-27 | Desfase de fotos no replicado en Quartos ni Experiências | Corregido en `responsive.css`: ahora las 3 secciones con 2 fotos lado a lado usan el mismo `margin-block-start` en la segunda foto. Documentado como estándar para toda sección nueva. |
+| 2026-08-27 | Indicador de sección activa en el nav de desktop, ronda 2 | Sumado negrita + color propio (`--color-palm`) al link activo, además del subrayado que ya existía. |
