@@ -64,7 +64,8 @@
 }
 
 .nav__link:hover::after,
-.nav__link:focus-visible::after {
+.nav__link:focus-visible::after,
+.nav__link.is-active::after {
   width: 100%;
 }
 

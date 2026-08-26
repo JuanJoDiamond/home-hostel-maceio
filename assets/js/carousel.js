@@ -18,6 +18,19 @@
 
 const AUTOPLAY_MS = 3800;
 const RESUME_AFTER_MS = 5000;
+const COMPACT_QUERY = "(max-width: 767px)";
+
+// Desktop: efecto "coverflow" marcado (fotos giradas en perspectiva).
+// Mobile: versión más plana -- las fotos vecinas apenas se insinúan en
+// los bordes en vez de girar fuerte, porque a ese tamaño un ángulo
+// pronunciado las vuelve ilegibles (ver carousel.css para el ancho de
+// la foto activa en cada caso).
+function getCarouselConfig() {
+  const isCompact = window.matchMedia(COMPACT_QUERY).matches;
+  return isCompact
+    ? { spread: 46, scaleStep: 0.1, opacityStep: 0.65, rotate: 6 }
+    : { spread: 58, scaleStep: 0.18, opacityStep: 0.38, rotate: 20 };
+}
 
 function setupCarousel(root) {
   const stage = root.querySelector("[data-carousel-stage]");
@@ -60,6 +73,8 @@ function setupCarousel(root) {
   }
 
   function render() {
+    const config = getCarouselConfig();
+
     slides.forEach((slide, index) => {
       const offset = signedOffset(index);
       const abs = Math.abs(offset);
@@ -71,10 +86,10 @@ function setupCarousel(root) {
       let rotateY = 0;
 
       if (!isActive) {
-        translateX = offset * 58;
-        scale = Math.max(0.62, 1 - abs * 0.18);
-        opacity = Math.max(0, 1 - abs * 0.38);
-        rotateY = offset > 0 ? -20 : 20;
+        translateX = offset * config.spread;
+        scale = Math.max(0.62, 1 - abs * config.scaleStep);
+        opacity = Math.max(0, 1 - abs * config.opacityStep);
+        rotateY = offset > 0 ? -config.rotate : config.rotate;
       }
 
       if (abs > 2) opacity = 0;
@@ -185,6 +200,12 @@ function setupCarousel(root) {
 
   render();
   startAutoplay();
+
+  // Si cambia el ancho (rotar el celular, achicar la ventana en desktop),
+  // el ángulo/tamaño puede tener que pasar de la versión "coverflow" a la
+  // versión "plana" o viceversa -- sin esto quedaba con los valores viejos
+  // hasta la próxima interacción.
+  window.addEventListener("resize", render);
 }
 
 export function initCarousels() {

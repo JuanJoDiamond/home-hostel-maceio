@@ -12,8 +12,13 @@
 
 .carousel {
   position: relative;
-  height: clamp(230px, 34vw, 400px);
+  height: clamp(260px, 38vw, 460px);
   margin-inline: auto;
+  /* Contiene las fotos de los costados dentro del carrusel -- sin esto,
+     en pantallas angostas las fotos giradas en perspectiva podían quedar
+     parcialmente fuera del viewport y correr la página entera hacia la
+     derecha (aparecía una franja en blanco al costado). */
+  overflow: hidden;
   /* Un halo suave detrás de las fotos, sutil, en tono marca -- le da
      profundidad al efecto 3D sin volverse un fondo llamativo. */
   background: radial-gradient(
@@ -34,7 +39,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(58%, 380px);
+  width: min(62%, 560px);
   aspect-ratio: 16 / 9;
   border: none;
   padding: 0;
@@ -158,6 +163,21 @@
 @media (max-width: 767px) {
   .carousel__arrow {
     display: none;
+  }
+
+  /* Versión más "plana" para mobile: la foto activa ocupa casi todo el
+     ancho (se ve grande y nítida) y las de al lado apenas se insinúan en
+     los bordes, en vez del efecto 3D marcado de desktop -- a ese tamaño
+     tan chico, un giro pronunciado solo hacía que las fotos vecinas se
+     vieran diminutas e ilegibles. El ángulo/tamaño de esas fotos vecinas
+     lo controla carousel.js (ver getCarouselConfig), acá solo se ajusta
+     el tamaño de la foto activa y el alto del carrusel. */
+  .carousel {
+    height: clamp(220px, 78vw, 320px);
+  }
+
+  .carousel__slide {
+    width: 84%;
   }
 }
 
