@@ -196,16 +196,17 @@
     margin-block-start: var(--space-2xl);
   }
 
-  /* Localização: la lista "o que tem por perto" pasa a compartir fila con
-     sus 2 fotos, mismo criterio que las demás secciones -- el texto no
-     queda nunca sin una referencia visual al lado en desktop. */
-  .localizacao__perto-block {
+  /* Localização: cada bloque (Cultura, Mirante, Praias) pasa a compartir
+     fila con sus 2 fotos -- mismo criterio que las demás secciones, el
+     texto no queda nunca sin una referencia visual al lado en desktop.
+     Se reutiliza para las 3 instancias de .localizacao__block. */
+  .localizacao__block {
     grid-template-columns: 1.15fr 0.42fr 0.42fr;
     column-gap: var(--space-md);
     align-items: start;
     grid-template-areas:
       "heading photo1 photo2"
-      "list    photo1 photo2";
+      "body    photo1 photo2";
   }
 }
 

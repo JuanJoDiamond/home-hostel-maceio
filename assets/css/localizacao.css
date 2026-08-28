@@ -1,11 +1,15 @@
 /* ==========================================================================
    LOCALIZACAO.CSS
-   Sprint 5. A diferencia de Sobre/Quartos/Experiências, acá el contenido
-   fluye en un solo orden (no hace falta reordenar mobile vs desktop con
-   grid-template-areas) -- es una sucesión de bloques: texto, par de fotos,
-   frase, lista de "por perto", foto grande, otro par de fotos, mapa, CTA.
-   Los únicos elementos que cambian de una columna a dos son los "pares de
-   fotos", resuelto con un componente chico aparte (.localizacao__photo-pair).
+   Sprint 5 (v2, reescrita tras feedback). Estructura en 2 niveles:
+   1) ".localizacao__daily" -- amenities genéricas del día a día, sin
+      nombres de lugares puntuales ni distancias, sin fotos (no hay una
+      foto "de" una farmacia genérica).
+   2) ".localizacao__block" -- 3 instancias (Cultura, Mirante, Praias) con
+      nombres reales de atracciones (fuente: ficha de Booking del
+      cliente), cada una con 2 fotos reales al costado. Mismo patrón de
+      grid-areas reutilizado en Sobre/Quartos/Experiências: mobile
+      intercalado (heading → body → photo1 → photo2), desktop en 2
+      columnas -- ver responsive.css.
    ========================================================================== */
 
 .localizacao {
@@ -50,20 +54,7 @@
   max-width: 40ch;
 }
 
-/* ---- Pares de fotos verticales ------------------------------------------ */
-
-.localizacao__photo-pair {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
-}
-
-@media (min-width: 768px) {
-  .localizacao__photo-pair {
-    grid-template-columns: 1fr 1fr;
-    max-width: 760px;
-  }
-}
+/* ---- Fotos (mismo lenguaje visual que el resto del sitio) ---------------- */
 
 .localizacao__photo {
   position: relative;
@@ -73,6 +64,10 @@
   aspect-ratio: 4 / 5;
   transition: transform var(--duration-base) var(--ease-standard),
     box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.localizacao__photo--landscape {
+  aspect-ratio: 4 / 3;
 }
 
 .localizacao__photo img {
@@ -149,46 +144,21 @@
   }
 }
 
-/* ---- Lista "o que tem por perto" + 2 fotos al costado -------------------
-   Mismo patrón de grid-areas que Sobre/Quartos/Experiências: en mobile
-   queda todo en una columna, en el orden heading → list → photo1 → photo2
-   (las fotos "acompañan" a la lista, no quedan sueltas al final). En
-   desktop, el texto pasa a una columna y las 2 fotos a la derecha, lado a
-   lado -- ver responsive.css. */
+/* ---- Nível 1: amenities del día a día (genérico, sin fotos) -------------- */
 
-.localizacao__perto-block {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
-  grid-template-areas:
-    "heading"
-    "list"
-    "photo1"
-    "photo2";
+.localizacao__daily {
   padding-block: var(--space-md);
   border-block: 1px solid rgba(12, 74, 94, 0.15);
 }
 
-.localizacao__perto-area-heading {
-  grid-area: heading;
-}
-.localizacao__perto-area-list {
-  grid-area: list;
-}
-.localizacao__perto-area-photo1 {
-  grid-area: photo1;
-}
-.localizacao__perto-area-photo2 {
-  grid-area: photo2;
-}
-
-.localizacao__perto-heading {
+.localizacao__daily-heading {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
   color: var(--color-ink);
+  margin-block-end: var(--space-sm);
 }
 
-.localizacao__perto-list {
+.localizacao__daily-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -197,14 +167,14 @@
   margin: 0;
 }
 
-.localizacao__perto-list li {
+.localizacao__daily-list li {
   position: relative;
   padding-inline-start: 1.5em;
   font-size: var(--fs-sm);
   color: var(--color-ink-soft);
 }
 
-.localizacao__perto-list li::before {
+.localizacao__daily-list li::before {
   content: "✓";
   position: absolute;
   left: 0;
@@ -213,33 +183,114 @@
   font-weight: var(--fw-semibold);
 }
 
-.localizacao__tagline--small {
-  font-size: var(--fs-base);
-}
+/* ---- Nível 2: bloques con nombre real + 2 fotos al costado ---------------
+   Se reutiliza la MISMA clase ".localizacao__block" para Cultura, Mirante
+   y Praias -- cada una es su propio contenedor de grid independiente, así
+   que reusar los nombres de área (heading/body/photo1/photo2) entre las 3
+   instancias es seguro (el nombre de área solo importa dentro de su
+   propio grid). Mobile: heading → body → photo1 → photo2, todo apilado.
+   Desktop: texto a la izquierda, 2 fotos lado a lado a la derecha -- ver
+   responsive.css. */
 
-/* ---- Par de fotos horizontales (vista + cartel del Mirante) ------------- */
-
-.localizacao__banner-pair {
+.localizacao__block {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-md);
+  grid-template-areas:
+    "heading"
+    "body"
+    "photo1"
+    "photo2";
+  padding-block: var(--space-md);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
 }
 
-@media (min-width: 768px) {
-  .localizacao__banner-pair {
-    grid-template-columns: 1fr 1fr;
-  }
+.localizacao__block-heading {
+  grid-area: heading;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  color: var(--color-ink);
 }
 
-.localizacao__photo--landscape {
-  aspect-ratio: 4 / 3;
+.localizacao__block-body {
+  grid-area: body;
+}
+
+.localizacao__block-body--text {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 42ch;
+}
+
+ul.localizacao__block-body {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: 0;
+  margin: 0;
+}
+
+ul.localizacao__block-body li {
+  position: relative;
+  padding-inline-start: 1.3em;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+}
+
+ul.localizacao__block-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
+.localizacao__block-photo1 {
+  grid-area: photo1;
+}
+
+.localizacao__block-photo2 {
+  grid-area: photo2;
 }
 
 /* ---- Mapa ----------------------------------------------------------------
-   Desktop: embed real de OpenStreetMap (gratis, sin API key). Mobile: en
-   vez del iframe (poco práctico al tacto), una tarjeta con la dirección
-   que abre la app de Google Maps directamente -- ver responsive.css para
-   el breakpoint que alterna entre los dos. */
+   La dirección real (con ícono a cada lado) queda siempre visible, tanto
+   en desktop como en mobile. Desktop: embed oficial de Google Maps (el
+   mismo que genera el botón "Compartilhar > Incorporar um mapa" de
+   Google, sin necesidad de API key). Mobile: tarjeta que abre la app de
+   Google Maps directamente con el lugar real (no un pin genérico). */
+
+.localizacao__map-block {
+  padding-block: var(--space-md);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.localizacao__map-heading {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  color: var(--color-ink);
+  margin-block-end: var(--space-sm);
+}
+
+.localizacao__map-address-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+  margin-block-end: var(--space-md);
+}
+
+.localizacao__map-address-line svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-coral);
+  flex-shrink: 0;
+}
 
 .localizacao__map {
   border-radius: var(--radius-lg);
@@ -256,26 +307,12 @@
 
 .localizacao__map-mobile-card {
   display: none;
-  flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
-  text-align: center;
-  padding: var(--space-xl) var(--space-lg);
+  justify-content: center;
+  padding: var(--space-lg);
   background: var(--color-sand-soft);
   color: var(--color-ink);
   text-decoration: none;
-}
-
-.localizacao__map-mobile-card svg {
-  width: 40px;
-  height: 40px;
-  color: var(--color-coral);
-}
-
-.localizacao__map-address {
-  font-size: var(--fs-sm);
-  color: var(--color-ink-soft);
-  max-width: 32ch;
 }
 
 .localizacao__map-cta {
@@ -287,7 +324,9 @@
 
 /* En mobile el iframe de mapa es poco práctico al tacto (hay que hacer
    zoom con dos dedos, se traba el scroll de la página) -- se reemplaza
-   por una tarjeta simple que abre la app de Google Maps directamente. */
+   por una tarjeta que abre la app de Google Maps directamente. La
+   dirección de arriba (.localizacao__map-address-line) ya se ve siempre,
+   en los dos casos. */
 @media (max-width: 767px) {
   .localizacao__map-embed {
     display: none;
@@ -297,6 +336,8 @@
     display: flex;
   }
 }
+
+/* ---- CTA suave ------------------------------------------------------------ */
 
 .localizacao__cta {
   display: inline-flex;

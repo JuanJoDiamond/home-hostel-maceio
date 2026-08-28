@@ -678,8 +678,37 @@
           existe por perto no dia a dia.
         </p>
 
-        <div class="localizacao__photo-pair">
-          <figure class="localizacao__photo">
+        <p class="localizacao__tagline" data-i18n="loc_tagline">
+          Você escolhe onde quer viver Maceió. O Home facilita o caminho.
+        </p>
+
+        <div class="localizacao__daily">
+          <p class="localizacao__daily-heading" data-i18n="loc_daily_heading">No dia a dia, por perto</p>
+          <ul class="localizacao__daily-list">
+            <li data-i18n="loc_daily_1">Restaurantes e cafés variados</li>
+            <li data-i18n="loc_daily_2">Padarias para o café da manhã</li>
+            <li data-i18n="loc_daily_3">Farmácias a poucos passos</li>
+            <li data-i18n="loc_daily_4">Mercado Palato do Farol</li>
+            <li data-i18n="loc_daily_5">Paradas de transporte público</li>
+            <li data-i18n="loc_daily_6">Centro histórico por perto</li>
+          </ul>
+        </div>
+
+        <!-- Cultura e história: nomes reais dos pontos turísticos (fonte:
+             ficha do Booking do cliente) + as fotos da Catedral e da
+             Capelinha, que são justamente 2 desses pontos. -->
+        <div class="localizacao__block">
+          <p class="localizacao__block-heading" data-i18n="loc_culture_heading">Cultura e história</p>
+          <ul class="localizacao__block-body">
+            <li data-i18n="loc_culture_1">Floriano Peixoto Palace Museum</li>
+            <li data-i18n="loc_culture_2">Cultural Center Ruth Cardoso</li>
+            <li data-i18n="loc_culture_3">Museum of Image and Sound of Alagoas</li>
+            <li data-i18n="loc_culture_4">Theo Brandão Museum</li>
+            <li data-i18n="loc_culture_5">Catedral Metropolitana de Maceió</li>
+            <li data-i18n="loc_culture_6">Capelinha de Jaraguá</li>
+            <li data-i18n="loc_culture_7">Mercado das Artes 31</li>
+          </ul>
+          <figure class="localizacao__photo localizacao__block-photo1">
             <picture>
               <source srcset="assets/images/hostel/home-hostel-maceio_localizacao_01_catedral.webp" type="image/webp" />
               <img
@@ -691,9 +720,9 @@
                 height="1500"
               />
             </picture>
-            <figcaption data-i18n="loc_photo1_caption">O centro histórico, a poucos minutos daqui</figcaption>
+            <figcaption data-i18n="loc_photo1_caption">Catedral Metropolitana de Maceió</figcaption>
           </figure>
-          <figure class="localizacao__photo">
+          <figure class="localizacao__photo localizacao__block-photo2">
             <picture>
               <source srcset="assets/images/hostel/home-hostel-maceio_localizacao_02_capelinha.webp" type="image/webp" />
               <img
@@ -705,58 +734,20 @@
                 height="1500"
               />
             </picture>
-            <figcaption data-i18n="loc_photo2_caption">Um respiro à beira-mar, pertinho do Home</figcaption>
+            <figcaption data-i18n="loc_photo2_caption">Capelinha de Jaraguá</figcaption>
           </figure>
         </div>
 
-        <p class="localizacao__tagline" data-i18n="loc_tagline">
-          Você escolhe onde quer viver Maceió. O Home facilita o caminho.
-        </p>
-
-        <div class="localizacao__perto-block">
-          <p class="localizacao__perto-heading localizacao__perto-area-heading" data-i18n="loc_perto_heading">O que tem por perto</p>
-          <ul class="localizacao__perto-list localizacao__perto-area-list">
-            <li data-i18n="loc_perto_1">Restaurantes e cafés variados por perto</li>
-            <li data-i18n="loc_perto_2">Padarias para o café da manhã</li>
-            <li data-i18n="loc_perto_3">Farmácias a poucos passos</li>
-            <li data-i18n="loc_perto_4">Mercado Palato do Farol, para o dia a dia</li>
-          </ul>
-          <figure class="localizacao__photo localizacao__perto-area-photo1">
-            <picture>
-              <source srcset="assets/images/hostel/home-hostel-maceio_localizacao_03_orla.webp" type="image/webp" />
-              <img
-                src="assets/images/hostel/home-hostel-maceio_localizacao_03_orla.jpg"
-                alt="Pôr do sol na Nova Orla do Porto de Maceió"
-                data-i18n-attr="alt:loc_photo3_alt"
-                loading="lazy"
-                width="1200"
-                height="1500"
-              />
-            </picture>
-            <figcaption data-i18n="loc_photo3_caption">Fim de tarde na orla de Maceió</figcaption>
-          </figure>
-          <figure class="localizacao__photo localizacao__perto-area-photo2">
-            <picture>
-              <source srcset="assets/images/hostel/home-hostel-maceio_localizacao_04_cavalomarinho.webp" type="image/webp" />
-              <img
-                src="assets/images/hostel/home-hostel-maceio_localizacao_04_cavalomarinho.jpg"
-                alt="Escultura do Cavalo-Marinho, símbolo de Maceió, ao entardecer"
-                data-i18n-attr="alt:loc_photo4_alt"
-                loading="lazy"
-                width="1200"
-                height="1500"
-              />
-            </picture>
-            <figcaption data-i18n="loc_photo4_caption">Um símbolo da cidade, para descobrir</figcaption>
-          </figure>
-        </div>
-
-        <p class="localizacao__tagline localizacao__tagline--small" data-i18n="loc_tagline2">
-          A vista que fica na memória, lá do alto do Mirante.
-        </p>
-
-        <div class="localizacao__banner-pair">
-          <figure class="localizacao__photo localizacao__photo--landscape">
+        <!-- Mirante de São Gonçalo: acá sí vale destacar la proximidad
+             real (está a minutos), a diferencia del resto que no lleva
+             distancias. -->
+        <div class="localizacao__block">
+          <p class="localizacao__block-heading" data-i18n="loc_mirante_heading">Mirante de São Gonçalo</p>
+          <p class="localizacao__block-body localizacao__block-body--text" data-i18n="loc_mirante_text">
+            A poucos minutos do Home, um dos points favoritos para ver a
+            cidade e o mar lá de cima.
+          </p>
+          <figure class="localizacao__photo localizacao__photo--landscape localizacao__block-photo1">
             <picture>
               <source srcset="assets/images/hostel/home-hostel-maceio_localizacao_05_mirante.webp" type="image/webp" />
               <img
@@ -770,7 +761,7 @@
             </picture>
             <figcaption data-i18n="loc_photo5_caption">A vista lá de cima, no Mirante de São Gonçalo</figcaption>
           </figure>
-          <figure class="localizacao__photo localizacao__photo--landscape">
+          <figure class="localizacao__photo localizacao__photo--landscape localizacao__block-photo2">
             <picture>
               <source srcset="assets/images/hostel/home-hostel-maceio_localizacao_06_placa_mirante.webp" type="image/webp" />
               <img
@@ -786,29 +777,81 @@
           </figure>
         </div>
 
-        <div class="localizacao__map">
-          <iframe
-            class="localizacao__map-embed"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-35.73472%2C-9.65197%2C-35.72472%2C-9.64397&amp;layer=mapnik&amp;marker=-9.64797%2C-35.72972"
-            loading="lazy"
-            title="Mapa com a localização do Home Hostel Maceió"
-            aria-label="Mapa com a localização do Home Hostel Maceió"
-          ></iframe>
-          <a
-            class="localizacao__map-mobile-card"
-            href="https://www.google.com/maps/search/?api=1&amp;query=-9.64797,-35.72972"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <!-- Praias: mismo criterio, con Avenida Beach marcada como la más
+             cerca (se puede ir caminando). -->
+        <div class="localizacao__block">
+          <p class="localizacao__block-heading" data-i18n="loc_praias_heading">Praias</p>
+          <ul class="localizacao__block-body">
+            <li data-i18n="loc_praias_1">Avenida Beach — a poucos passos, dá pra ir a pé</li>
+            <li data-i18n="loc_praias_2">Pajuçara Beach</li>
+            <li data-i18n="loc_praias_3">Ponta Verde Beach</li>
+            <li data-i18n="loc_praias_4">Jatiuca Beach</li>
+          </ul>
+          <figure class="localizacao__photo localizacao__block-photo1">
+            <picture>
+              <source srcset="assets/images/hostel/home-hostel-maceio_localizacao_03_orla.webp" type="image/webp" />
+              <img
+                src="assets/images/hostel/home-hostel-maceio_localizacao_03_orla.jpg"
+                alt="Pôr do sol na Nova Orla do Porto de Maceió"
+                data-i18n-attr="alt:loc_photo3_alt"
+                loading="lazy"
+                width="1200"
+                height="1500"
+              />
+            </picture>
+            <figcaption data-i18n="loc_photo3_caption">Fim de tarde na orla de Maceió</figcaption>
+          </figure>
+          <figure class="localizacao__photo localizacao__block-photo2">
+            <picture>
+              <source srcset="assets/images/hostel/home-hostel-maceio_localizacao_04_cavalomarinho.webp" type="image/webp" />
+              <img
+                src="assets/images/hostel/home-hostel-maceio_localizacao_04_cavalomarinho.jpg"
+                alt="Escultura do Cavalo-Marinho, símbolo de Maceió, ao entardecer"
+                data-i18n-attr="alt:loc_photo4_alt"
+                loading="lazy"
+                width="1200"
+                height="1500"
+              />
+            </picture>
+            <figcaption data-i18n="loc_photo4_caption">Um símbolo da cidade, para descobrir</figcaption>
+          </figure>
+        </div>
+
+        <!-- Mapa: dirección real siempre visible (desktop y mobile), con
+             el embed oficial de Google Maps (sin API key, es el link que
+             genera el propio botón "Compartilhar > Incorporar um mapa"
+             de Google) centrado en el pin real del negocio. -->
+        <div class="localizacao__map-block">
+          <p class="localizacao__map-heading" data-i18n="loc_map_heading">Como chegar</p>
+          <p class="localizacao__map-address-line">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z" stroke-linecap="round" stroke-linejoin="round" />
               <circle cx="12" cy="9.5" r="2.3" />
             </svg>
-            <span class="localizacao__map-address" data-i18n="loc_map_address">
-              R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL, 57051-530
-            </span>
-            <span class="localizacao__map-cta" data-i18n="loc_map_cta">Abrir no Google Maps</span>
-          </a>
+            <span data-i18n="loc_map_address">R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL, 57051-530</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="12" cy="9.5" r="2.3" />
+            </svg>
+          </p>
+
+          <div class="localizacao__map">
+            <iframe
+              class="localizacao__map-embed"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d745.2068190854968!2d-35.735170831216486!3d-9.6618532945718!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x70145749d613d2b%3A0x14e738c2258fefd8!2sHome%20hostel%20Macei%C3%B3!5e0!3m2!1spt-BR!2sbr!4v1787932311213!5m2!1spt-BR!2sbr"
+              loading="lazy"
+              title="Mapa com a localização do Home Hostel Maceió"
+              aria-label="Mapa com a localização do Home Hostel Maceió"
+            ></iframe>
+            <a
+              class="localizacao__map-mobile-card"
+              href="https://maps.app.goo.gl/AWD9W6sCpvwPdD8C9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="localizacao__map-cta" data-i18n="loc_map_cta">Abrir no Google Maps</span>
+            </a>
+          </div>
         </div>
 
         <a href="#galeria" class="localizacao__cta">
