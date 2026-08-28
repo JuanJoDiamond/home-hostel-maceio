@@ -54,6 +54,8 @@ la fecha y la decisión tomada, para que quede el historial.
 |---|---|
 | Verificar en incógnito antes de reportar un bug visual | Aprendido en el Sprint 2: un cambio recién publicado puede verse roto simplemente por caché del navegador/CDN, no por un error real de código. Antes de reportar algo como bug después de un `git push`, probar primero en una ventana de incógnito (sin caché) para descartar ese caso. |
 | Sincronizar antes de generar un parche nuevo | El asistente siempre trae el commit real del repo (`git fetch` + `git log origin/main`) antes de armar un parche nuevo, en vez de asumir que su copia de trabajo sigue igual a lo último subido. |
+| Coordenadas de mapa: siempre confirmadas con el cliente, nunca de una fuente genérica | Aprendido en el Sprint 5: una fuente de geocodificación por CEP dio coordenadas ~1,6 km desviadas de la ubicación real. De acá en más, cualquier coordenada de mapa se pide directamente al cliente (su propio Google Maps, botón "Compartilhar") antes de usarla en el sitio. |
+| Probar parches con archivos binarios (fotos) en un clon descartable | Aprendido en el Sprint 4: `git apply --check` no alcanza para confirmar que un archivo binario (foto, PDF) llegó bien -- hay que aplicarlo en un clon limpio y verificar con `file` que la imagen sea válida antes de entregar el parche. |
 
 ---
 
@@ -80,5 +82,8 @@ la fecha y la decisión tomada, para que quede el historial.
 | 2026-08-26 | Indicador de sección activa en el nav de desktop poco visible | Corregido: además del subrayado, el link activo ahora también cambia a negrita y color propio (`--color-palm`). |
 | 2026-08-26 | Link "Depoimentos" del nav apuntaba a una sección que ya no se iba a construir | Renombrado a "Contatos" (`#contatos`) en los 3 idiomas -- va a alojar redes sociales y WhatsApp cuando se construya esa sección (ver decisión de fusionar Depoimentos dentro de Experiências, abajo). |
 | 2026-08-27 | Reestructuración del final de la landing | Se descartó "Depoimentos" como sección independiente (con ~10 reseñas en Booking no había volumen). Los 3 testimonios reales se movieron dentro de Experiências (Sprint 4). El nav ya se renombró de "Depoimentos" a "Contatos". |
+| 2026-08-28 | Sección "Localização" (Sprint 5) | Contenido en 2 niveles (día a día genérico + 3 bloques con nombres reales de atracciones), 6 fotos reales del cliente, mapa con coordenadas y embed reales de Google, dirección siempre visible. Ver `AUDITORIA-SPRINT5.md` para el detalle completo, incluida la reconstrucción tras feedback. |
+| 2026-08-28 | Coordenadas de mapa incorrectas (~1,6 km de error) | Corregido con las coordenadas exactas que el cliente confirmó desde su propio Google Maps, más el embed oficial (sin API key) con el Place ID real del negocio. |
+| 2026-08-28 | Fotos con personas identificables en el Mirante | Resuelto por el cliente con una herramienta de IA de edición externa (removió a las personas manteniendo el fondo real) -- verificado que no quedaran artefactos antes de usarlas. Se descartó previamente tanto el desenfoque como usar fotos de stock sin licencia confirmada. |
 | 2026-08-27 | Desfase de fotos no replicado en Quartos ni Experiências | Corregido en `responsive.css`: ahora las 3 secciones con 2 fotos lado a lado usan el mismo `margin-block-start` en la segunda foto. Documentado como estándar para toda sección nueva. |
 | 2026-08-27 | Indicador de sección activa en el nav de desktop, ronda 2 | Sumado negrita + color propio (`--color-palm`) al link activo, además del subrayado que ya existía. |
