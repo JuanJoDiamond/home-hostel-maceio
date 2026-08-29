@@ -230,6 +230,12 @@
   .galeria__block-mosaic2 > :last-child {
     margin-block-start: var(--space-lg);
   }
+
+  /* Videos lado a lado en desktop en vez de apilados a todo el ancho
+     -- a ese tamaño (contenedor completo) se veían enormes. */
+  .galeria__videos {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* ---- >= 1200px: contenedor a su ancho máximo, tipografía tope ------------- */

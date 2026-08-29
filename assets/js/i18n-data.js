@@ -221,10 +221,10 @@ export const translations = {
     gal_area_heading: "Área externa e recepção",
     gal_area_text:
       "Onde a sua experiência no Home começa. Do primeiro contato até um momento de pausa ao ar livre — o ponto de partida para viver Maceió do seu jeito.",
-    gal_photo4_alt: "Porta de entrada do Home Hostel, com tapete de boas-vindas",
+    gal_photo4_alt: "Ambiente de recepção do Home Hostel, com sofá e espaço de estar",
     gal_photo4_caption: "Onde a sua estadia começa",
     gal_photo5_alt: "Detalhe das plantas na área externa do Home Hostel",
-    gal_photo6_alt: "Cantinho verde com plantas suspensas na área externa",
+    gal_photo6_alt: "Porta de entrada do Home Hostel, com tapete de boas-vindas",
     gal_banheiro_heading: "Banheiros",
     gal_banheiro_text:
       "Conforto e praticidade em cada detalhe. Toalhas limpas para cada hóspede e papel higiênico sempre à disposição — porque os pequenos cuidados também fazem parte da experiência.",
@@ -431,10 +431,10 @@ export const translations = {
     gal_area_heading: "Área externa y recepción",
     gal_area_text:
       "Donde comienza tu experiencia en el Home. Desde el primer contacto hasta un momento de pausa al aire libre — el punto de partida para vivir Maceió a tu manera.",
-    gal_photo4_alt: "Puerta de entrada del Home Hostel, con alfombra de bienvenida",
+    gal_photo4_alt: "Ambiente de recepción del Home Hostel, con sofá y espacio de estar",
     gal_photo4_caption: "Donde empieza tu estadía",
     gal_photo5_alt: "Detalle de las plantas en el área externa del Home Hostel",
-    gal_photo6_alt: "Rincón verde con plantas colgantes en el área externa",
+    gal_photo6_alt: "Puerta de entrada del Home Hostel, con alfombra de bienvenida",
     gal_banheiro_heading: "Baños",
     gal_banheiro_text:
       "Comodidad y practicidad en cada detalle. Toallas limpias para cada huésped y papel higiénico siempre disponible — porque los pequeños cuidados también forman parte de la experiencia.",
@@ -640,10 +640,10 @@ export const translations = {
     gal_area_heading: "Outdoor area and entrance",
     gal_area_text:
       "Where your experience at the Home begins. From the first contact to a moment of pause outdoors — the starting point for living Maceió your way.",
-    gal_photo4_alt: "Home Hostel entrance door, with a welcome mat",
+    gal_photo4_alt: "Reception area at Home Hostel, with a sofa and lounge space",
     gal_photo4_caption: "Where your stay begins",
     gal_photo5_alt: "Detail of the plants in the Home Hostel's outdoor area",
-    gal_photo6_alt: "Green corner with hanging plants in the outdoor area",
+    gal_photo6_alt: "Home Hostel entrance door, with a welcome mat",
     gal_banheiro_heading: "Bathrooms",
     gal_banheiro_text:
       "Comfort and practicality in every detail. Clean towels for every guest and toilet paper always available — because small touches are also part of the experience.",
