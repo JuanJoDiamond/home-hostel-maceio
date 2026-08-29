@@ -209,27 +209,12 @@
       "body    photo1 photo2";
   }
 
-  /* Galeria: mosaico de 3 fotos (distinto del patrón de 2 fotos del
-     resto del sitio -- ver comentario en galeria.css). El texto queda
-     en una sola columna a la izquierda; a la derecha, la foto "hero"
-     arriba y las 2 chicas (photo2+photo3, ya en fila por
-     .galeria__block-mosaic2) debajo, como una sola columna de fotos. */
-  .galeria__block {
-    grid-template-columns: 1.15fr 0.85fr;
-    column-gap: var(--space-md);
-    align-items: start;
-    grid-template-areas:
-      "heading photo1"
-      "body    photo1"
-      "body    mosaic2";
-  }
-
-  /* Mismo espíritu que el desfase de Sobre/Quartos/Experiências: la
-     segunda foto chica arranca un poco más abajo, rompe la alineación
-     perfecta de la grilla 2x1 de mosaic2. */
-  .galeria__block-mosaic2 > :last-child {
-    margin-block-start: var(--space-lg);
-  }
+  /* Galeria: a diferencia del resto del sitio, ACÁ el texto no comparte
+     fila con las fotos ni en desktop -- queda a todo el ancho arriba,
+     y las fotos abajo (foto horizontal grande + las 2 cuadradas lado a
+     lado). Mismo orden que en mobile, ver galeria.css -- por eso no
+     hace falta ninguna regla de grid-template-areas nueva acá, el
+     bloque simplemente no se reordena en este breakpoint. */
 
   /* Videos lado a lado en desktop en vez de apilados a todo el ancho
      -- a ese tamaño (contenedor completo) se veían enormes. */

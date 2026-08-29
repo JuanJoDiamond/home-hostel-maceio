@@ -216,7 +216,7 @@ export const translations = {
       "Mais liberdade para viver a sua estadia do seu jeito. Um espaço para preparar suas refeições, tomar café da manhã com calma e aproveitar a rotina da viagem com mais praticidade.",
     gal_photo1_alt: "Mesa de jantar compartilhada, com parede decorada com pratos artesanais",
     gal_photo1_caption: "Espaço para as refeições do dia a dia",
-    gal_photo2_alt: "Detalhe decorativo com a palavra Gratidão, entre plantas",
+    gal_photo2_alt: "Detalhe da parede de pratos artesanais, com cesto de vime e plantas",
     gal_photo3_alt: "Concha decorativa sobre a mesa, com a parede de pratos ao fundo",
     gal_area_heading: "Área externa e recepção",
     gal_area_text:
@@ -224,7 +224,7 @@ export const translations = {
     gal_photo4_alt: "Ambiente de recepção do Home Hostel, com sofá e espaço de estar",
     gal_photo4_caption: "Onde a sua estadia começa",
     gal_photo5_alt: "Detalhe das plantas na área externa do Home Hostel",
-    gal_photo6_alt: "Porta de entrada do Home Hostel, com tapete de boas-vindas",
+    gal_photo6_alt: "Cantinho verde com plantas suspensas na área externa",
     gal_banheiro_heading: "Banheiros",
     gal_banheiro_text:
       "Conforto e praticidade em cada detalhe. Toalhas limpas para cada hóspede e papel higiênico sempre à disposição — porque os pequenos cuidados também fazem parte da experiência.",
@@ -426,7 +426,7 @@ export const translations = {
       "Más libertad para vivir tu estadía a tu manera. Un espacio para preparar tus comidas, desayunar con calma y aprovechar la rutina del viaje con más practicidad.",
     gal_photo1_alt: "Mesa de comedor compartida, con pared decorada con platos artesanales",
     gal_photo1_caption: "Espacio para las comidas del día a día",
-    gal_photo2_alt: "Detalle decorativo con la palabra Gratidão, entre plantas",
+    gal_photo2_alt: "Detalle de la pared de platos artesanales, con cesto de mimbre y plantas",
     gal_photo3_alt: "Caracola decorativa sobre la mesa, con la pared de platos de fondo",
     gal_area_heading: "Área externa y recepción",
     gal_area_text:
@@ -434,7 +434,7 @@ export const translations = {
     gal_photo4_alt: "Ambiente de recepción del Home Hostel, con sofá y espacio de estar",
     gal_photo4_caption: "Donde empieza tu estadía",
     gal_photo5_alt: "Detalle de las plantas en el área externa del Home Hostel",
-    gal_photo6_alt: "Puerta de entrada del Home Hostel, con alfombra de bienvenida",
+    gal_photo6_alt: "Rincón verde con plantas colgantes en el área externa",
     gal_banheiro_heading: "Baños",
     gal_banheiro_text:
       "Comodidad y practicidad en cada detalle. Toallas limpias para cada huésped y papel higiénico siempre disponible — porque los pequeños cuidados también forman parte de la experiencia.",
@@ -635,7 +635,7 @@ export const translations = {
       "More freedom to enjoy your stay your way. A space to prepare your meals, have breakfast at your own pace and enjoy your travel routine with more ease.",
     gal_photo1_alt: "Shared dining table, with a wall decorated with handcrafted plates",
     gal_photo1_caption: "A space for everyday meals",
-    gal_photo2_alt: "Decorative detail with the word Gratidão, among plants",
+    gal_photo2_alt: "Detail of the handcrafted plate wall, with a wicker basket and plants",
     gal_photo3_alt: "Decorative seashell on the table, with the plate wall in the background",
     gal_area_heading: "Outdoor area and entrance",
     gal_area_text:
@@ -643,7 +643,7 @@ export const translations = {
     gal_photo4_alt: "Reception area at Home Hostel, with a sofa and lounge space",
     gal_photo4_caption: "Where your stay begins",
     gal_photo5_alt: "Detail of the plants in the Home Hostel's outdoor area",
-    gal_photo6_alt: "Home Hostel entrance door, with a welcome mat",
+    gal_photo6_alt: "Green corner with hanging plants in the outdoor area",
     gal_banheiro_heading: "Bathrooms",
     gal_banheiro_text:
       "Comfort and practicality in every detail. Clean towels for every guest and toilet paper always available — because small touches are also part of the experience.",
