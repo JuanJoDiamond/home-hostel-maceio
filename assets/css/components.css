@@ -287,3 +287,68 @@
 .nav-toggle[aria-expanded="true"] .nav-toggle__bar::after {
   transform: translateY(0) rotate(-45deg);
 }
+
+/* ==========================================================================
+   BOTÓN FLOTANTE DE WHATSAPP -- solo mobile (<992px).
+   Sprint 6b: en mobile no había ningún CTA de reserva visible salvo el
+   del hero, que se pierde ni bien la persona scrollea. En desktop el nav
+   ya resuelve esto (botón "Reservar" siempre fijo arriba). Ícono grande
+   + etiqueta chica abajo -- versión compacta a pedido del cliente,
+   descartando texto largo tipo píldora para ocupar menos espacio fijo
+   en pantalla.
+   ========================================================================== */
+
+.whatsapp-fab {
+  display: none;
+  position: fixed;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  z-index: 40;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+}
+
+.whatsapp-fab__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-palm);
+  color: var(--color-sand-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-strong);
+  transition: background-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.whatsapp-fab__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.whatsapp-fab__label {
+  font-size: 9px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-palm);
+  background-color: var(--color-sand-soft);
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-soft);
+}
+
+.whatsapp-fab:hover .whatsapp-fab__icon,
+.whatsapp-fab:focus-visible .whatsapp-fab__icon {
+  background-color: var(--color-palm-dark);
+  transform: scale(1.05);
+}
+
+@media (max-width: 991px) {
+  .whatsapp-fab {
+    display: flex;
+  }
+}
