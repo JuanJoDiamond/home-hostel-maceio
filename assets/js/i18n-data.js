@@ -205,6 +205,38 @@ export const translations = {
     loc_map_address: "R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL, 57051-530",
     loc_map_cta: "Abrir no Google Maps",
     loc_cta: "Conheça a galeria",
+
+    gal_eyebrow: "GALERIA",
+    gal_title: "Conheça o Home.",
+    gal_tagline: "Cada espaço tem seu jeito. Juntos, eles fazem o Home.",
+    gal_p1:
+      "Mais do que um lugar para descansar, o Home também é feito de espaços para viver a estadia com mais conforto, liberdade e tranquilidade — com boa conexão Wi-Fi em toda a casa, tanto nos ambientes internos quanto nas áreas externas.",
+    gal_cozinha_heading: "Cozinha compartilhada",
+    gal_cozinha_text:
+      "Mais liberdade para viver a sua estadia do seu jeito. Um espaço para preparar suas refeições, tomar café da manhã com calma e aproveitar a rotina da viagem com mais praticidade.",
+    gal_photo1_alt: "Mesa de jantar compartilhada, com parede decorada com pratos artesanais",
+    gal_photo1_caption: "Espaço para as refeições do dia a dia",
+    gal_photo2_alt: "Detalhe decorativo com a palavra Gratidão, entre plantas",
+    gal_photo3_alt: "Concha decorativa sobre a mesa, com a parede de pratos ao fundo",
+    gal_area_heading: "Área externa e recepção",
+    gal_area_text:
+      "Onde a sua experiência no Home começa. Do primeiro contato até um momento de pausa ao ar livre — o ponto de partida para viver Maceió do seu jeito.",
+    gal_photo4_alt: "Porta de entrada do Home Hostel, com tapete de boas-vindas",
+    gal_photo4_caption: "Onde a sua estadia começa",
+    gal_photo5_alt: "Detalhe das plantas na área externa do Home Hostel",
+    gal_photo6_alt: "Cantinho verde com plantas suspensas na área externa",
+    gal_banheiro_heading: "Banheiros",
+    gal_banheiro_text:
+      "Conforto e praticidade em cada detalhe. Toalhas limpas para cada hóspede e papel higiênico sempre à disposição — porque os pequenos cuidados também fazem parte da experiência.",
+    gal_photo7_alt: "Banheiro completo, limpo e organizado, com toalhas e papel higiênico à vista",
+    gal_photo7_caption: "Limpo, organizado e pronto para você",
+    gal_photo8_alt: "Prateleira com papel higiênico e itens de decoração no banheiro",
+    gal_photo9_alt: "Detalhe de concha decorativa na pia do banheiro",
+    gal_video1_title: "Conheça o Home em vídeo",
+    gal_video2_title: "Um passeio pelo Farol e pelo Home Hostel",
+    gal_closing:
+      "Agora que você já conhece um pouco mais do Home, só falta uma coisa: viver essa experiência.",
+    gal_cta: "Fale com a gente",
   },
   es: {
     aria_nav: "Navegación principal",
@@ -383,6 +415,38 @@ export const translations = {
     loc_map_address: "R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL, 57051-530",
     loc_map_cta: "Abrir en Google Maps",
     loc_cta: "Conocé la galería",
+
+    gal_eyebrow: "GALERÍA",
+    gal_title: "Conocé el Home.",
+    gal_tagline: "Cada espacio tiene su estilo. Juntos, forman el Home.",
+    gal_p1:
+      "Más que un lugar para descansar, el Home también está hecho de espacios para vivir la estadía con más comodidad, libertad y tranquilidad — con buena señal de Wi-Fi en toda la casa, tanto en los ambientes internos como en las áreas externas.",
+    gal_cozinha_heading: "Cocina compartida",
+    gal_cozinha_text:
+      "Más libertad para vivir tu estadía a tu manera. Un espacio para preparar tus comidas, desayunar con calma y aprovechar la rutina del viaje con más practicidad.",
+    gal_photo1_alt: "Mesa de comedor compartida, con pared decorada con platos artesanales",
+    gal_photo1_caption: "Espacio para las comidas del día a día",
+    gal_photo2_alt: "Detalle decorativo con la palabra Gratidão, entre plantas",
+    gal_photo3_alt: "Caracola decorativa sobre la mesa, con la pared de platos de fondo",
+    gal_area_heading: "Área externa y recepción",
+    gal_area_text:
+      "Donde comienza tu experiencia en el Home. Desde el primer contacto hasta un momento de pausa al aire libre — el punto de partida para vivir Maceió a tu manera.",
+    gal_photo4_alt: "Puerta de entrada del Home Hostel, con alfombra de bienvenida",
+    gal_photo4_caption: "Donde empieza tu estadía",
+    gal_photo5_alt: "Detalle de las plantas en el área externa del Home Hostel",
+    gal_photo6_alt: "Rincón verde con plantas colgantes en el área externa",
+    gal_banheiro_heading: "Baños",
+    gal_banheiro_text:
+      "Comodidad y practicidad en cada detalle. Toallas limpias para cada huésped y papel higiénico siempre disponible — porque los pequeños cuidados también forman parte de la experiencia.",
+    gal_photo7_alt: "Baño completo, limpio y ordenado, con toallas y papel higiénico a la vista",
+    gal_photo7_caption: "Limpio, ordenado y listo para vos",
+    gal_photo8_alt: "Estante con papel higiénico y objetos decorativos en el baño",
+    gal_photo9_alt: "Detalle de caracola decorativa en la bacha del baño",
+    gal_video1_title: "Conocé el Home en video",
+    gal_video2_title: "Un paseo por el Farol y por Home Hostel",
+    gal_closing:
+      "Ahora que ya conocés un poco más del Home, solo falta una cosa: vivir esta experiencia.",
+    gal_cta: "Hablá con nosotros",
   },
   en: {
     aria_nav: "Main navigation",
@@ -560,6 +624,38 @@ export const translations = {
     loc_map_address: "R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL, 57051-530",
     loc_map_cta: "Open in Google Maps",
     loc_cta: "Discover the gallery",
+
+    gal_eyebrow: "GALLERY",
+    gal_title: "Get to know the Home.",
+    gal_tagline: "Every space has its own character. Together, they make the Home.",
+    gal_p1:
+      "More than just a place to rest, the Home is also made up of spaces to enjoy your stay with more comfort, freedom and peace of mind — with good Wi-Fi throughout the house, both indoors and in the outdoor areas.",
+    gal_cozinha_heading: "Shared kitchen",
+    gal_cozinha_text:
+      "More freedom to enjoy your stay your way. A space to prepare your meals, have breakfast at your own pace and enjoy your travel routine with more ease.",
+    gal_photo1_alt: "Shared dining table, with a wall decorated with handcrafted plates",
+    gal_photo1_caption: "A space for everyday meals",
+    gal_photo2_alt: "Decorative detail with the word Gratidão, among plants",
+    gal_photo3_alt: "Decorative seashell on the table, with the plate wall in the background",
+    gal_area_heading: "Outdoor area and entrance",
+    gal_area_text:
+      "Where your experience at the Home begins. From the first contact to a moment of pause outdoors — the starting point for living Maceió your way.",
+    gal_photo4_alt: "Home Hostel entrance door, with a welcome mat",
+    gal_photo4_caption: "Where your stay begins",
+    gal_photo5_alt: "Detail of the plants in the Home Hostel's outdoor area",
+    gal_photo6_alt: "Green corner with hanging plants in the outdoor area",
+    gal_banheiro_heading: "Bathrooms",
+    gal_banheiro_text:
+      "Comfort and practicality in every detail. Clean towels for every guest and toilet paper always available — because small touches are also part of the experience.",
+    gal_photo7_alt: "Full bathroom, clean and organized, with towels and toilet paper in view",
+    gal_photo7_caption: "Clean, organized and ready for you",
+    gal_photo8_alt: "Shelf with toilet paper and decorative items in the bathroom",
+    gal_photo9_alt: "Detail of a decorative seashell on the bathroom sink",
+    gal_video1_title: "Get to know the Home on video",
+    gal_video2_title: "A walk through Farol and Home Hostel",
+    gal_closing:
+      "Now that you know the Home a little better, there's only one thing left: to live the experience.",
+    gal_cta: "Get in touch",
   },
 };
 

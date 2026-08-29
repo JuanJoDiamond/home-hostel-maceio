@@ -1,0 +1,273 @@
+/* ==========================================================================
+   GALERIA.CSS
+   Sprint 6. Sección "Conheça o Home" -- más catálogo visual, menos
+   storytelling. 3 bloques (Cozinha & Convivência / Área Externa &
+   Recepção / Banheiros), cada uno con un mosaico de 3 fotos: una foto
+   "hero" grande + 2 fotos chicas apiladas al lado -- distinto del
+   patrón de 2 fotos lado a lado que se usa en Sobre/Quartos/
+   Experiências/Localização (ahí no alcanzaba para lo que pedía esta
+   sección). Mobile: todo apilado (heading → body → photo1 → photo2 →
+   photo3), igual criterio que el resto del sitio. Desktop: ver
+   responsive.css.
+   ========================================================================== */
+
+.galeria {
+  background-color: var(--color-sand-soft);
+  overflow: hidden;
+}
+
+.galeria__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.galeria__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-palm);
+}
+
+.galeria__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 22ch;
+}
+
+.galeria__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--color-ocean-deep);
+  max-width: 40ch;
+}
+
+.galeria__p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 60ch;
+}
+
+/* ---- Fotos ---------------------------------------------------------------
+   Mismo lenguaje visual que el resto del sitio (hover con overlay +
+   figcaption), definido acá porque cada sección mantiene su propia
+   hoja de estilos self-contained. */
+
+.galeria__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4 / 5;
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.galeria__photo--landscape {
+  aspect-ratio: 4 / 3;
+}
+
+.galeria__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.galeria__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.78) 0%,
+    rgba(23, 40, 42, 0.2) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.galeria__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.galeria__photo:hover,
+.galeria__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.galeria__photo:hover img,
+.galeria__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.galeria__photo:hover::after,
+.galeria__photo:focus-within::after {
+  opacity: 1;
+}
+
+.galeria__photo:hover figcaption,
+.galeria__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .galeria__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.7) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .galeria__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Bloques (Cozinha&Convivência / Área Externa&Recepção / Banheiros) ---
+   Mobile: apilado simple. El mosaico de 3 fotos (photo1 grande arriba,
+   photo2+photo3 chicas abajo, lado a lado) se arma acá porque en mobile
+   no hay columna lateral -- ver responsive.css para el layout de
+   desktop, que sí las pone lado a lado con el texto. */
+
+.galeria__block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  grid-template-areas:
+    "heading"
+    "body"
+    "photo1"
+    "mosaic2";
+  padding-block: var(--space-md);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.galeria__block-heading {
+  grid-area: heading;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  color: var(--color-ink);
+}
+
+.galeria__block-body {
+  grid-area: body;
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 42ch;
+}
+
+.galeria__block-photo1 {
+  grid-area: photo1;
+}
+
+/* En mobile, photo2 y photo3 comparten una fila de 2 columnas en vez de
+   apilarse una sobre otra -- si no, el bloque queda demasiado largo. */
+.galeria__block-mosaic2 {
+  grid-area: mosaic2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+/* ---- Videos ---------------------------------------------------------------
+   2 tarjetas de video reales del cliente, como cierre visual de la
+   sección antes del CTA final -- no forman parte de ningún bloque de
+   texto, van a ancho completo. Contenedor responsive 16:9 con
+   aspect-ratio (sin hacks de padding-top). */
+
+.galeria__videos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.galeria__video-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.galeria__video-title {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+}
+
+.galeria__video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.galeria__video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---- Cierre + CTA suave ---------------------------------------------------- */
+
+.galeria__closing {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--color-ocean-deep);
+  max-width: 48ch;
+}
+
+.galeria__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  align-self: flex-start;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.galeria__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.galeria__cta:hover,
+.galeria__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.galeria__cta:hover svg,
+.galeria__cta:focus-visible svg {
+  transform: translateX(4px);
+}

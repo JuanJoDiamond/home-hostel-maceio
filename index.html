@@ -54,6 +54,7 @@
   <link rel="stylesheet" href="assets/css/carousel.css" />
   <link rel="stylesheet" href="assets/css/experiencias.css" />
   <link rel="stylesheet" href="assets/css/localizacao.css" />
+  <link rel="stylesheet" href="assets/css/galeria.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 <body>
@@ -863,10 +864,231 @@
       </div>
     </section>
 
-    <!-- Las próximas secciones (Galeria,
-         Contatos) se desarrollan en los Sprints 6-7, según lo
-         acordado en el brief (Depoimentos se fusionó dentro de
-         Experiências, ver docs/TEMAS-A-REVISAR.md). -->
+    <section id="galeria" class="section galeria" aria-label="Galeria do Home Hostel">
+      <div class="container galeria__inner" data-animate>
+        <p class="galeria__eyebrow" data-i18n="gal_eyebrow">GALERIA</p>
+        <h2 class="galeria__title" data-i18n="gal_title">Conheça o Home.</h2>
+        <p class="galeria__tagline" data-i18n="gal_tagline">
+          Cada espaço tem seu jeito. Juntos, eles fazem o Home.
+        </p>
+        <p class="galeria__p" data-i18n="gal_p1">
+          Mais do que um lugar para descansar, o Home também é feito de
+          espaços para viver a estadia com mais conforto, liberdade e
+          tranquilidade — com boa conexão Wi-Fi em toda a casa, tanto nos
+          ambientes internos quanto nas áreas externas.
+        </p>
+
+        <!-- Cozinha & Convivência: la cocina en sí quedó afuera por
+             decisión de calidad (garrafa de gas, heladera con etiquetas
+             visibles, no acompaña el nivel visual del resto del sitio --
+             ver docs/TEMAS-A-REVISAR.md). Las 3 fotos son de la sala de
+             jantar/convivência, que ya cubre el concepto de "espacio para
+             comer y compartir". -->
+        <div class="galeria__block">
+          <p class="galeria__block-heading" data-i18n="gal_cozinha_heading">Cozinha compartilhada</p>
+          <p class="galeria__block-body" data-i18n="gal_cozinha_text">
+            Mais liberdade para viver a sua estadia do seu jeito. Um espaço
+            para preparar suas refeições, tomar café da manhã com calma e
+            aproveitar a rotina da viagem com mais praticidade.
+          </p>
+          <figure class="galeria__photo galeria__photo--landscape galeria__block-photo1">
+            <picture>
+              <source srcset="assets/images/gallery/home-hostel-maceio_sala-jantar_01.webp" type="image/webp" />
+              <img
+                src="assets/images/gallery/home-hostel-maceio_sala-jantar_01.jpg"
+                alt="Mesa de jantar compartilhada, com parede decorada com pratos artesanais"
+                data-i18n-attr="alt:gal_photo1_alt"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
+            </picture>
+            <figcaption data-i18n="gal_photo1_caption">Espaço para as refeições do dia a dia</figcaption>
+          </figure>
+          <div class="galeria__block-mosaic2">
+            <figure class="galeria__photo galeria__photo--landscape">
+              <picture>
+                <source srcset="assets/images/gallery/home-hostel-maceio_sala-jantar_03.webp" type="image/webp" />
+                <img
+                  src="assets/images/gallery/home-hostel-maceio_sala-jantar_03.jpg"
+                  alt="Detalhe decorativo com a palavra Gratidão, entre plantas"
+                  data-i18n-attr="alt:gal_photo2_alt"
+                  loading="lazy"
+                  width="1600"
+                  height="900"
+                />
+              </picture>
+            </figure>
+            <figure class="galeria__photo">
+              <picture>
+                <source srcset="assets/images/hostel/home-hostel-maceio_sala-jantar_04.webp" type="image/webp" />
+                <img
+                  src="assets/images/hostel/home-hostel-maceio_sala-jantar_04.jpg"
+                  alt="Concha decorativa sobre a mesa, com a parede de pratos ao fundo"
+                  data-i18n-attr="alt:gal_photo3_alt"
+                  loading="lazy"
+                  width="1200"
+                  height="1500"
+                />
+              </picture>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Área Externa & Recepção: entrada_04 (porta com tapete "Bem
+             Vindo") como hero + patio_01 y patio_03 (plantas), ninguna
+             repite las fotos ya usadas en Sobre (entrada_06, patio_02). -->
+        <div class="galeria__block">
+          <p class="galeria__block-heading" data-i18n="gal_area_heading">Área externa e recepção</p>
+          <p class="galeria__block-body" data-i18n="gal_area_text">
+            Onde a sua experiência no Home começa. Do primeiro contato até
+            um momento de pausa ao ar livre — o ponto de partida para viver
+            Maceió do seu jeito.
+          </p>
+          <figure class="galeria__photo galeria__photo--landscape galeria__block-photo1">
+            <picture>
+              <source srcset="assets/images/gallery/home-hostel-maceio_entrada_04.webp" type="image/webp" />
+              <img
+                src="assets/images/gallery/home-hostel-maceio_entrada_04.jpg"
+                alt="Porta de entrada do Home Hostel, com tapete de boas-vindas"
+                data-i18n-attr="alt:gal_photo4_alt"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
+            </picture>
+            <figcaption data-i18n="gal_photo4_caption">Onde a sua estadia começa</figcaption>
+          </figure>
+          <div class="galeria__block-mosaic2">
+            <figure class="galeria__photo">
+              <picture>
+                <source srcset="assets/images/hostel/home-hostel-maceio_patio_01.webp" type="image/webp" />
+                <img
+                  src="assets/images/hostel/home-hostel-maceio_patio_01.jpg"
+                  alt="Detalhe das plantas na área externa do Home Hostel"
+                  data-i18n-attr="alt:gal_photo5_alt"
+                  loading="lazy"
+                  width="1200"
+                  height="1500"
+                />
+              </picture>
+            </figure>
+            <figure class="galeria__photo">
+              <picture>
+                <source srcset="assets/images/hostel/home-hostel-maceio_patio_03.webp" type="image/webp" />
+                <img
+                  src="assets/images/hostel/home-hostel-maceio_patio_03.jpg"
+                  alt="Cantinho verde com plantas suspensas na área externa"
+                  data-i18n-attr="alt:gal_photo6_alt"
+                  loading="lazy"
+                  width="1200"
+                  height="1500"
+                />
+              </picture>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Banheiros: acá se invierte el criterio del resto -- más
+             fotos generales horizontales (transmiten limpieza y espacio)
+             y menos detalle, por pedido específico del cliente. -->
+        <div class="galeria__block">
+          <p class="galeria__block-heading" data-i18n="gal_banheiro_heading">Banheiros</p>
+          <p class="galeria__block-body" data-i18n="gal_banheiro_text">
+            Conforto e praticidade em cada detalhe. Toalhas limpas para
+            cada hóspede e papel higiênico sempre à disposição — porque os
+            pequenos cuidados também fazem parte da experiência.
+          </p>
+          <figure class="galeria__photo galeria__photo--landscape galeria__block-photo1">
+            <picture>
+              <source srcset="assets/images/gallery/home-hostel-maceio_banheiro_01.webp" type="image/webp" />
+              <img
+                src="assets/images/gallery/home-hostel-maceio_banheiro_01.jpg"
+                alt="Banheiro completo, limpo e organizado, com toalhas e papel higiênico à vista"
+                data-i18n-attr="alt:gal_photo7_alt"
+                loading="lazy"
+                width="1600"
+                height="1200"
+              />
+            </picture>
+            <figcaption data-i18n="gal_photo7_caption">Limpo, organizado e pronto para você</figcaption>
+          </figure>
+          <div class="galeria__block-mosaic2">
+            <figure class="galeria__photo">
+              <picture>
+                <source srcset="assets/images/hostel/home-hostel-maceio_banheiro_05.webp" type="image/webp" />
+                <img
+                  src="assets/images/hostel/home-hostel-maceio_banheiro_05.jpg"
+                  alt="Prateleira com papel higiênico e itens de decoração no banheiro"
+                  data-i18n-attr="alt:gal_photo8_alt"
+                  loading="lazy"
+                  width="1200"
+                  height="1500"
+                />
+              </picture>
+            </figure>
+            <figure class="galeria__photo">
+              <picture>
+                <source srcset="assets/images/hostel/home-hostel-maceio_banheiro_07.webp" type="image/webp" />
+                <img
+                  src="assets/images/hostel/home-hostel-maceio_banheiro_07.jpg"
+                  alt="Detalhe de concha decorativa na pia do banheiro"
+                  data-i18n-attr="alt:gal_photo9_alt"
+                  loading="lazy"
+                  width="1200"
+                  height="1500"
+                />
+              </picture>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Videos reales do cliente: cierre visual, ancho completo,
+             antes del CTA final. IDs sacados de los links de YouTube que
+             pasó el cliente. -->
+        <div class="galeria__videos">
+          <div class="galeria__video-card">
+            <p class="galeria__video-title" data-i18n="gal_video1_title">Conheça o Home em vídeo</p>
+            <div class="galeria__video-frame">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/ZXW9BSmJxu0"
+                title="Conheça o Home em vídeo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div class="galeria__video-card">
+            <p class="galeria__video-title" data-i18n="gal_video2_title">Um passeio pelo Farol e pelo Home Hostel</p>
+            <div class="galeria__video-frame">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/USg_xSNb2Lw"
+                title="Um passeio pelo Farol e pelo Home Hostel"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <p class="galeria__closing" data-i18n="gal_closing">
+          Agora que você já conhece um pouco mais do Home, só falta uma
+          coisa: viver essa experiência.
+        </p>
+
+        <a href="#contatos" class="galeria__cta">
+          <span data-i18n="gal_cta">Fale com a gente</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14m0 0-6-6m6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contatos se desarrolla en el Sprint 7, según lo acordado en el
+         brief (ver docs/TEMAS-A-REVISAR.md). -->
   </main>
 
   <script type="module" src="assets/js/main.js"></script>
