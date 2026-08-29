@@ -24,7 +24,12 @@ la fecha y la decisión tomada, para que quede el historial.
 | Tema | Detalle |
 |---|---|
 | Contenido real de la sección Contatos | Redes sociales (Instagram) + WhatsApp. Falta definir copy exacto. Sprint 7. |
-| Links de YouTube para Galeria | El cliente tiene 2 videos lindos del hostel — pendiente que los pase para armar las tarjetas de preview. Sprint 6. |
+
+## 🔵 A revisar en un próximo sprint (idea del cliente, todavía sin definir)
+
+| Tema | Detalle |
+|---|---|
+| Botón/ícono flotante de WhatsApp en mobile | En desktop el botón "Reservar" está siempre visible y fijo en el nav. En mobile no hay equivalente hasta que la persona llega al final del sitio — se puede perder la conversión si no scrollea todo. Idea del cliente (2026-08-29): sumar un ícono flotante fijo (WhatsApp o "Reservar") al costado, solo en mobile. A definir: posición exacta, si tapa contenido al hacer scroll, y si conviene ocultarlo cerca del footer para no duplicar con el CTA final. |
 
 ## 🟡 Decisión de diseño pendiente
 
@@ -46,7 +51,7 @@ la fecha y la decisión tomada, para que quede el historial.
 | Sección "Área de serviço" (lavandería/depósito) | Hay una foto (`DSC07478`) de un espacio que no encaja en ninguna sección actual del sitio (freezer, ropero, depósito). Guardada procesada, sin usar todavía. Evaluar si merece su propia mini-sección o si se descarta más adelante. |
 | Footer / sección "Redes" con Instagram + TikTok | Idea del cliente: footer prolijo con los logos de las redes sociales reales del hostel (Instagram `@Homehostelmcz` confirmado; falta el usuario de TikTok, lo va a pasar). Con efecto hover — el logo se agranda al pasar el mouse. Diseño a definir en el Sprint 8 (CTA final / footer). |
 | Imagen "cabecera" para compartir link / Google Maps | Idea del cliente: armar una imagen especial (usando el pasillo de banderas, o la foto del banner+bandera+celular) pensada específicamente para cuando se comparte el link del sitio (vista previa de WhatsApp/redes) o para la ficha de Google Maps del negocio. Distinta del `og-cover.jpg` actual del hero. Pendiente de definir cuál foto usar y el tamaño exacto que pide cada plataforma. |
-| Patrón de grid-areas para intercalar texto y fotos en mobile | Nace en el Sprint 2 (sección Sobre): en vez de un bloque de texto y un bloque de fotos separados, cada elemento es un ítem individual de un grid con `grid-template-areas`, así el orden de lectura puede ser distinto en mobile (intercalado) y desktop (2 columnas) sin duplicar HTML. Ya aplicado en Sobre, Quartos y Experiências (Sprints 2-4) -- reutilizar en Localização y Galería también. **Parte del mismo estándar (agregado en el Sprint 4):** en desktop, cuando hay 2 fotos lado a lado, la segunda foto siempre lleva `margin-block-start: var(--space-2xl)` para que arranque un poco más abajo que la primera -- rompe la alineación perfecta y le da un aire más orgánico. Aplicar en toda sección nueva con este layout, no solo en las que ya lo tienen. |
+| Patrón de grid-areas para intercalar texto y fotos en mobile | Nace en el Sprint 2 (sección Sobre): en vez de un bloque de texto y un bloque de fotos separados, cada elemento es un ítem individual de un grid con `grid-template-areas`, así el orden de lectura puede ser distinto en mobile (intercalado) y desktop (2 columnas) sin duplicar HTML. Aplicado en Sobre, Quartos, Experiências y Localização (Sprints 2-5). **Excepción, desde el Sprint 6:** Galeria usa una sola columna (texto arriba, fotos abajo) igual en mobile y desktop -- con texto corto, el patrón de 2 columnas dejaba mucho espacio vacío. Evaluar caso por caso en secciones futuras, no asumir el patrón de 2 columnas por default. **Parte del mismo estándar (agregado en el Sprint 4):** en desktop, cuando hay 2 fotos lado a lado, la segunda foto siempre lleva `margin-block-start: var(--space-2xl)` para que arranque un poco más abajo que la primera -- rompe la alineación perfecta y le da un aire más orgánico. Aplicar en toda sección nueva con este layout, no solo en las que ya lo tienen (excepto Galeria, ver arriba). |
 
 ## 🔵 Práctica de proceso (no es código, es flujo de trabajo)
 
@@ -56,6 +61,9 @@ la fecha y la decisión tomada, para que quede el historial.
 | Sincronizar antes de generar un parche nuevo | El asistente siempre trae el commit real del repo (`git fetch` + `git log origin/main`) antes de armar un parche nuevo, en vez de asumir que su copia de trabajo sigue igual a lo último subido. |
 | Coordenadas de mapa: siempre confirmadas con el cliente, nunca de una fuente genérica | Aprendido en el Sprint 5: una fuente de geocodificación por CEP dio coordenadas ~1,6 km desviadas de la ubicación real. De acá en más, cualquier coordenada de mapa se pide directamente al cliente (su propio Google Maps, botón "Compartilhar") antes de usarla en el sitio. |
 | Probar parches con archivos binarios (fotos) en un clon descartable | Aprendido en el Sprint 4: `git apply --check` no alcanza para confirmar que un archivo binario (foto, PDF) llegó bien -- hay que aplicarlo en un clon limpio y verificar con `file` que la imagen sea válida antes de entregar el parche. |
+| Verificar dimensiones reales de una foto antes de asignarle su layout | Aprendido en el Sprint 6: no asumir vertical/horizontal por el tipo de espacio que muestra la foto (una foto de "recepção" puede ser horizontal). Una consulta rápida con Pillow (`Image.open(...).size`) antes de escribir el HTML/CSS evita rondas de corrección después. |
+| Renderizar con navegador headless antes de reportar un layout como resuelto | Aprendido en el Sprint 6: un bug de layout (hueco vacío bajo una foto) no era detectable revisando el CSS a simple vista -- hacía falta medir las cajas reales en el DOM con Chromium headless (Playwright) para encontrar la causa real. |
+| Nombre del archivo de parche: siempre el mismo en el mensaje y en el comando | Aprendido en el Sprint 6: nunca copiar rutas de carpetas de descarga en los comandos -- el cliente mueve el archivo a la carpeta del proyecto antes de correr `git apply`, así que el comando solo necesita el nombre del archivo. |
 
 ---
 
@@ -87,3 +95,9 @@ la fecha y la decisión tomada, para que quede el historial.
 | 2026-08-28 | Fotos con personas identificables en el Mirante | Resuelto por el cliente con una herramienta de IA de edición externa (removió a las personas manteniendo el fondo real) -- verificado que no quedaran artefactos antes de usarlas. Se descartó previamente tanto el desenfoque como usar fotos de stock sin licencia confirmada. |
 | 2026-08-27 | Desfase de fotos no replicado en Quartos ni Experiências | Corregido en `responsive.css`: ahora las 3 secciones con 2 fotos lado a lado usan el mismo `margin-block-start` en la segunda foto. Documentado como estándar para toda sección nueva. |
 | 2026-08-27 | Indicador de sección activa en el nav de desktop, ronda 2 | Sumado negrita + color propio (`--color-palm`) al link activo, además del subrayado que ya existía. |
+| 2026-08-29 | Sección "Galeria" (Sprint 6) | Copy PT/ES/EN con enfoque de catálogo visual (menos storytelling), 3 bloques (Cozinha, Área externa e recepção, Banheiros) con 3 fotos reales cada uno, 2 videos reales del cliente. Ver `AUDITORIA-SPRINT6.md` para el detalle completo, incluidas las 3 rondas de ajuste post-publicación. |
+| 2026-08-29 | Hueco vacío debajo de cada foto "hero" en Galeria | Causa real: `<picture>` no heredaba la altura completa de la figura. Corregido con `picture { width:100%; height:100% }` en `galeria.css`. |
+| 2026-08-29 | Layout de 2 columnas en Galeria dejaba espacio vacío en desktop | Rediseñado a una sola columna (texto arriba, fotos abajo), igual en mobile y desktop -- ver excepción anotada en el patrón de grid-areas más arriba. |
+| 2026-08-29 | Foto de "recepção" incorrecta en Galeria | Se usaba `entrada_04` (la puerta); la foto real de recepção identificada por el cliente es `entrada_03` (sofá y espacio de estar). Corregido. |
+| 2026-08-29 | Parejas de fotos con proporciones distintas en Galeria | 2 bloques tenían una foto horizontal emparejada con una vertical. El cliente las reemplazó por alternativas verticales (`sala-jantar_07`, `patio_03`) para que las parejas queden visualmente parejas. |
+| 2026-08-29 | Pedido de usar captura de pantalla de Google Maps como imagen | No implementado -- los Términos de Servicio de Google Maps prohíben reutilizar capturas de pantalla del mapa fuera de su embed/API oficial. Se resolvió el pedido de fondo (tarjeta de mapa mobile más visual) con un ícono de pin ilustrado propio (SVG) en su lugar. |
