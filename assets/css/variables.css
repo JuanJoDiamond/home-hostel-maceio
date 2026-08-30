@@ -13,6 +13,7 @@
   --color-sand-soft: #faf3e4;    /* Fondo base de sección clara */
   --color-sun: #f2a44e;          /* Acento cálido, detalles, focus */
   --color-coral: #e8604c;        /* CTA secundario / hover de énfasis */
+  --color-coral-dark: #c94e3d;   /* Hover del CTA de Instagram */
   --color-palm: #2f6b4a;         /* CTA principal (Reservar por WhatsApp) */
   --color-palm-dark: #234f38;    /* Hover del CTA principal */
   --color-ink: #17282a;          /* Texto principal */
@@ -57,6 +58,7 @@
 
   /* ---- Layout ----------------------------------------------------------- */
   --max-width-content: 1320px;
+  --max-width-header: 1320px;   /* el nav queda como estaba, no se achica */
   --header-height: 84px;
   --header-height-scrolled: 72px;
 

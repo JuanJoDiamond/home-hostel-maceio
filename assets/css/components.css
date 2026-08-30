@@ -135,6 +135,22 @@
   border-color: var(--color-white);
 }
 
+/* CTA de Instagram: mismo criterio que el verde de WhatsApp -- un color
+   ya presente en la paleta del sitio (--color-coral) que evoca el tono
+   cálido de la app, sin meter el degradé oficial ni salirse de la
+   paleta. */
+.btn--instagram {
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--instagram:hover,
+.btn--instagram:focus-visible {
+  background-color: var(--color-coral-dark);
+  box-shadow: var(--shadow-strong);
+}
+
 .btn--icon svg {
   width: 15px;
   height: 15px;

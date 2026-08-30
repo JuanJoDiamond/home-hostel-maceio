@@ -94,29 +94,7 @@
   max-width: 42ch;
   color: rgba(255, 255, 255, 0.92);
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
-  margin-block-end: var(--space-sm);
-}
-
-.contato__social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semibold);
-  color: var(--color-white);
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
   margin-block-end: var(--space-lg);
-  transition: border-color var(--duration-fast) var(--ease-standard);
-}
-
-.contato__social-link svg {
-  width: 18px;
-  height: 18px;
-}
-
-.contato__social-link:hover,
-.contato__social-link:focus-visible {
-  border-color: var(--color-white);
 }
 
 .contato__p {
@@ -129,7 +107,10 @@
 }
 
 .contato__actions {
-  margin-block-end: var(--space-xl);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-lg);
 }
 
 .contato__address {

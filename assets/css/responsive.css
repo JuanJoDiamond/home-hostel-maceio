@@ -113,6 +113,13 @@
 
   :root {
     --section-padding-y: clamp(4rem, 7vw, 7rem);
+    /* Contenido (no el nav) escala en proporción al ancho de la ventana
+       en vez de un ancho fijo -- así laptop y monitores grandes guardan
+       la misma relación margen/contenido. Proporción calculada a partir
+       de una captura del cliente en 1440px (970px de contenido = 67.4%
+       del ancho de ventana), con un techo en 1300px para que no crezca
+       sin límite en monitores ultra anchos. */
+    --max-width-content: clamp(680px, 67.4vw, 1300px);
   }
 
   .hero__content {
