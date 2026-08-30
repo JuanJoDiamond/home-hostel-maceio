@@ -104,6 +104,13 @@
 
 /* ---- >= 992px: más aire en el contenedor y en el hero --------------------- */
 @media (min-width: 992px) {
+  /* Contato: en desktop el recorte es mucho más ancho, un anclaje muy
+     pegado al borde (bueno para mobile) deja demasiada pared vacía y
+     poca bandera visible -- 25% da mejor equilibrio. */
+  .contato__photo {
+    object-position: 25% 50%;
+  }
+
   :root {
     --section-padding-y: clamp(4rem, 7vw, 7rem);
   }

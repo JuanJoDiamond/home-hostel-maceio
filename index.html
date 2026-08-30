@@ -55,6 +55,7 @@
   <link rel="stylesheet" href="assets/css/experiencias.css" />
   <link rel="stylesheet" href="assets/css/localizacao.css" />
   <link rel="stylesheet" href="assets/css/galeria.css" />
+  <link rel="stylesheet" href="assets/css/contato.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 <body>
@@ -1093,8 +1094,75 @@
       </div>
     </section>
 
-    <!-- Contatos se desarrolla en el Sprint 7, según lo acordado en el
-         brief (ver docs/TEMAS-A-REVISAR.md). -->
+    <!-- ============================= CONTATO ============================= -->
+    <section id="contatos" class="contato" aria-label="Contato e reserva">
+      <picture>
+        <source srcset="assets/images/hero/contato-maceio.webp" type="image/webp" />
+        <img
+          class="contato__photo"
+          src="assets/images/hero/contato-maceio.jpg"
+          alt="Bandeira do Home Hostel na entrada, no corredor com bandeiras de países dos hóspedes"
+          data-i18n-attr="alt:contato_photo_alt"
+          loading="lazy"
+          width="1376"
+          height="768"
+        />
+      </picture>
+
+      <div class="contato__overlay" aria-hidden="true"></div>
+
+      <div class="contato__content" data-animate>
+        <p class="contato__eyebrow" data-i18n="contato_eyebrow">Contato</p>
+        <h2 class="contato__title" data-i18n="contato_title">Sua próxima história começa aqui.</h2>
+        <p class="contato__tagline" data-i18n="contato_tagline">
+          Maceió está esperando. O Home está pronto para receber você.
+        </p>
+
+        <p class="contato__social-text" data-i18n="contato_social_text">
+          A gente também está nas redes! Siga o Home no Instagram e fique
+          por dentro das promoções e novidades do hostel.
+        </p>
+        <a
+          href="https://www.instagram.com/homehostelmcz/"
+          class="contato__social-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4.2" />
+            <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+          </svg>
+          <span data-i18n="contato_social_link">@Homehostelmcz</span>
+        </a>
+
+        <p class="contato__p" data-i18n="contato_p1">
+          Quer saber mais sobre os quartos, consultar disponibilidade ou
+          planejar sua estadia? Fale com a gente pelo WhatsApp.
+        </p>
+
+        <div class="contato__actions">
+          <a
+            href="https://wa.me/5582991280921"
+            class="btn btn--primary btn--icon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.1.2-.3.2-.4a.5.5 0 0 0 0-.5c-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3c0 1.3.9 2.6 1.1 2.8.1.2 2 3 4.7 4.2a15.6 15.6 0 0 0 1.6.6c.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"
+              />
+            </svg>
+            <span data-i18n="contato_cta">Quero reservar</span>
+          </a>
+        </div>
+
+        <p class="contato__address">
+          <strong>Home Hostel Maceió</strong>
+          <span data-i18n="contato_address">R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL</span>
+        </p>
+      </div>
+    </section>
   </main>
 
   <!-- Botón flotante de WhatsApp, solo mobile (<992px). Fijo en pantalla,

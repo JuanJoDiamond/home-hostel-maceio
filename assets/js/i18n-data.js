@@ -133,7 +133,7 @@ export const translations = {
     exp_photo2_caption: "O gatinho da casa também vive por aqui",
     exp_reviews_badge_score: "9,3",
     exp_reviews_badge_text: "Fantástico",
-    exp_reviews_badge_sub: "10 comentários no Booking.com",
+    exp_reviews_badge_sub: "Comentários reais no Booking.com",
     exp_reviews_disclaimer:
       "Comentários reais de hóspedes no Booking.com, traduzidos automaticamente quando necessário.",
     exp_review1_name: "Juan",
@@ -235,9 +235,20 @@ export const translations = {
     gal_photo9_alt: "Detalhe de concha decorativa na pia do banheiro",
     gal_video1_title: "Conheça o Home em vídeo",
     gal_video2_title: "Um passeio pelo Farol e pelo Home Hostel",
-    gal_closing:
-      "Agora que você já conhece um pouco mais do Home, só falta uma coisa: viver essa experiência.",
+    gal_closing: "Isso é só uma parte do Home.",
     gal_cta: "Fale com a gente",
+
+    contato_eyebrow: "Contato",
+    contato_title: "Sua próxima história começa aqui.",
+    contato_tagline: "Maceió está esperando. O Home está pronto para receber você.",
+    contato_social_text:
+      "A gente também está nas redes! Siga o Home no Instagram e fique por dentro das promoções e novidades do hostel.",
+    contato_social_link: "@Homehostelmcz",
+    contato_p1:
+      "Quer saber mais sobre os quartos, consultar disponibilidade ou planejar sua estadia? Fale com a gente pelo WhatsApp.",
+    contato_cta: "Quero reservar",
+    contato_address: "R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL",
+    contato_photo_alt: "Bandeira do Home Hostel na entrada, no corredor com bandeiras de países dos hóspedes",
   },
   es: {
     aria_nav: "Navegación principal",
@@ -344,7 +355,7 @@ export const translations = {
     exp_photo2_caption: "El gato de la casa también vive acá",
     exp_reviews_badge_score: "9,3",
     exp_reviews_badge_text: "Fantástico",
-    exp_reviews_badge_sub: "10 comentarios en Booking.com",
+    exp_reviews_badge_sub: "Comentarios reales en Booking.com",
     exp_reviews_disclaimer:
       "Comentarios reales de huéspedes en Booking.com, traducidos automáticamente cuando corresponde.",
     exp_review1_name: "Juan",
@@ -446,9 +457,20 @@ export const translations = {
     gal_photo9_alt: "Detalle de caracola decorativa en la bacha del baño",
     gal_video1_title: "Conocé el Home en video",
     gal_video2_title: "Un paseo por el Farol y por Home Hostel",
-    gal_closing:
-      "Ahora que ya conocés un poco más del Home, solo falta una cosa: vivir esta experiencia.",
+    gal_closing: "Esto es solo una parte del Home.",
     gal_cta: "Hablá con nosotros",
+
+    contato_eyebrow: "Contacto",
+    contato_title: "Tu próxima historia empieza acá.",
+    contato_tagline: "Maceió te está esperando. El Home está listo para recibirte.",
+    contato_social_text:
+      "¡También estamos en las redes! Seguinos en Instagram y enterate de promociones y novedades del hostel.",
+    contato_social_link: "@Homehostelmcz",
+    contato_p1:
+      "¿Querés saber más sobre las habitaciones, consultar disponibilidad o planificar tu estadía? Hablá con nosotros por WhatsApp.",
+    contato_cta: "Quiero reservar",
+    contato_address: "R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL",
+    contato_photo_alt: "Bandera del Home Hostel en la entrada, en el pasillo con banderas de países de los huéspedes",
   },
   en: {
     aria_nav: "Main navigation",
@@ -554,7 +576,7 @@ export const translations = {
     exp_photo2_caption: "The house cat lives here too",
     exp_reviews_badge_score: "9.3",
     exp_reviews_badge_text: "Fantastic",
-    exp_reviews_badge_sub: "10 reviews on Booking.com",
+    exp_reviews_badge_sub: "Real reviews on Booking.com",
     exp_reviews_disclaimer:
       "Real guest reviews from Booking.com, automatically translated when needed.",
     exp_review1_name: "Juan",
@@ -656,9 +678,20 @@ export const translations = {
     gal_photo9_alt: "Detail of a decorative seashell on the bathroom sink",
     gal_video1_title: "Get to know the Home on video",
     gal_video2_title: "A walk through Farol and Home Hostel",
-    gal_closing:
-      "Now that you know the Home a little better, there's only one thing left: to live the experience.",
+    gal_closing: "This is just one part of the Home.",
     gal_cta: "Get in touch",
+
+    contato_eyebrow: "Contact",
+    contato_title: "Your next story starts here.",
+    contato_tagline: "Maceió is waiting. The Home is ready to welcome you.",
+    contato_social_text:
+      "We're also on social media! Follow the Home on Instagram to stay up to date with promotions and hostel news.",
+    contato_social_link: "@Homehostelmcz",
+    contato_p1:
+      "Want to know more about the rooms, check availability, or plan your stay? Message us on WhatsApp.",
+    contato_cta: "I want to book",
+    contato_address: "R. Prof. Ângelo Neto, 263 — Farol, Maceió - AL",
+    contato_photo_alt: "Home Hostel flag at the entrance, in the corridor with guests' home country flags",
   },
 };
 
