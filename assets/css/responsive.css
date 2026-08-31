@@ -235,6 +235,24 @@
   .galeria__videos {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* Footer: brand a la izquierda, las 4 columnas en fila a la derecha
+     -- en mobile todo se apila (ver footer.css, mobile-first). */
+  .site-footer__inner {
+    grid-template-columns: 1.2fr 2fr;
+    align-items: start;
+  }
+
+  .site-footer__columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .site-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-block-end: var(--space-md);
+  }
 }
 
 /* ---- >= 1200px: contenedor a su ancho máximo, tipografía tope ------------- */

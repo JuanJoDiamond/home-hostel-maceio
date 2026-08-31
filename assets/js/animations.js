@@ -43,4 +43,35 @@ export function initAnimations() {
   document.querySelectorAll("[data-animate]").forEach((el) => {
     revealObserver.observe(el);
   });
+
+  // ---- Ocultar el botón flotante de WhatsApp cerca del final del sitio -----
+  // Al llegar a Contato (y de ahí en más, el Footer) ya hay botones de
+  // WhatsApp bien visibles en la página -- el flotante deja de aportar y
+  // solo tapa contenido. threshold 0 a propósito (no un %), mismo
+  // motivo que el reveal genérico de arriba: no depender del alto total
+  // de la sección para disparar.
+  const whatsappFab = document.querySelector(".whatsapp-fab");
+  const contatoSection = document.querySelector("#contatos");
+
+  if (whatsappFab && contatoSection) {
+    const fabObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          whatsappFab.classList.toggle("whatsapp-fab--hidden", entry.isIntersecting);
+        });
+      },
+      { threshold: 0 }
+    );
+    fabObserver.observe(contatoSection);
+  }
+
+  // ---- Botón "volver arriba" -- aparece después de bajar un poco -----------
+  const backToTop = document.querySelector(".back-to-top");
+  if (backToTop) {
+    const toggleBackToTop = () => {
+      backToTop.classList.toggle("back-to-top--visible", window.scrollY > window.innerHeight * 0.6);
+    };
+    toggleBackToTop();
+    window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  }
 }

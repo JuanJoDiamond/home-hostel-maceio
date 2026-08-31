@@ -1,0 +1,134 @@
+/* ==========================================================================
+   FOOTER.CSS
+   Sprint 8. A propósito, rompe con el resto del sitio: acá termina el
+   storytelling y arranca lo funcional. Sin la fuente display (Fraunces)
+   en ningún lado -- todo en Manrope. Fondo oscuro sólido (--color-ink),
+   mismo tono que ya cierra Contato, para que la transición entre
+   secciones no sea un salto brusco de color.
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-ink);
+  color: rgba(244, 232, 208, 0.72);
+  font-family: var(--font-body);
+}
+
+.site-footer__inner {
+  width: 100%;
+  max-width: var(--max-width-header);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  padding-block: var(--space-2xl);
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.site-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: fit-content;
+}
+
+.site-footer__logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+}
+
+.site-footer__logo-text {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  color: var(--color-sand);
+}
+
+.site-footer__tagline {
+  font-size: var(--fs-sm);
+  color: rgba(244, 232, 208, 0.6);
+}
+
+.site-footer__columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.site-footer__col-title {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244, 232, 208, 0.5);
+  margin-block-end: var(--space-sm);
+}
+
+.site-footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.site-footer__col a {
+  font-size: var(--fs-sm);
+  color: rgba(244, 232, 208, 0.85);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.site-footer__col a:hover,
+.site-footer__col a:focus-visible {
+  color: var(--color-sand);
+  text-decoration: underline;
+}
+
+.site-footer__address {
+  font-style: normal;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: rgba(244, 232, 208, 0.85);
+}
+
+.site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.site-footer__social svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.site-footer__bottom {
+  width: 100%;
+  max-width: var(--max-width-header);
+  margin-inline: auto;
+  border-block-start: 1px solid rgba(244, 232, 208, 0.14);
+  padding-block: var(--space-md);
+  /* Deja lugar para que el botón flotante de WhatsApp (mobile, fijo
+     abajo a la derecha) no tape la última línea -- ver whatsapp-fab en
+     components.css. Se resetea a la derecha en desktop porque ahí el
+     botón flotante no existe. */
+  padding-block-end: calc(var(--space-md) + 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.site-footer__copyright {
+  font-size: var(--fs-xs);
+  color: rgba(244, 232, 208, 0.5);
+}
+
+.site-footer__micro {
+  font-size: var(--fs-xs);
+  color: rgba(244, 232, 208, 0.4);
+}

@@ -23,13 +23,13 @@ la fecha y la decisión tomada, para que quede el historial.
 
 | Tema | Detalle |
 |---|---|
-| Contenido real de la sección Contatos | Redes sociales (Instagram) + WhatsApp. Falta definir copy exacto. Sprint 7. |
+| Footer funcional (Sprint 8) | Logo + tagline corta, redes (Instagram/WhatsApp/Google Maps), navegación a las secciones, bloque de reservas, dirección, copyright. Sin agregar enlaces de más -- ver brief del cliente del 2026-08-29. |
 
 ## 🔵 A revisar en un próximo sprint (idea del cliente, todavía sin definir)
 
 | Tema | Detalle |
 |---|---|
-| Botón/ícono flotante de WhatsApp en mobile | En desktop el botón "Reservar" está siempre visible y fijo en el nav. En mobile no hay equivalente hasta que la persona llega al final del sitio — se puede perder la conversión si no scrollea todo. Idea del cliente (2026-08-29): sumar un ícono flotante fijo (WhatsApp o "Reservar") al costado, solo en mobile. A definir: posición exacta, si tapa contenido al hacer scroll, y si conviene ocultarlo cerca del footer para no duplicar con el CTA final. |
+| Posible superposición del botón flotante de WhatsApp con el footer | El botón flotante (sumado en el Sprint 7) queda fijo abajo a la derecha en mobile. Con la sección Contato terminando el sitio, ya se nota una leve superposición con la dirección al llegar al final de la página. Revisar una vez que el Footer (Sprint 8) sume contenido debajo -- es probable que se resuelva solo al haber más scroll, pero confirmar. |
 
 ## 🟡 Decisión de diseño pendiente
 
@@ -64,6 +64,9 @@ la fecha y la decisión tomada, para que quede el historial.
 | Verificar dimensiones reales de una foto antes de asignarle su layout | Aprendido en el Sprint 6: no asumir vertical/horizontal por el tipo de espacio que muestra la foto (una foto de "recepção" puede ser horizontal). Una consulta rápida con Pillow (`Image.open(...).size`) antes de escribir el HTML/CSS evita rondas de corrección después. |
 | Renderizar con navegador headless antes de reportar un layout como resuelto | Aprendido en el Sprint 6: un bug de layout (hueco vacío bajo una foto) no era detectable revisando el CSS a simple vista -- hacía falta medir las cajas reales en el DOM con Chromium headless (Playwright) para encontrar la causa real. |
 | Nombre del archivo de parche: siempre el mismo en el mensaje y en el comando | Aprendido en el Sprint 6: nunca copiar rutas de carpetas de descarga en los comandos -- el cliente mueve el archivo a la carpeta del proyecto antes de correr `git apply`, así que el comando solo necesita el nombre del archivo. |
+| Simular scroll real antes de dar por buena una animación de aparición | Aprendido en el Sprint 7, con un bug real: el `IntersectionObserver` de reveal-on-scroll usaba un `threshold` (15%) pensado como porcentaje del alto del elemento -- funcionaba en secciones cortas pero se rompía en una sección muy alta (Galeria en desktop, con layout de una sola columna), donde ese 15% nunca entraba en una sola pantalla. Regla ya sumada como obligatoria: antes de cualquier parche que toque altura de layout o JS de scroll/animaciones, simular scroll real incremental con Playwright en mobile y desktop, no alcanza con una captura estática. |
+| Si el sitio usa `scroll-behavior: smooth`, los tests de scroll simulado necesitan esperas realistas | Aprendido en el Sprint 7: un test de scroll con saltos rápidos y poca espera entre pasos reportó un falso bug (reveal "fallando" en desktop) que en realidad era el scroll suave del sitio sin tiempo de asentarse antes del siguiente salto programático. No repetir el diagnóstico apresurado -- primero confirmar si el falso positivo es del test, no del sitio. |
+| Ajustar parámetros del pipeline de fotos antes de aceptar el primer resultado | Aprendido en el Sprint 7: el primer pase de procesamiento (gamma + CLAHE + saturación) puede quedar sobre-procesado en fotos con áreas grandes lisas (paredes, cielos) -- revisar visualmente antes de entregar, no asumir que los mismos parámetros sirven para toda foto. |
 
 ---
 
@@ -101,3 +104,8 @@ la fecha y la decisión tomada, para que quede el historial.
 | 2026-08-29 | Foto de "recepção" incorrecta en Galeria | Se usaba `entrada_04` (la puerta); la foto real de recepção identificada por el cliente es `entrada_03` (sofá y espacio de estar). Corregido. |
 | 2026-08-29 | Parejas de fotos con proporciones distintas en Galeria | 2 bloques tenían una foto horizontal emparejada con una vertical. El cliente las reemplazó por alternativas verticales (`sala-jantar_07`, `patio_03`) para que las parejas queden visualmente parejas. |
 | 2026-08-29 | Pedido de usar captura de pantalla de Google Maps como imagen | No implementado -- los Términos de Servicio de Google Maps prohíben reutilizar capturas de pantalla del mapa fuera de su embed/API oficial. Se resolvió el pedido de fondo (tarjeta de mapa mobile más visual) con un ícono de pin ilustrado propio (SVG) en su lugar. |
+| 2026-08-29 | Botón flotante de WhatsApp en mobile (Sprint 6b) | Ícono circular + etiqueta "RESERVAR" chica debajo, fijo abajo a la derecha, solo mobile (<992px). |
+| 2026-08-29 | Bug real: reveal-on-scroll no se disparaba en Galeria en desktop | Causa: `threshold: 0.15` del `IntersectionObserver`, pensado como % del alto del elemento, nunca se cumplía en una sección tan alta como Galeria en desktop. Corregido bajando el threshold a 0.01. Ver `AUDITORIA-SPRINT7.md`. |
+| 2026-08-29 | Sección "Contato" (Sprint 7) | Cierre emocional del sitio, foto real de la bandera en la entrada (con retoque de IA puntual, no generación), bloque de Instagram + CTA de WhatsApp. Copy PT/ES/EN. Ver `AUDITORIA-SPRINT7.md` para el detalle completo, incluidos los ajustes de procesamiento de foto y recorte mobile/desktop. |
+| 2026-08-29 | Número hardcodeado de reseñas en Experiências | "10 comentários no Booking.com" reemplazado por "Comentários reais no Booking.com", sin número que se desactualice. |
+| 2026-08-29 | Pedido de usar una imagen generada por IA (Gemini) como fondo de Contato | No implementado -- se sostuvo la regla de solo fotos reales del cliente, sin excepciones. El cliente confirmó que la bandera es real y mandó una foto propia (con un retoque de IA puntual para borrar un elemento feo, no para generar contenido), que sí se usó. |

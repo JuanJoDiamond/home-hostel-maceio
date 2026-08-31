@@ -305,6 +305,52 @@
 }
 
 /* ==========================================================================
+   BOTÓN "VOLVER ARRIBA" -- en las dos plataformas (mobile y desktop).
+   Aparece recién al bajar un poco, no tiene sentido mostrarlo sobre el
+   Hero. Abajo a la izquierda para no chocar con el FAB de WhatsApp
+   (mobile, a la derecha).
+   ========================================================================== */
+
+.back-to-top {
+  position: fixed;
+  left: var(--space-md);
+  bottom: var(--space-md);
+  z-index: 40;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-ocean-deep);
+  color: var(--color-sand-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-strong);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background-color: var(--color-ink);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
    BOTÓN FLOTANTE DE WHATSAPP -- solo mobile (<992px).
    Sprint 6b: en mobile no había ningún CTA de reserva visible salvo el
    del hero, que se pierde ni bien la persona scrollea. En desktop el nav
@@ -324,6 +370,16 @@
   align-items: center;
   gap: 3px;
   text-decoration: none;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.whatsapp-fab--hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
 }
 
 .whatsapp-fab__icon {
