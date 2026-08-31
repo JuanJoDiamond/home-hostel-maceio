@@ -23,13 +23,13 @@ la fecha y la decisión tomada, para que quede el historial.
 
 | Tema | Detalle |
 |---|---|
-| Footer funcional (Sprint 8) | Logo + tagline corta, redes (Instagram/WhatsApp/Google Maps), navegación a las secciones, bloque de reservas, dirección, copyright. Sin agregar enlaces de más -- ver brief del cliente del 2026-08-29. |
+| Revisión final de QA + SEO | Checklist de QA general y foco en SEO (metadatos, palabras clave, portugués como idioma por defecto ya que el hostel está en Brasil). Último paso antes del cierre general del proyecto -- ver brief del cliente del 2026-08-29. |
 
-## 🔵 A revisar en un próximo sprint (idea del cliente, todavía sin definir)
+## ⚫ Descartado por decisión del cliente
 
 | Tema | Detalle |
 |---|---|
-| Posible superposición del botón flotante de WhatsApp con el footer | El botón flotante (sumado en el Sprint 7) queda fijo abajo a la derecha en mobile. Con la sección Contato terminando el sitio, ya se nota una leve superposición con la dirección al llegar al final de la página. Revisar una vez que el Footer (Sprint 8) sume contenido debajo -- es probable que se resuelva solo al haber más scroll, pero confirmar. |
+| Modo oscuro | Consultado por el cliente en el Sprint 8. Técnicamente viable (la base de variables de color ya está preparada) y sin costo real de peso/performance, pero implica diseñar una paleta oscura propia y revisar contraste en las 8 secciones, 3 idiomas y 2 tamaños de pantalla -- un mini-sprint en sí mismo. El cliente decidió no implementarlo ("nadie lo pidió"). No es un pendiente, es un descarte consciente -- no reabrir sin que el cliente lo pida de nuevo. |
 
 ## 🟡 Decisión de diseño pendiente
 
@@ -109,3 +109,6 @@ la fecha y la decisión tomada, para que quede el historial.
 | 2026-08-29 | Sección "Contato" (Sprint 7) | Cierre emocional del sitio, foto real de la bandera en la entrada (con retoque de IA puntual, no generación), bloque de Instagram + CTA de WhatsApp. Copy PT/ES/EN. Ver `AUDITORIA-SPRINT7.md` para el detalle completo, incluidos los ajustes de procesamiento de foto y recorte mobile/desktop. |
 | 2026-08-29 | Número hardcodeado de reseñas en Experiências | "10 comentários no Booking.com" reemplazado por "Comentários reais no Booking.com", sin número que se desactualice. |
 | 2026-08-29 | Pedido de usar una imagen generada por IA (Gemini) como fondo de Contato | No implementado -- se sostuvo la regla de solo fotos reales del cliente, sin excepciones. El cliente confirmó que la bandera es real y mandó una foto propia (con un retoque de IA puntual para borrar un elemento feo, no para generar contenido), que sí se usó. |
+| 2026-08-29 | Footer funcional (Sprint 8) | Marca + tagline, Navegação, Reservas, Onde estamos, Siga o Home, copyright + microfrase. Solo tipografía Manrope, corta el tono emocional del resto del sitio a propósito. Ver `AUDITORIA-SPRINT8.md`. |
+| 2026-08-29 | Botón "volver arriba" | Nuevo en el sitio, mobile y desktop. Semi-transparente en mobile, más grande y sólido en desktop -- ajustado a pedido del cliente tras la primera versión. |
+| 2026-08-29 | FAB de WhatsApp se ocultaba tapando el copyright del footer | Corregido con espacio extra abajo del todo en mobile. Además, el FAB ahora se oculta contextualmente cerca de Contato/Footer (ya hay botones de WhatsApp propios ahí). |

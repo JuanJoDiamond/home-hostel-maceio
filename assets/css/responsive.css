@@ -253,6 +253,20 @@
     align-items: center;
     padding-block-end: var(--space-md);
   }
+
+  /* Volver arriba: en mobile semi-transparente (ver components.css), en
+     desktop más grande y sólido -- ahí se pierde en pantallas grandes. */
+  .back-to-top {
+    width: 52px;
+    height: 52px;
+    background-color: var(--color-ocean-deep);
+    backdrop-filter: none;
+  }
+
+  .back-to-top svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /* ---- >= 1200px: contenedor a su ancho máximo, tipografía tope ------------- */

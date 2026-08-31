@@ -319,7 +319,8 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-full);
-  background-color: var(--color-ocean-deep);
+  background-color: rgba(12, 74, 94, 0.55);
+  backdrop-filter: blur(2px);
   color: var(--color-sand-soft);
   display: flex;
   align-items: center;
