@@ -65,7 +65,10 @@
   font-weight: var(--fw-semibold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(244, 232, 208, 0.5);
+  /* 0.62, no 0.5: a 0.5 el contraste contra el fondo oscuro daba 4.24:1,
+     por debajo del mínimo WCAG AA (4.5:1) para texto normal. Encontrado
+     con Lighthouse en el QA final, no a ojo. */
+  color: rgba(244, 232, 208, 0.62);
   margin-block-end: var(--space-sm);
 }
 
@@ -125,10 +128,11 @@
 
 .site-footer__copyright {
   font-size: var(--fs-xs);
-  color: rgba(244, 232, 208, 0.5);
+  color: rgba(244, 232, 208, 0.62);
 }
 
 .site-footer__micro {
   font-size: var(--fs-xs);
-  color: rgba(244, 232, 208, 0.4);
+  /* 0.58, no 0.4 -- mismo motivo que .site-footer__col-title arriba. */
+  color: rgba(244, 232, 208, 0.58);
 }

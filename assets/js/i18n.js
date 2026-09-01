@@ -42,6 +42,14 @@ function applyLanguage(lang) {
     trigger.querySelector("[data-current-flag]").innerHTML = activeLang.flag;
     trigger.querySelector("[data-current-code]").textContent =
       activeLang.code.toUpperCase();
+    // El aria-label tiene que incluir el texto visible (el código de
+    // idioma, ej. "PT") para que coincida con el nombre accesible --
+    // si no, herramientas de control por voz que dicen "click en PT" no
+    // encuentran el botón. Encontrado con Lighthouse en el QA final.
+    trigger.setAttribute(
+      "aria-label",
+      `${dict.aria_lang}: ${activeLang.code.toUpperCase()}`
+    );
   }
 
   document.querySelectorAll("[data-lang-option]").forEach((btn) => {

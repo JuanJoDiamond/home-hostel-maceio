@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://juanjodiamond.github.io/home-hostel-maceio/sitemap.xml

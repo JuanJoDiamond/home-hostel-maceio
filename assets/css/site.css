@@ -1,0 +1,3195 @@
+/* ==========================================================================
+   site.css -- GENERADO AUTOMÁTICAMENTE por build_css.py, NO EDITAR A MANO.
+   Editar los archivos fuente (variables.css, layout.css, etc.) y volver a
+   correr build_css.py antes de cada patch que toque CSS.
+   ========================================================================== */
+
+/* ---- variables.css ---- */
+/* ==========================================================================
+   VARIABLES.CSS
+   Design tokens de Home Hostel Maceió.
+   Único lugar donde se define la identidad visual (color, tipografía,
+   espaciado, breakpoints). El resto del CSS solo consume estas variables.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: paleta costa de Alagoas ------------------------------- */
+  --color-ocean-deep: #0c4a5e;   /* Header, textos sobre claro, base oscura */
+  --color-ocean-light: #3f8ca6;  /* Acentos secundarios, links, hover */
+  --color-sand: #f4e8d0;         /* Fondos alternos, cards claras */
+  --color-sand-soft: #faf3e4;    /* Fondo base de sección clara */
+  --color-sun: #f2a44e;          /* Acento cálido, detalles, focus */
+  --color-coral: #e8604c;        /* CTA secundario / hover de énfasis */
+  --color-coral-dark: #c94e3d;   /* Hover del CTA de Instagram */
+  --color-palm: #2f6b4a;         /* CTA principal (Reservar por WhatsApp) */
+  --color-palm-dark: #234f38;    /* Hover del CTA principal */
+  --color-ink: #17282a;          /* Texto principal */
+  --color-ink-soft: #3c5153;     /* Texto secundario */
+  --color-white: #ffffff;
+
+  /* ---- Tipografía ----------------------------------------------------- */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+
+  /* Escala tipográfica fluida (clamp: mínimo, preferido en vw, máximo) */
+  --fs-xs: clamp(0.8rem, 0.77rem + 0.15vw, 0.9rem);
+  --fs-sm: clamp(0.9rem, 0.86rem + 0.2vw, 1rem);
+  --fs-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-md: clamp(1.15rem, 1.08rem + 0.35vw, 1.4rem);
+  --fs-lg: clamp(1.5rem, 1.3rem + 1vw, 2.1rem);
+  --fs-xl: clamp(2.1rem, 1.7rem + 2vw, 3.2rem);
+  --fs-hero: clamp(2rem, 1.35rem + 3vw, 3.75rem);
+
+  --lh-tight: 1.1;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Espaciado (escala base 8px) ------------------------------------ */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Padding lateral fluido de secciones, mismo criterio en todo el sitio */
+  --section-padding-x: clamp(1.25rem, 4vw, 5rem);
+  --section-padding-y: clamp(3rem, 8vw, 6rem);
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --max-width-content: 1320px;
+  --max-width-header: 1320px;   /* el nav queda como estaba, no se achica */
+  --header-height: 84px;
+  --header-height-scrolled: 72px;
+
+  /* ---- Bordes y sombras --------------------------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  --shadow-soft: 0 8px 24px rgba(12, 74, 94, 0.12);
+  --shadow-strong: 0 16px 40px rgba(12, 74, 94, 0.22);
+
+  /* ---- Transiciones --------------------------------------------------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+
+  /* ---- Z-index scale --------------------------------------------------- */
+  --z-header: 100;
+  --z-overlay: 200;
+}
+
+/* ---- reset.css ---- */
+/* ==========================================================================
+   RESET.CSS
+   Reset moderno mínimo, no invasivo. Normaliza comportamiento entre
+   navegadores sin pisar decisiones tipográficas que ya viven en variables.css
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100svh;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  color: var(--color-ink);
+  background-color: var(--color-sand-soft);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Foco visible consistente en toda la web (accesibilidad, WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--color-sun);
+  outline-offset: 3px;
+}
+
+/* Respeta la preferencia de movimiento reducido del usuario */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip-link: oculto por defecto, visible y arriba de todo al recibir foco
+   (primer elemento tabulable de la página) */
+.skip-link {
+  position: absolute;
+  inset-block-start: -100%;
+  inset-inline-start: var(--space-md);
+  z-index: 999;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-ocean-deep);
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+  font-weight: var(--fw-semibold);
+  transition: inset-block-start var(--duration-fast) var(--ease-standard);
+}
+
+.skip-link:focus-visible {
+  inset-block-start: var(--space-md);
+}
+
+/* ---- layout.css ---- */
+/* ==========================================================================
+   LAYOUT.CSS
+   Estructuras genéricas reutilizables en todas las secciones del sitio:
+   contenedor, header sticky, wrapper de sección.
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-x);
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+/* Compensa el header fijo al saltar por ancla (nav, o el CTA "Conheça os
+   quartos" de Sobre): sin esto, el título de la sección de destino queda
+   tapado detrás del header al hacer scroll-behavior: smooth. */
+main section[id] {
+  scroll-margin-top: var(--header-height);
+}
+
+.section--sand {
+  background-color: var(--color-sand);
+}
+
+/* ---- Reveal on-scroll genérico -------------------------------------------
+   animations.js le agrega .is-visible a cualquier [data-animate] cuando
+   entra en viewport. Definido acá (no en el CSS de cada sección) porque
+   se reutiliza en todas las secciones de los próximos sprints. Respeta
+   prefers-reduced-motion: animations.js ya marca todo como visible de
+   entrada si el usuario lo pide, así que esta transición nunca corre. */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-standard);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Header ------------------------------------------------------------ */
+
+.site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: var(--z-header);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  transition: height var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+/* Estado aplicado por navbar.js cuando el usuario hace scroll */
+.site-header.is-scrolled {
+  height: var(--header-height-scrolled);
+  background-color: rgba(250, 243, 228, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
+}
+
+.site-header__inner {
+  width: 100%;
+  max-width: var(--max-width-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+/* main empieza debajo del header fijo */
+main {
+  display: block;
+}
+
+/* ---- components.css ---- */
+/* ==========================================================================
+   COMPONENTS.CSS
+   Piezas reutilizables: logo, navegación, botones, toggle de menú móvil.
+   ========================================================================== */
+
+/* ---- Logo --------------------------------------------------------------- */
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__badge {
+  width: clamp(48px, 5.5vw, 64px);
+  height: clamp(48px, 5.5vw, 64px);
+  border-radius: 50%;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+  transition: transform var(--duration-fast) var(--ease-standard),
+    width var(--duration-base) var(--ease-standard),
+    height var(--duration-base) var(--ease-standard);
+}
+
+.logo:hover .logo__badge,
+.logo:focus-visible .logo__badge {
+  transform: scale(1.05);
+}
+
+/* ---- Navegación principal ------------------------------------------------ */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav__link {
+  position: relative;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-white);
+  padding-block: var(--space-2xs);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.site-header.is-scrolled .nav__link {
+  color: var(--color-ink);
+}
+
+/* Link activo (scrollspy): además del subrayado de abajo, el texto pasa
+   a negrita y a un color propio -- necesita la misma especificidad que
+   la regla de arriba (site-header.is-scrolled .nav__link) para no
+   perder el color cuando el header ya está scrolleado. */
+.nav__link.is-active,
+.site-header.is-scrolled .nav__link.is-active {
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  inset-block-end: -2px;
+  inset-inline-start: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-sun);
+  transition: width var(--duration-base) var(--ease-standard);
+}
+
+.nav__link:hover::after,
+.nav__link:focus-visible::after,
+.nav__link.is-active::after {
+  width: 100%;
+}
+
+/* ---- Botones -------------------------------------------------------------- */
+
+/* Tamaño base = mobile. Se agranda en responsive.css a partir de 576px.
+   Antes tenía un tamaño fijo pensado para escritorio que nunca se achicaba
+   en pantallas chicas -- por eso se veía "gigante" en celular. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  transition: transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* CTA principal: verde palma. Elección deliberada -- evoca el verde de
+   WhatsApp (reconocimiento inmediato de la acción "Reservar por WhatsApp")
+   sin salir de la paleta natural del sitio. */
+.btn--primary {
+  background-color: var(--color-palm);
+  color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: var(--color-palm-dark);
+  box-shadow: var(--shadow-strong);
+}
+
+/* CTA secundario: contorno, para no competir con el principal */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-white);
+}
+
+/* CTA de Instagram: mismo criterio que el verde de WhatsApp -- un color
+   ya presente en la paleta del sitio (--color-coral) que evoca el tono
+   cálido de la app, sin meter el degradé oficial ni salirse de la
+   paleta. */
+.btn--instagram {
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--instagram:hover,
+.btn--instagram:focus-visible {
+  background-color: var(--color-coral-dark);
+  box-shadow: var(--shadow-strong);
+}
+
+.btn--icon svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* ---- Selector de idioma ---------------------------------------------------
+   Fondo blanco sólido siempre (no depende de si el header está scrolleado
+   o no), para garantizar legibilidad sobre la foto oscura y sobre el header
+   claro por igual -- mismo criterio que se usó con el logo. */
+
+.lang-switch {
+  position: relative;
+}
+
+.lang-switch__trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.lang-switch__trigger:hover,
+.lang-switch__trigger:focus-visible {
+  box-shadow: var(--shadow-strong);
+}
+
+.lang-switch__flag {
+  display: inline-flex;
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lang-switch__flag svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* El código de idioma (PT/ES/EN) se oculta en mobile para no ocupar
+   espacio en el header; solo se ve la bandera. Vuelve a partir de 768px. */
+.lang-switch__code {
+  display: none;
+}
+
+.lang-switch__menu {
+  position: absolute;
+  inset-block-start: calc(100% + 10px);
+  inset-inline-end: 0;
+  z-index: var(--z-overlay);
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-xs);
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-strong);
+}
+
+.lang-switch__menu[hidden] {
+  display: none;
+}
+
+.lang-switch__menu button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-ink);
+  text-align: start;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.lang-switch__menu button:hover,
+.lang-switch__menu button:focus-visible {
+  background-color: var(--color-sand);
+}
+
+.lang-switch__menu button[aria-selected="true"] {
+  background-color: var(--color-sand);
+  font-weight: var(--fw-semibold);
+}
+
+/* ---- Toggle de menú móvil (hamburguesa accesible) ------------------------- */
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+}
+
+.nav-toggle__bar,
+.nav-toggle__bar::before,
+.nav-toggle__bar::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: transform var(--duration-base) var(--ease-standard),
+    opacity var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard);
+}
+
+.site-header.is-scrolled .nav-toggle__bar,
+.site-header.is-scrolled .nav-toggle__bar::before,
+.site-header.is-scrolled .nav-toggle__bar::after {
+  background-color: var(--color-ocean-deep);
+}
+
+.nav-toggle__bar::before {
+  position: absolute;
+  transform: translateY(-8px);
+}
+
+.nav-toggle__bar::after {
+  position: absolute;
+  transform: translateY(8px);
+}
+
+.nav-toggle__bar {
+  position: relative;
+}
+
+/* Estado abierto: la hamburguesa se transforma en X */
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::after {
+  transform: translateY(0) rotate(-45deg);
+}
+
+/* ==========================================================================
+   BOTÓN "VOLVER ARRIBA" -- en las dos plataformas (mobile y desktop).
+   Aparece recién al bajar un poco, no tiene sentido mostrarlo sobre el
+   Hero. Abajo a la izquierda para no chocar con el FAB de WhatsApp
+   (mobile, a la derecha).
+   ========================================================================== */
+
+.back-to-top {
+  position: fixed;
+  left: var(--space-md);
+  bottom: var(--space-md);
+  z-index: 40;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: rgba(12, 74, 94, 0.55);
+  backdrop-filter: blur(2px);
+  color: var(--color-sand-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-strong);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background-color: var(--color-ink);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   BOTÓN FLOTANTE DE WHATSAPP -- solo mobile (<992px).
+   Sprint 6b: en mobile no había ningún CTA de reserva visible salvo el
+   del hero, que se pierde ni bien la persona scrollea. En desktop el nav
+   ya resuelve esto (botón "Reservar" siempre fijo arriba). Ícono grande
+   + etiqueta chica abajo -- versión compacta a pedido del cliente,
+   descartando texto largo tipo píldora para ocupar menos espacio fijo
+   en pantalla.
+   ========================================================================== */
+
+.whatsapp-fab {
+  display: none;
+  position: fixed;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  z-index: 40;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.whatsapp-fab--hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+.whatsapp-fab__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-palm);
+  color: var(--color-sand-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-strong);
+  transition: background-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.whatsapp-fab__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.whatsapp-fab__label {
+  font-size: 9px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-palm);
+  background-color: var(--color-sand-soft);
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-soft);
+}
+
+.whatsapp-fab:hover .whatsapp-fab__icon,
+.whatsapp-fab:focus-visible .whatsapp-fab__icon {
+  background-color: var(--color-palm-dark);
+  transform: scale(1.05);
+}
+
+@media (max-width: 991px) {
+  .whatsapp-fab {
+    display: flex;
+  }
+}
+
+/* ---- hero.css ---- */
+/* ==========================================================================
+   HERO.CSS
+   Sección de apertura. Ocupa ~100% del viewport.
+
+   NOTA DE CALIDAD DE IMAGEN: el asset actual (hero-maceio.webp/.jpg) es de
+   1365px de ancho. Cubre bien hasta laptops estándar (~1440px); en monitores
+   grandes o 4K el object-fit: cover puede notarse escalado. Reemplazar por
+   una versión de origen de al menos 2400px de ancho apenas esté disponible,
+   sin tocar esta regla.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  /* Margen de seguridad: el contenido nunca se mete debajo del header fijo,
+     sin importar cuán largo sea el texto en algún idioma o pantalla. */
+  padding-block-start: var(--header-height);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay en gradiente para asegurar contraste de texto (WCAG AA) sobre
+   cualquier imagen o escena de fondo. Franja oscura más ancha y marcada
+   para que el subtítulo nunca caiga en zona clara, sea cual sea la foto. */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    0deg,
+    rgba(8, 20, 22, 0.9) 0%,
+    rgba(8, 20, 22, 0.68) 38%,
+    rgba(8, 20, 22, 0.32) 62%,
+    rgba(8, 20, 22, 0.08) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-inline: var(--section-padding-x);
+  padding-block-end: clamp(4.5rem, 10vw, 7rem);
+  max-width: var(--max-width-content);
+  margin-inline: auto;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-sand);
+  margin-block-end: var(--space-md);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  max-width: 20ch;
+  margin-block-end: var(--space-lg);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--color-sun);
+}
+
+.hero__subtitle {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  max-width: 42ch;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  margin-block-end: var(--space-xl);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* ---- Wave divider (elemento firma del sitio) ---------------------------
+   Línea de "marea" que separa el hero del resto del contenido. Refuerza
+   visualmente el concepto de mar/costa en cada scroll del usuario. */
+.hero__wave {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  z-index: 2;
+  width: 100%;
+  height: clamp(48px, 8vw, 110px);
+  color: var(--color-sand-soft);
+  transform: translateY(6px);
+  animation: wave-rise 900ms var(--ease-standard) 300ms both;
+}
+
+@keyframes wave-rise {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* ---- Indicador de scroll -------------------------------------------------- */
+
+.hero__scroll-hint {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-end: clamp(1rem, 4vw, 2rem);
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-white);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-hint svg {
+  width: 18px;
+  height: 18px;
+  animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* ---- sobre.css ---- */
+/* ==========================================================================
+   SOBRE.CSS
+   Sprint 2. Primera sección de contenido después del hero: texto emocional
+   + 2 fotos reales del hostel. Fondo sand-soft, continuando el color del
+   hero__wave para que la transición entre hero y sección sea invisible.
+
+   ESTRUCTURA: cada título/párrafo/foto es un ítem independiente de un único
+   CSS Grid, ubicado por nombre de área (grid-template-areas). Esto permite
+   que el ORDEN VISUAL cambie completamente entre mobile y desktop sin tocar
+   el HTML ni duplicar marcado:
+     - Mobile: texto y fotos intercalados (título, p1, p2, foto1, p3, p4,
+       firma, cta, foto2), para que no se forme un bloque largo de solo
+       texto seguido de un bloque largo de solo fotos.
+     - Desktop (>=992px, ver responsive.css): texto en una columna, las 2
+       fotos lado a lado en la columna derecha.
+   Este mismo patrón se reutiliza en las próximas secciones con fotos
+   (Quartos, Experiências) para evitar que todas las galerías "se peguen"
+   una atrás de la otra en mobile.
+   ========================================================================== */
+
+.sobre {
+  background-color: var(--color-sand-soft);
+  overflow: hidden;
+}
+
+.sobre__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  grid-template-areas:
+    "title"
+    "p1"
+    "p2"
+    "photo1"
+    "p3"
+    "p4"
+    "photo2"
+    "signature"
+    "cta";
+}
+
+.sobre__area-title {
+  grid-area: title;
+}
+.sobre__area-p1 {
+  grid-area: p1;
+}
+.sobre__area-p2 {
+  grid-area: p2;
+}
+.sobre__area-p3 {
+  grid-area: p3;
+}
+.sobre__area-p4 {
+  grid-area: p4;
+}
+.sobre__area-signature {
+  grid-area: signature;
+}
+.sobre__area-cta {
+  grid-area: cta;
+}
+.sobre__area-photo1 {
+  grid-area: photo1;
+}
+.sobre__area-photo2 {
+  grid-area: photo2;
+}
+
+/* ---- Texto ------------------------------------------------------------ */
+
+.sobre__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 16ch;
+}
+
+.sobre__title em {
+  font-style: italic;
+  color: var(--color-palm);
+}
+
+.sobre__grid > p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 56ch;
+}
+
+.sobre__signature {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  font-style: italic;
+  color: var(--color-ocean-deep);
+}
+
+/* CTA en formato link (no pill button): esta sección empuja a seguir
+   mirando el sitio, no a reservar -- ese rol ya lo cumple el WhatsApp
+   fijo del header. La flecha se desplaza en hover para reforzar la
+   dirección "seguí bajando". */
+.sobre__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.sobre__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.sobre__cta:hover,
+.sobre__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.sobre__cta:hover svg,
+.sobre__cta:focus-visible svg {
+  transform: translateX(4px);
+}
+
+/* ---- Fotos -------------------------------------------------------------- */
+
+.sobre__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4 / 5;
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.sobre__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+/* Overlay + frase que aparecen en hover/foco. En vez de un zoom genérico,
+   la foto revela un dato concreto (prueba social en la foto 1, detalle de
+   marca en la foto 2) -- refuerza confianza, no es solo un efecto visual. */
+.sobre__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.82) 0%,
+    rgba(23, 40, 42, 0.25) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.sobre__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-normal);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.sobre__photo:hover,
+.sobre__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.sobre__photo:hover img,
+.sobre__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.sobre__photo:hover::after,
+.sobre__photo:focus-within::after {
+  opacity: 1;
+}
+
+.sobre__photo:hover figcaption,
+.sobre__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* En touch (sin hover real) la frase queda siempre visible sobre un
+   degradé sutil: en mobile no hay forma de "pasar el mouse", así que el
+   dato de la foto no puede depender de una interacción que no existe ahí. */
+@media (hover: none) {
+  .sobre__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.75) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .sobre__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- quartos.css ---- */
+/* ==========================================================================
+   QUARTOS.CSS
+   Sprint 3. Primera sección "funcional" del sitio: responde a "¿dónde voy a
+   dormir?". Reusa el mismo patrón de grid-areas de sobre.css para poder
+   reordenar el contenido entre mobile (intercalado) y desktop (2 columnas)
+   sin duplicar HTML -- ver el comentario largo en sobre.css para el porqué.
+
+   Fotos: las 2 fijas junto al texto son verticales (4:5) -- a propósito NO
+   están asociadas a "compartilhados" o "privativos" específicamente
+   (todavía no hay foto real del quarto privativo, que es nuevo). Debajo,
+   un carrusel con las 4 fotos horizontales (16:9) restantes, mezclando
+   vista general y detalle -- ver docs/GUIA-FOTOS.md: un carrusel usa un
+   solo formato, por eso separamos verticales (fijas) de horizontales
+   (carrusel) en vez de mezclarlas.
+
+   Nota de mantenimiento: las reglas de foto (.quartos__photo) duplican a
+   propósito el estilo de .sobre__photo en vez de reutilizar esa clase
+   directamente. Es una duplicación consciente para no tocar el CSS de
+   Sobre (ya validado en producción) -- candidato a extraer a una clase
+   común más adelante, anotado en docs/TEMAS-A-REVISAR.md.
+   ========================================================================== */
+
+.quartos {
+  background-color: var(--color-white);
+}
+
+.quartos__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  grid-template-areas:
+    "eyebrow"
+    "title"
+    "intro"
+    "compartilhados"
+    "photo1"
+    "privativos"
+    "photo2"
+    "checklist"
+    "carousel"
+    "cta";
+}
+
+.quartos__area-eyebrow { grid-area: eyebrow; }
+.quartos__area-title { grid-area: title; }
+.quartos__area-intro { grid-area: intro; }
+.quartos__area-compartilhados { grid-area: compartilhados; }
+.quartos__area-privativos { grid-area: privativos; }
+.quartos__area-photo1 { grid-area: photo1; }
+.quartos__area-photo2 { grid-area: photo2; }
+.quartos__area-checklist { grid-area: checklist; }
+.quartos__area-carousel { grid-area: carousel; }
+.quartos__area-cta { grid-area: cta; }
+
+/* ---- Encabezado de sección ------------------------------------------- */
+
+.quartos__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-palm);
+}
+
+.quartos__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 20ch;
+}
+
+.quartos__intro {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 52ch;
+}
+
+/* ---- Bloques de tipo de quarto ----------------------------------------- */
+
+.quartos__type {
+  padding-block-start: var(--space-md);
+  border-top: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.quartos__type-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  color: var(--color-palm);
+  margin-block-end: var(--space-xs);
+}
+
+.quartos__type-tagline {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  margin-block-end: var(--space-sm);
+}
+
+.quartos__type-desc {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 48ch;
+}
+
+.quartos__type-note {
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+  margin-block-start: var(--space-xs);
+  font-style: italic;
+}
+
+/* ---- Fotos (mismo lenguaje visual que Sobre, ver nota arriba) ---------- */
+
+.quartos__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.quartos__area-photo1,
+.quartos__area-photo2 {
+  aspect-ratio: 4 / 5;
+}
+
+.quartos__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.quartos__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.78) 0%,
+    rgba(23, 40, 42, 0.2) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.quartos__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.quartos__photo:hover,
+.quartos__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.quartos__photo:hover img,
+.quartos__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.quartos__photo:hover::after,
+.quartos__photo:focus-within::after {
+  opacity: 1;
+}
+
+.quartos__photo:hover figcaption,
+.quartos__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .quartos__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.7) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .quartos__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Checklist compartida (una sola vez, no repetida por tipo) --------- */
+
+.quartos__checklist {
+  padding-block: var(--space-lg);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.quartos__checklist-heading {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+  margin-block-end: var(--space-sm);
+}
+
+.quartos__checklist-items {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  padding: 0;
+  margin: 0;
+}
+
+.quartos__checklist-items li {
+  position: relative;
+  padding-inline-start: 1.5em;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+}
+
+.quartos__checklist-items li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
+/* ---- CTA suave (igual criterio que Sobre: empuja a seguir mirando) ----- */
+
+.quartos__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.quartos__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.quartos__cta:hover,
+.quartos__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.quartos__cta:hover svg,
+.quartos__cta:focus-visible svg {
+  transform: translateX(4px);
+}
+
+/* ---- carousel.css ---- */
+/* ==========================================================================
+   CAROUSEL.CSS
+   Carrusel tipo "coverflow": la foto activa queda grande y de frente, las
+   demás se acomodan más chicas y giradas en perspectiva a los costados.
+   El posicionamiento (translateX/scale/rotateY/opacity) lo calcula
+   carousel.js según la distancia de cada foto a la activa; acá solo se
+   define la base visual y las transiciones.
+
+   Componente genérico, no específico de Quartos -- pensado para reusarse
+   en Galeria y Depoimentos (Sprints 6-7).
+   ========================================================================== */
+
+.carousel {
+  position: relative;
+  height: clamp(260px, 38vw, 460px);
+  margin-inline: auto;
+  /* Contiene las fotos de los costados dentro del carrusel -- sin esto,
+     en pantallas angostas las fotos giradas en perspectiva podían quedar
+     parcialmente fuera del viewport y correr la página entera hacia la
+     derecha (aparecía una franja en blanco al costado). */
+  overflow: hidden;
+  /* Un halo suave detrás de las fotos, sutil, en tono marca -- le da
+     profundidad al efecto 3D sin volverse un fondo llamativo. */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(47, 107, 74, 0.08) 0%,
+    rgba(47, 107, 74, 0) 70%
+  );
+}
+
+.carousel__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1400px;
+}
+
+.carousel__slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(62%, 560px);
+  aspect-ratio: 16 / 9;
+  border: none;
+  padding: 0;
+  background: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+  cursor: pointer;
+  transition: transform 650ms var(--ease-standard),
+    opacity 650ms var(--ease-standard);
+  transform-style: preserve-3d;
+}
+
+.carousel__slide:focus-visible {
+  outline: 3px solid var(--color-sun);
+  outline-offset: 4px;
+}
+
+.carousel__slide picture,
+.carousel__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms var(--ease-standard);
+}
+
+/* Un empujoncito extra de zoom al pasar el mouse/tocar, además de lo que
+   ya la hace grande el hecho de estar activa -- refuerza la sensación
+   "esto es interactivo, no una foto fija". */
+.carousel__slide:hover img,
+.carousel__slide:focus-visible img {
+  transform: scale(1.08);
+}
+
+.carousel__slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.8) 0%,
+    rgba(23, 40, 42, 0.15) 45%,
+    rgba(23, 40, 42, 0) 65%
+  );
+  opacity: 0;
+  transition: opacity 400ms var(--ease-standard);
+}
+
+/* La frase de cada foto solo se lee cuando esa foto está al frente --
+   mientras es una miniatura lateral, mostrar texto ilegible por el
+   tamaño y el ángulo no suma nada. */
+.carousel__slide[data-active="true"]::after {
+  opacity: 1;
+}
+
+.carousel__caption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 400ms var(--ease-standard),
+    transform 400ms var(--ease-standard);
+}
+
+.carousel__slide[data-active="true"] .carousel__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Flechas ------------------------------------------------------------ */
+
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: background var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.carousel__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.carousel__arrow:hover {
+  background: var(--color-palm);
+  color: var(--color-white);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel__arrow--prev {
+  left: clamp(0px, 2vw, var(--space-lg));
+}
+
+.carousel__arrow--next {
+  right: clamp(0px, 2vw, var(--space-lg));
+}
+
+/* En mobile el deslizamiento táctil ya es la interacción natural, y las
+   flechas superpuestas sobre fotos angostas quedan apretadas -- se
+   ocultan y el swipe (ver carousel.js) las reemplaza. */
+@media (max-width: 767px) {
+  .carousel__arrow {
+    display: none;
+  }
+
+  /* Versión más "plana" para mobile: la foto activa ocupa casi todo el
+     ancho (se ve grande y nítida) y las de al lado apenas se insinúan en
+     los bordes, en vez del efecto 3D marcado de desktop -- a ese tamaño
+     tan chico, un giro pronunciado solo hacía que las fotos vecinas se
+     vieran diminutas e ilegibles. El ángulo/tamaño de esas fotos vecinas
+     lo controla carousel.js (ver getCarouselConfig), acá solo se ajusta
+     el tamaño de la foto activa y el alto del carrusel. */
+  .carousel {
+    height: clamp(220px, 78vw, 320px);
+  }
+
+  .carousel__slide {
+    width: 84%;
+  }
+}
+
+/* ---- Dots ---------------------------------------------------------------- */
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-block-start: var(--space-sm);
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(23, 40, 42, 0.25);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.carousel__dot--active {
+  background: var(--color-palm);
+  transform: scale(1.3);
+}
+
+/* ---- experiencias.css ---- */
+/* ==========================================================================
+   EXPERIENCIAS.CSS
+   Sprint 4. Sección emocional que retoma el "cómo se siente" de Sobre pero
+   proyectado hacia la estadía completa, y cierra con testimonios reales
+   (reemplaza a la sección Depoimentos, que no se justificaba como bloque
+   propio con solo ~10 reseñas -- ver docs/TEMAS-A-REVISAR.md).
+
+   Mismo patrón de grid-areas reordenable que Sobre/Quartos: en mobile el
+   contenido queda intercalado (texto, foto, conceptos, foto, testimonios),
+   en desktop el texto se agrupa a la izquierda y las 2 fotos quedan lado a
+   lado a la derecha.
+   ========================================================================== */
+
+.experiencias {
+  background-color: var(--color-sand-soft);
+  overflow: hidden;
+}
+
+.experiencias__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  grid-template-areas:
+    "eyebrow"
+    "title"
+    "p1"
+    "p2"
+    "tagline1"
+    "photo1"
+    "concept1"
+    "concept2"
+    "photo2"
+    "concept3"
+    "tagline2"
+    "testimonials"
+    "closing"
+    "cta";
+}
+
+.experiencias__area-eyebrow { grid-area: eyebrow; }
+.experiencias__area-title { grid-area: title; }
+.experiencias__area-p1 { grid-area: p1; }
+.experiencias__area-p2 { grid-area: p2; }
+.experiencias__area-tagline1 { grid-area: tagline1; }
+.experiencias__area-photo1 { grid-area: photo1; }
+.experiencias__area-concept1 { grid-area: concept1; }
+.experiencias__area-concept2 { grid-area: concept2; }
+.experiencias__area-photo2 { grid-area: photo2; }
+.experiencias__area-concept3 { grid-area: concept3; }
+.experiencias__area-tagline2 { grid-area: tagline2; }
+.experiencias__area-testimonials { grid-area: testimonials; }
+.experiencias__area-closing { grid-area: closing; }
+.experiencias__area-cta { grid-area: cta; }
+
+/* ---- Encabezado --------------------------------------------------------- */
+
+.experiencias__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-palm);
+}
+
+.experiencias__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 20ch;
+}
+
+.experiencias__p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 52ch;
+}
+
+.experiencias__p strong {
+  color: var(--color-ink);
+  font-weight: var(--fw-semibold);
+}
+
+.experiencias__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--color-ocean-deep);
+}
+
+/* ---- Conceptos (Encontros / Acolhimento / Descobertas) ------------------ */
+
+.experiencias__concept {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-block-start: var(--space-md);
+  border-top: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.experiencias__concept-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--color-palm);
+}
+
+.experiencias__concept-title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  color: var(--color-ink);
+}
+
+.experiencias__concept-desc {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 42ch;
+}
+
+/* ---- Fotos (mismo lenguaje visual que Sobre/Quartos) -------------------- */
+
+.experiencias__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4 / 5;
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.experiencias__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.experiencias__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.78) 0%,
+    rgba(23, 40, 42, 0.2) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.experiencias__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.experiencias__photo:hover,
+.experiencias__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.experiencias__photo:hover img,
+.experiencias__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.experiencias__photo:hover::after,
+.experiencias__photo:focus-within::after {
+  opacity: 1;
+}
+
+.experiencias__photo:hover figcaption,
+.experiencias__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .experiencias__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.7) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .experiencias__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Testimonios reales -------------------------------------------------- */
+
+.testimonials {
+  padding-block: var(--space-lg);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.testimonials__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-white);
+  border-radius: var(--radius-full);
+  padding: 8px 18px;
+  box-shadow: var(--shadow-soft);
+  margin-block-end: var(--space-lg);
+}
+
+.testimonials__badge-score {
+  background: var(--color-palm);
+  color: var(--color-white);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  border-radius: 8px;
+  padding: 3px 9px;
+}
+
+.testimonials__badge-text {
+  font-size: var(--fs-sm);
+  color: var(--color-ink);
+}
+
+.testimonials__badge-text strong {
+  font-weight: var(--fw-semibold);
+}
+
+.testimonials__badge-text span {
+  color: var(--color-ink-soft);
+  font-weight: var(--fw-regular, 400);
+  margin-inline-start: 4px;
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.testimonials__card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.testimonials__card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.testimonials__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-sand);
+  color: var(--color-ocean-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  flex-shrink: 0;
+}
+
+.testimonials__name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  color: var(--color-ink);
+}
+
+.testimonials__place {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-soft);
+}
+
+.testimonials__score {
+  margin-inline-start: auto;
+  background: var(--color-palm);
+  color: var(--color-white);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-xs);
+  border-radius: 8px;
+  padding: 3px 8px;
+  align-self: flex-start;
+}
+
+.testimonials__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+}
+
+.testimonials__text {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  flex-grow: 1;
+}
+
+.testimonials__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  color: var(--color-ink-soft);
+  border-top: 1px solid rgba(12, 74, 94, 0.12);
+  padding-top: var(--space-sm);
+}
+
+.testimonials__tag::before {
+  content: "✓";
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
+.testimonials__disclaimer {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-soft);
+  font-style: italic;
+  margin-block-start: var(--space-md);
+}
+
+/* ---- Cierre y CTA -------------------------------------------------------- */
+
+.experiencias__closing {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 30ch;
+}
+
+.experiencias__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.experiencias__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.experiencias__cta:hover,
+.experiencias__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.experiencias__cta:hover svg,
+.experiencias__cta:focus-visible svg {
+  transform: translateX(4px);
+}
+
+/* ---- localizacao.css ---- */
+/* ==========================================================================
+   LOCALIZACAO.CSS
+   Sprint 5 (v2, reescrita tras feedback). Estructura en 2 niveles:
+   1) ".localizacao__daily" -- amenities genéricas del día a día, sin
+      nombres de lugares puntuales ni distancias, sin fotos (no hay una
+      foto "de" una farmacia genérica).
+   2) ".localizacao__block" -- 3 instancias (Cultura, Mirante, Praias) con
+      nombres reales de atracciones (fuente: ficha de Booking del
+      cliente), cada una con 2 fotos reales al costado. Mismo patrón de
+      grid-areas reutilizado en Sobre/Quartos/Experiências: mobile
+      intercalado (heading → body → photo1 → photo2), desktop en 2
+      columnas -- ver responsive.css.
+   ========================================================================== */
+
+.localizacao {
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.localizacao__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.localizacao__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-palm);
+}
+
+.localizacao__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 22ch;
+}
+
+.localizacao__p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 60ch;
+}
+
+.localizacao__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--color-ocean-deep);
+  max-width: 40ch;
+}
+
+/* ---- Fotos (mismo lenguaje visual que el resto del sitio) ---------------- */
+
+.localizacao__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4 / 5;
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.localizacao__photo--landscape {
+  aspect-ratio: 4 / 3;
+}
+
+.localizacao__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.localizacao__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.78) 0%,
+    rgba(23, 40, 42, 0.2) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.localizacao__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.localizacao__photo:hover,
+.localizacao__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.localizacao__photo:hover img,
+.localizacao__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.localizacao__photo:hover::after,
+.localizacao__photo:focus-within::after {
+  opacity: 1;
+}
+
+.localizacao__photo:hover figcaption,
+.localizacao__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .localizacao__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.7) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .localizacao__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Nível 1: amenities del día a día (genérico, sin fotos) -------------- */
+
+.localizacao__daily {
+  padding-block: var(--space-md);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.localizacao__daily-heading {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+  margin-block-end: var(--space-sm);
+}
+
+.localizacao__daily-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  padding: 0;
+  margin: 0;
+}
+
+.localizacao__daily-list li {
+  position: relative;
+  padding-inline-start: 1.5em;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+}
+
+.localizacao__daily-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
+/* ---- Nível 2: bloques con nombre real + 2 fotos al costado ---------------
+   Se reutiliza la MISMA clase ".localizacao__block" para Cultura, Mirante
+   y Praias -- cada una es su propio contenedor de grid independiente, así
+   que reusar los nombres de área (heading/body/photo1/photo2) entre las 3
+   instancias es seguro (el nombre de área solo importa dentro de su
+   propio grid). Mobile: heading → body → photo1 → photo2, todo apilado.
+   Desktop: texto a la izquierda, 2 fotos lado a lado a la derecha -- ver
+   responsive.css. */
+
+.localizacao__block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  grid-template-areas:
+    "heading"
+    "body"
+    "photo1"
+    "photo2";
+  padding-block: var(--space-md);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.localizacao__block-heading {
+  grid-area: heading;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  color: var(--color-ink);
+}
+
+.localizacao__block-body {
+  grid-area: body;
+}
+
+.localizacao__block-body--text {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 42ch;
+}
+
+ul.localizacao__block-body {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: 0;
+  margin: 0;
+}
+
+ul.localizacao__block-body li {
+  position: relative;
+  padding-inline-start: 1.3em;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+}
+
+ul.localizacao__block-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-palm);
+  font-weight: var(--fw-semibold);
+}
+
+.localizacao__block-photo1 {
+  grid-area: photo1;
+}
+
+.localizacao__block-photo2 {
+  grid-area: photo2;
+}
+
+/* ---- Mapa ----------------------------------------------------------------
+   La dirección real (con ícono a cada lado) queda siempre visible, tanto
+   en desktop como en mobile. Desktop: embed oficial de Google Maps (el
+   mismo que genera el botón "Compartilhar > Incorporar um mapa" de
+   Google, sin necesidad de API key). Mobile: tarjeta que abre la app de
+   Google Maps directamente con el lugar real (no un pin genérico). */
+
+.localizacao__map-block {
+  padding-block: var(--space-md);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.localizacao__map-heading {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  color: var(--color-ink);
+  margin-block-end: var(--space-sm);
+}
+
+.localizacao__map-address-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+  margin-block-end: var(--space-md);
+}
+
+.localizacao__map-address-line svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-coral);
+  flex-shrink: 0;
+}
+
+.localizacao__map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.localizacao__map-embed {
+  display: block;
+  width: 100%;
+  height: 380px;
+  border: 0;
+}
+
+.localizacao__map-mobile-card {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-xl) var(--space-lg);
+  background: linear-gradient(160deg, var(--color-sand-soft) 0%, var(--color-sand) 100%);
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.localizacao__map-mobile-card:hover,
+.localizacao__map-mobile-card:focus-visible {
+  background: var(--color-sand);
+}
+
+.localizacao__map-pin {
+  width: 44px;
+  height: 44px;
+  color: var(--color-coral);
+}
+
+.localizacao__map-cta {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid var(--color-palm);
+}
+
+/* En mobile el iframe de mapa es poco práctico al tacto (hay que hacer
+   zoom con dos dedos, se traba el scroll de la página) -- se reemplaza
+   por una tarjeta que abre la app de Google Maps directamente. La
+   dirección de arriba (.localizacao__map-address-line) ya se ve siempre,
+   en los dos casos. */
+@media (max-width: 767px) {
+  .localizacao__map-embed {
+    display: none;
+  }
+
+  .localizacao__map-mobile-card {
+    display: flex;
+  }
+}
+
+/* ---- CTA suave ------------------------------------------------------------ */
+
+.localizacao__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  align-self: flex-start;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.localizacao__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.localizacao__cta:hover,
+.localizacao__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.localizacao__cta:hover svg,
+.localizacao__cta:focus-visible svg {
+  transform: translateX(4px);
+}
+
+/* ---- galeria.css ---- */
+/* ==========================================================================
+   GALERIA.CSS
+   Sprint 6. Sección "Conheça o Home" -- más catálogo visual, menos
+   storytelling. 3 bloques (Cozinha & Convivência / Área Externa &
+   Recepção / Banheiros), cada uno con un mosaico de 3 fotos: una foto
+   "hero" grande + 2 fotos chicas apiladas al lado -- distinto del
+   patrón de 2 fotos lado a lado que se usa en Sobre/Quartos/
+   Experiências/Localização (ahí no alcanzaba para lo que pedía esta
+   sección). Mobile: todo apilado (heading → body → photo1 → photo2 →
+   photo3), igual criterio que el resto del sitio. Desktop: ver
+   responsive.css.
+   ========================================================================== */
+
+.galeria {
+  background-color: var(--color-sand-soft);
+  overflow: hidden;
+}
+
+.galeria__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.galeria__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-palm);
+}
+
+.galeria__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  max-width: 22ch;
+}
+
+.galeria__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--color-ocean-deep);
+  max-width: 40ch;
+}
+
+.galeria__p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 60ch;
+}
+
+/* ---- Fotos ---------------------------------------------------------------
+   Mismo lenguaje visual que el resto del sitio (hover con overlay +
+   figcaption), definido acá porque cada sección mantiene su propia
+   hoja de estilos self-contained. */
+
+.galeria__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4 / 5;
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.galeria__photo--landscape {
+  aspect-ratio: 4 / 3;
+}
+
+.galeria__photo picture {
+  width: 100%;
+  height: 100%;
+}
+
+.galeria__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.galeria__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 40, 42, 0.78) 0%,
+    rgba(23, 40, 42, 0.2) 45%,
+    rgba(23, 40, 42, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.galeria__photo figcaption {
+  position: absolute;
+  inset-inline: var(--space-md);
+  inset-block-end: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.galeria__photo:hover,
+.galeria__photo:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.galeria__photo:hover img,
+.galeria__photo:focus-within img {
+  transform: scale(1.06);
+}
+
+.galeria__photo:hover::after,
+.galeria__photo:focus-within::after {
+  opacity: 1;
+}
+
+.galeria__photo:hover figcaption,
+.galeria__photo:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .galeria__photo::after {
+    opacity: 1;
+    background: linear-gradient(
+      0deg,
+      rgba(23, 40, 42, 0.7) 0%,
+      rgba(23, 40, 42, 0) 55%
+    );
+  }
+
+  .galeria__photo figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Bloques (Cozinha&Convivência / Área Externa&Recepção / Banheiros) ---
+   Mobile: apilado simple. El mosaico de 3 fotos (photo1 grande arriba,
+   photo2+photo3 chicas abajo, lado a lado) se arma acá porque en mobile
+   no hay columna lateral -- ver responsive.css para el layout de
+   desktop, que sí las pone lado a lado con el texto. */
+
+.galeria__block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  grid-template-areas:
+    "heading"
+    "body"
+    "photo1"
+    "mosaic2";
+  padding-block: var(--space-md);
+  border-block: 1px solid rgba(12, 74, 94, 0.15);
+}
+
+.galeria__block-heading {
+  grid-area: heading;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  color: var(--color-ink);
+}
+
+.galeria__block-body {
+  grid-area: body;
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 42ch;
+}
+
+.galeria__block-photo1 {
+  grid-area: photo1;
+}
+
+/* En mobile, photo2 y photo3 comparten una fila de 2 columnas en vez de
+   apilarse una sobre otra -- si no, el bloque queda demasiado largo. */
+.galeria__block-mosaic2 {
+  grid-area: mosaic2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+/* ---- Videos ---------------------------------------------------------------
+   2 tarjetas de video reales del cliente, como cierre visual de la
+   sección antes del CTA final -- no forman parte de ningún bloque de
+   texto, van a ancho completo. Contenedor responsive 16:9 con
+   aspect-ratio (sin hacks de padding-top). */
+
+.galeria__videos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.galeria__video-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.galeria__video-title {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+}
+
+.galeria__video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.galeria__video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---- Cierre + CTA suave ---------------------------------------------------- */
+
+.galeria__closing {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--color-ocean-deep);
+  max-width: 48ch;
+}
+
+.galeria__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  align-self: flex-start;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-palm);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.galeria__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.galeria__cta:hover,
+.galeria__cta:focus-visible {
+  border-color: var(--color-palm);
+}
+
+.galeria__cta:hover svg,
+.galeria__cta:focus-visible svg {
+  transform: translateX(4px);
+}
+
+/* ---- contato.css ---- */
+/* ==========================================================================
+   CONTATO.CSS
+   Sprint 7. Cierre emocional del sitio, "bookend" del Hero: mismo patrón
+   de foto a pantalla completa + overlay + texto abajo-izquierda, pero acá
+   la foto es la bandera real en la entrada del hostel -- el mismo lugar
+   por donde va a entrar el huésped. A propósito NO se centra el texto:
+   la composición de la foto deja el lado izquierdo más despejado (pared
+   lisa) y el derecho más ocupado (bandera+logo), así que el texto va a
+   la izquierda, como pidió el cliente.
+   ========================================================================== */
+
+.contato {
+  position: relative;
+  min-height: 90svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.contato__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Mobile: recorte angosto, hay que anclar bien pegado al borde
+     izquierdo (zona de pared lisa) o el recorte agarra la bandera. */
+  object-position: 5% 50%;
+}
+
+.contato__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(8, 20, 22, 0.88) 0%,
+    rgba(8, 20, 22, 0.6) 32%,
+    rgba(8, 20, 22, 0.15) 60%,
+    rgba(8, 20, 22, 0) 78%
+  );
+}
+
+.contato__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-inline: var(--section-padding-x);
+  padding-block: clamp(3.5rem, 10vw, 6rem);
+  max-width: var(--max-width-content);
+  margin-inline: auto;
+}
+
+.contato__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-sand);
+  margin-block-end: var(--space-md);
+}
+
+.contato__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  max-width: 16ch;
+  margin-block-end: var(--space-md);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+}
+
+.contato__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  max-width: 34ch;
+  color: var(--color-sand);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  margin-block-end: var(--space-lg);
+}
+
+/* ---- Redes sociais --------------------------------------------------------
+   Va antes del CTA de WhatsApp: invitación secundaria a seguir en
+   Instagram, no compite en jerarquía visual con el botón principal de
+   reserva. Ícono en el mismo lenguaje de trazo simple que el resto del
+   sitio (no el logo oficial a color) para no desentonar. */
+
+.contato__social-text {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  max-width: 42ch;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  margin-block-end: var(--space-lg);
+}
+
+.contato__p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  max-width: 42ch;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  margin-block-end: var(--space-xl);
+}
+
+.contato__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-lg);
+}
+
+.contato__address {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+}
+
+.contato__address strong {
+  display: block;
+  color: var(--color-white);
+  font-weight: var(--fw-semibold);
+  margin-block-end: 2px;
+}
+
+/* ---- footer.css ---- */
+/* ==========================================================================
+   FOOTER.CSS
+   Sprint 8. A propósito, rompe con el resto del sitio: acá termina el
+   storytelling y arranca lo funcional. Sin la fuente display (Fraunces)
+   en ningún lado -- todo en Manrope. Fondo oscuro sólido (--color-ink),
+   mismo tono que ya cierra Contato, para que la transición entre
+   secciones no sea un salto brusco de color.
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-ink);
+  color: rgba(244, 232, 208, 0.72);
+  font-family: var(--font-body);
+}
+
+.site-footer__inner {
+  width: 100%;
+  max-width: var(--max-width-header);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  padding-block: var(--space-2xl);
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.site-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: fit-content;
+}
+
+.site-footer__logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+}
+
+.site-footer__logo-text {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  color: var(--color-sand);
+}
+
+.site-footer__tagline {
+  font-size: var(--fs-sm);
+  color: rgba(244, 232, 208, 0.6);
+}
+
+.site-footer__columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.site-footer__col-title {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  /* 0.62, no 0.5: a 0.5 el contraste contra el fondo oscuro daba 4.24:1,
+     por debajo del mínimo WCAG AA (4.5:1) para texto normal. Encontrado
+     con Lighthouse en el QA final, no a ojo. */
+  color: rgba(244, 232, 208, 0.62);
+  margin-block-end: var(--space-sm);
+}
+
+.site-footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.site-footer__col a {
+  font-size: var(--fs-sm);
+  color: rgba(244, 232, 208, 0.85);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.site-footer__col a:hover,
+.site-footer__col a:focus-visible {
+  color: var(--color-sand);
+  text-decoration: underline;
+}
+
+.site-footer__address {
+  font-style: normal;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: rgba(244, 232, 208, 0.85);
+}
+
+.site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.site-footer__social svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.site-footer__bottom {
+  width: 100%;
+  max-width: var(--max-width-header);
+  margin-inline: auto;
+  border-block-start: 1px solid rgba(244, 232, 208, 0.14);
+  padding-block: var(--space-md);
+  /* Deja lugar para que el botón flotante de WhatsApp (mobile, fijo
+     abajo a la derecha) no tape la última línea -- ver whatsapp-fab en
+     components.css. Se resetea a la derecha en desktop porque ahí el
+     botón flotante no existe. */
+  padding-block-end: calc(var(--space-md) + 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.site-footer__copyright {
+  font-size: var(--fs-xs);
+  color: rgba(244, 232, 208, 0.62);
+}
+
+.site-footer__micro {
+  font-size: var(--fs-xs);
+  /* 0.58, no 0.4 -- mismo motivo que .site-footer__col-title arriba. */
+  color: rgba(244, 232, 208, 0.58);
+}
+
+/* ---- responsive.css ---- */
+/* ==========================================================================
+   RESPONSIVE.CSS
+   Mobile first. Breakpoints: 576 / 768 / 992 / 1200 / 1400.
+   Cada regla se agrega, nunca se pisa: min-width en cascada ascendente.
+   ========================================================================== */
+
+/* ---- Base mobile (< 768px): menú colapsado en off-canvas ---------------- */
+
+.nav-toggle {
+  display: inline-flex;
+}
+
+.nav__list {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  z-index: var(--z-overlay);
+  width: min(80vw, 340px);
+  height: 100svh;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding-inline: var(--space-2xl);
+  background-color: var(--color-ocean-deep);
+  transform: translateX(100%);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.nav__list.is-open {
+  transform: translateX(0);
+}
+
+.nav__link {
+  color: var(--color-white) !important;
+  font-size: var(--fs-md);
+}
+
+.nav .btn--primary {
+  display: none;
+}
+
+.hero__title {
+  max-width: 100%;
+}
+
+/* ---- >= 576px: ajustes de espaciado en hero + tamaño de botones ---------- */
+@media (min-width: 576px) {
+  .hero__actions {
+    flex-wrap: nowrap;
+  }
+
+  .btn {
+    gap: var(--space-xs);
+    padding: 0.85rem 1.6rem;
+    font-size: var(--fs-sm);
+  }
+
+  .btn--icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ---- >= 768px: navegación horizontal visible ----------------------------- */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav__list {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 0;
+    background-color: transparent;
+    transform: none;
+    transition: none;
+  }
+
+  .nav__link {
+    color: inherit !important;
+    font-size: var(--fs-sm);
+  }
+
+  .nav .btn--primary {
+    display: inline-flex;
+  }
+
+  .lang-switch__code {
+    display: inline;
+  }
+
+  .hero__title {
+    max-width: 20ch;
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- >= 992px: más aire en el contenedor y en el hero --------------------- */
+@media (min-width: 992px) {
+  /* Contato: en desktop el recorte es mucho más ancho, un anclaje muy
+     pegado al borde (bueno para mobile) deja demasiada pared vacía y
+     poca bandera visible -- 25% da mejor equilibrio. */
+  .contato__photo {
+    object-position: 25% 50%;
+  }
+
+  :root {
+    --section-padding-y: clamp(4rem, 7vw, 7rem);
+    /* Contenido (no el nav) escala en proporción al ancho de la ventana
+       en vez de un ancho fijo -- así laptop y monitores grandes guardan
+       la misma relación margen/contenido. Proporción calculada a partir
+       de una captura del cliente en 1440px (970px de contenido = 67.4%
+       del ancho de ventana), con un techo en 1300px para que no crezca
+       sin límite en monitores ultra anchos. */
+    --max-width-content: clamp(680px, 67.4vw, 1300px);
+  }
+
+  .hero__content {
+    padding-block-end: clamp(6rem, 9vw, 8rem);
+  }
+
+  /* Sobre pasa de intercalado (mobile) a 2 columnas: el texto ocupa la
+     columna izquierda (spaneando todas las filas de texto) y las 2 fotos
+     quedan lado a lado en la derecha, alineadas con el arranque del texto
+     -- mismo resultado visual que antes, ahora logrado reordenando las
+     grid-areas en vez de mover el HTML. */
+  .sobre__grid {
+    grid-template-columns: 1.15fr 0.42fr 0.42fr;
+    column-gap: var(--space-md);
+    row-gap: var(--space-md);
+    align-items: start;
+    grid-template-areas:
+      "title  photo1 photo2"
+      "p1     photo1 photo2"
+      "p2     photo1 photo2"
+      "p3     .      ."
+      "p4     .      ."
+      "signature . ."
+      "cta    .      .";
+  }
+
+  .sobre__area-photo2 {
+    margin-block-start: var(--space-2xl);
+  }
+
+  /* Quartos: eyebrow/título/intro arriba a todo el ancho; después el
+     bloque de texto (compartilhados + privativos, uno debajo del otro)
+     al lado de las 2 fotos EN PAREJA (lado a lado, no una por bloque) --
+     mismo motivo que en Sobre: si cada foto queda pareada 1 a 1 con "su"
+     bloque de texto, el texto (mucho más corto) deja un hueco enorme antes
+     del siguiente bloque. Con las fotos lado a lado como una sola unidad,
+     su altura combinada se parece más a la del texto combinado. */
+  .quartos__grid {
+    grid-template-columns: 1.15fr 0.42fr 0.42fr;
+    column-gap: var(--space-md);
+    row-gap: var(--space-lg);
+    align-items: start;
+    grid-template-areas:
+      "eyebrow        eyebrow eyebrow"
+      "title          title   title"
+      "intro          intro   intro"
+      "compartilhados photo1  photo2"
+      "privativos     photo1  photo2"
+      "checklist      checklist checklist"
+      "carousel       carousel  carousel"
+      "cta            cta     cta";
+  }
+
+  /* Mismo desfase vertical que en Sobre: la foto 2 arranca un poco más
+     abajo que la 1, rompe la alineación perfecta y le da un aire más
+     orgánico al conjunto. Este criterio se aplica a todas las secciones
+     con 2 fotos lado a lado (Sobre, Quartos, Experiências...). */
+  .quartos__area-photo2 {
+    margin-block-start: var(--space-2xl);
+  }
+
+  /* Experiências: mismo criterio que Quartos -- texto agrupado a la
+     izquierda (spaneando varias filas), las 2 fotos lado a lado a la
+     derecha como una sola unidad. Testimonios/cierre/CTA a ancho
+     completo abajo. */
+  .experiencias__grid {
+    grid-template-columns: 1.15fr 0.42fr 0.42fr;
+    column-gap: var(--space-md);
+    row-gap: var(--space-lg);
+    align-items: start;
+    grid-template-areas:
+      "eyebrow  eyebrow eyebrow"
+      "title    title   title"
+      "p1       photo1  photo2"
+      "p2       photo1  photo2"
+      "tagline1 photo1  photo2"
+      "concept1 photo1  photo2"
+      "concept2 .       ."
+      "concept3 .       ."
+      "tagline2 .       ."
+      "testimonials testimonials testimonials"
+      "closing  closing closing"
+      "cta      cta     cta";
+  }
+
+  /* Mismo desfase que en Sobre y Quartos, ver comentario ahí. */
+  .experiencias__area-photo2 {
+    margin-block-start: var(--space-2xl);
+  }
+
+  /* Localização: cada bloque (Cultura, Mirante, Praias) pasa a compartir
+     fila con sus 2 fotos -- mismo criterio que las demás secciones, el
+     texto no queda nunca sin una referencia visual al lado en desktop.
+     Se reutiliza para las 3 instancias de .localizacao__block. */
+  .localizacao__block {
+    grid-template-columns: 1.15fr 0.42fr 0.42fr;
+    column-gap: var(--space-md);
+    align-items: start;
+    grid-template-areas:
+      "heading photo1 photo2"
+      "body    photo1 photo2";
+  }
+
+  /* Galeria: a diferencia del resto del sitio, ACÁ el texto no comparte
+     fila con las fotos ni en desktop -- queda a todo el ancho arriba,
+     y las fotos abajo (foto horizontal grande + las 2 cuadradas lado a
+     lado). Mismo orden que en mobile, ver galeria.css -- por eso no
+     hace falta ninguna regla de grid-template-areas nueva acá, el
+     bloque simplemente no se reordena en este breakpoint. */
+
+  /* Videos lado a lado en desktop en vez de apilados a todo el ancho
+     -- a ese tamaño (contenedor completo) se veían enormes. */
+  .galeria__videos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Footer: brand a la izquierda, las 4 columnas en fila a la derecha
+     -- en mobile todo se apila (ver footer.css, mobile-first). */
+  .site-footer__inner {
+    grid-template-columns: 1.2fr 2fr;
+    align-items: start;
+  }
+
+  .site-footer__columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .site-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-block-end: var(--space-md);
+  }
+
+  /* Volver arriba: en mobile semi-transparente (ver components.css), en
+     desktop más grande y sólido -- ahí se pierde en pantallas grandes. */
+  .back-to-top {
+    width: 52px;
+    height: 52px;
+    background-color: var(--color-ocean-deep);
+    backdrop-filter: none;
+  }
+
+  .back-to-top svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* ---- >= 1200px: contenedor a su ancho máximo, tipografía tope ------------- */
+@media (min-width: 1200px) {
+  .hero__subtitle {
+    max-width: 46ch;
+  }
+}
+
+/* ---- >= 1400px: techo de la escala fluida (pantallas grandes / 4K) -------- */
+@media (min-width: 1400px) {
+  .container {
+    padding-inline: clamp(2rem, 3vw, 6rem);
+  }
+}

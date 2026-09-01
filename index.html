@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Home Hostel Maceió | Hospedagem com clima de casa em Alagoas</title>
+  <title>Home Hostel Maceió | Hospedagem no Farol com clima de casa</title>
   <meta
     name="description"
-    content="Sua casa em Maceió. Um hostel acolhedor para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
+    content="Sua casa em Maceió. Um hostel acolhedor no Farol para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
   />
 
   <!-- Open Graph: og:image usa URL absoluta a propósito (no relativa).
@@ -16,10 +16,10 @@
        Actualizar junto con el canonical cuando esté el dominio real. -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
-  <meta property="og:title" content="Home Hostel Maceió | Hospedagem com clima de casa em Alagoas" />
+  <meta property="og:title" content="Home Hostel Maceió | Hospedagem no Farol com clima de casa" />
   <meta
     property="og:description"
-    content="Sua casa em Maceió. Um hostel acolhedor para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
+    content="Sua casa em Maceió. Um hostel acolhedor no Farol para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
   />
   <meta property="og:image" content="https://juanjodiamond.github.io/home-hostel-maceio/assets/images/hero/og-cover.jpg" />
   <meta property="og:url" content="https://juanjodiamond.github.io/home-hostel-maceio/" />
@@ -31,6 +31,53 @@
        docs/TEMAS-A-REVISAR.md. -->
   <link rel="canonical" href="https://juanjodiamond.github.io/home-hostel-maceio/" />
   <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/logo/home-hostel-logo.png" />
+  <meta name="theme-color" content="#2f6b4a" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Twitter Card: mismos datos que Open Graph de arriba, Twitter/X no
+       siempre respeta OG solo. -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Home Hostel Maceió | Hospedagem no Farol com clima de casa" />
+  <meta
+    name="twitter:description"
+    content="Sua casa em Maceió. Um hostel acolhedor no Farol para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
+  />
+  <meta name="twitter:image" content="https://juanjodiamond.github.io/home-hostel-maceio/assets/images/hero/og-cover.jpg" />
+
+  <!-- Schema.org (JSON-LD): le dice a Google explícitamente que esto es
+       un hostel real, con dirección y ubicación -- habilita resultados
+       enriquecidos (rich results) en la búsqueda. Sin priceRange ni
+       aggregateRating a propósito: el sitio no muestra precios (todo por
+       WhatsApp) y un número de reseñas fijo en el schema quedaría
+       desactualizado igual que pasó con el badge de Experiências -- ver
+       docs/TEMAS-A-REVISAR.md. Actualizar telephone/sameAs si cambian. -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Home Hostel Maceió",
+      "image": "https://juanjodiamond.github.io/home-hostel-maceio/assets/images/hero/og-cover.jpg",
+      "url": "https://juanjodiamond.github.io/home-hostel-maceio/",
+      "telephone": "+5582991280921",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Prof. Ângelo Neto, 263",
+        "addressLocality": "Maceió",
+        "addressRegion": "AL",
+        "postalCode": "57051-530",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -9.6618532945718,
+        "longitude": -35.735170831216486
+      },
+      "sameAs": [
+        "https://www.instagram.com/homehostelmcz/"
+      ]
+    }
+  </script>
 
   <!-- Tipografía: Fraunces (display, cálida/editorial) + Manrope (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,24 +87,14 @@
     rel="stylesheet"
   />
 
-  <!-- CSS cargado como <link> individuales (no @import) para que el
-       navegador los pida todos EN PARALELO en vez de uno atrás del otro.
-       El orden en el HTML define la cascada: variables -> reset -> layout
-       -> components -> hero -> responsive. -->
-  <link rel="stylesheet" href="assets/css/variables.css" />
-  <link rel="stylesheet" href="assets/css/reset.css" />
-  <link rel="stylesheet" href="assets/css/layout.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/css/hero.css" />
-  <link rel="stylesheet" href="assets/css/sobre.css" />
-  <link rel="stylesheet" href="assets/css/quartos.css" />
-  <link rel="stylesheet" href="assets/css/carousel.css" />
-  <link rel="stylesheet" href="assets/css/experiencias.css" />
-  <link rel="stylesheet" href="assets/css/localizacao.css" />
-  <link rel="stylesheet" href="assets/css/galeria.css" />
-  <link rel="stylesheet" href="assets/css/contato.css" />
-  <link rel="stylesheet" href="assets/css/footer.css" />
-  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <!-- CSS combinado en un solo archivo para producción (site.css), generado
+       por scripts/build_css.py a partir de los archivos fuente de acá abajo
+       -- Lighthouse detectó ~650ms de render-blocking en mobile por pedir
+       14 archivos por separado. Los fuentes (variables.css, layout.css,
+       etc.) siguen existiendo y son los que hay que editar: nunca tocar
+       site.css a mano, se pisa. Después de cualquier cambio de CSS, correr
+       `python3 scripts/build_css.py` antes de armar el patch. -->
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
   <!-- Skip-link: permite saltar el menú con teclado/lector de pantalla e ir
@@ -100,8 +137,7 @@
             aria-haspopup="listbox"
             aria-expanded="false"
             aria-controls="lang-menu"
-            aria-label="Idioma"
-            data-i18n-attr="aria-label:aria_lang"
+            aria-label="Idioma: PT"
           >
             <span class="lang-switch__flag" data-current-flag></span>
             <span class="lang-switch__code" data-current-code>PT</span>
@@ -111,6 +147,7 @@
             id="lang-menu"
             role="listbox"
             aria-label="Selecionar idioma"
+            data-i18n-attr="aria-label:aria_lang_menu"
             data-lang-menu
             hidden
           ></ul>
@@ -311,9 +348,9 @@
           <p class="quartos__type-label" data-i18n="quartos_compartilhados_label">
             QUARTOS COMPARTILHADOS
           </p>
-          <p class="quartos__type-tagline" data-i18n="quartos_compartilhados_tagline">
+          <h3 class="quartos__type-tagline" data-i18n="quartos_compartilhados_tagline">
             Compartilhe a viagem, não apenas o quarto.
-          </p>
+          </h3>
           <p class="quartos__type-desc" data-i18n="quartos_compartilhados_desc">
             Para quem gosta de viajar, conhecer pessoas e compartilhar
             experiências.
@@ -344,9 +381,9 @@
           <p class="quartos__type-label" data-i18n="quartos_privativos_label">
             QUARTOS PRIVATIVOS
           </p>
-          <p class="quartos__type-tagline" data-i18n="quartos_privativos_tagline">
+          <h3 class="quartos__type-tagline" data-i18n="quartos_privativos_tagline">
             Mais privacidade. O mesmo clima de Home.
-          </p>
+          </h3>
           <p class="quartos__type-desc" data-i18n="quartos_privativos_desc">
             Para quem prefere mais privacidade, sem abrir mão do clima
             acolhedor do Home. Nosso espaço privativo mais novo, pensado
@@ -538,7 +575,7 @@
             <path d="M4 20c0-3.2 2.2-5.3 5-5.3s5 2.1 5 5.3" stroke-linecap="round" />
             <path d="M14.3 20c0-2.2 1.4-3.9 3.4-3.9" stroke-linecap="round" />
           </svg>
-          <p class="experiencias__concept-title" data-i18n="exp_concept1_title">Encontros</p>
+          <h3 class="experiencias__concept-title" data-i18n="exp_concept1_title">Encontros</h3>
           <p class="experiencias__concept-desc" data-i18n="exp_concept1_desc">
             Conheça pessoas, compartilhe histórias e leve novas amizades com você.
           </p>
@@ -550,7 +587,7 @@
             <path d="M6 10.5V20h12v-9.5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M10 20v-5h4v5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          <p class="experiencias__concept-title" data-i18n="exp_concept2_title">Acolhimento</p>
+          <h3 class="experiencias__concept-title" data-i18n="exp_concept2_title">Acolhimento</h3>
           <p class="experiencias__concept-desc" data-i18n="exp_concept2_desc">
             Um ambiente tranquilo e descontraído para se sentir à vontade desde a chegada.
           </p>
@@ -576,7 +613,7 @@
             <circle cx="12" cy="12" r="8.5" />
             <path d="M14.8 9.2 13 13l-3.8 1.8L11 11z" stroke-linejoin="round" />
           </svg>
-          <p class="experiencias__concept-title" data-i18n="exp_concept3_title">Descobertas</p>
+          <h3 class="experiencias__concept-title" data-i18n="exp_concept3_title">Descobertas</h3>
           <p class="experiencias__concept-desc" data-i18n="exp_concept3_desc">
             Use o Home como ponto de partida para viver Maceió, conhecer Alagoas e criar suas próprias histórias.
           </p>
@@ -701,7 +738,7 @@
              ficha do Booking do cliente) + as fotos da Catedral e da
              Capelinha, que são justamente 2 desses pontos. -->
         <div class="localizacao__block">
-          <p class="localizacao__block-heading" data-i18n="loc_culture_heading">Cultura e história</p>
+          <h3 class="localizacao__block-heading" data-i18n="loc_culture_heading">Cultura e história</h3>
           <ul class="localizacao__block-body">
             <li data-i18n="loc_culture_1">Floriano Peixoto Palace Museum</li>
             <li data-i18n="loc_culture_2">Cultural Center Ruth Cardoso</li>
@@ -745,7 +782,7 @@
              real (está a minutos), a diferencia del resto que no lleva
              distancias. -->
         <div class="localizacao__block">
-          <p class="localizacao__block-heading" data-i18n="loc_mirante_heading">Mirante de São Gonçalo</p>
+          <h3 class="localizacao__block-heading" data-i18n="loc_mirante_heading">Mirante de São Gonçalo</h3>
           <p class="localizacao__block-body localizacao__block-body--text" data-i18n="loc_mirante_text">
             A poucos minutos do Home, um dos points favoritos para ver a
             cidade e o mar lá de cima.
@@ -783,7 +820,7 @@
         <!-- Praias: mismo criterio, con Avenida Beach marcada como la más
              cerca (se puede ir caminando). -->
         <div class="localizacao__block">
-          <p class="localizacao__block-heading" data-i18n="loc_praias_heading">Praias</p>
+          <h3 class="localizacao__block-heading" data-i18n="loc_praias_heading">Praias</h3>
           <ul class="localizacao__block-body">
             <li data-i18n="loc_praias_1">Avenida Beach — a poucos passos, dá pra ir a pé</li>
             <li data-i18n="loc_praias_2">Pajuçara Beach</li>
@@ -891,7 +928,7 @@
              jantar/convivência, que ya cubre el concepto de "espacio para
              comer y compartir". -->
         <div class="galeria__block">
-          <p class="galeria__block-heading" data-i18n="gal_cozinha_heading">Cozinha compartilhada</p>
+          <h3 class="galeria__block-heading" data-i18n="gal_cozinha_heading">Cozinha compartilhada</h3>
           <p class="galeria__block-body" data-i18n="gal_cozinha_text">
             Mais liberdade para viver a sua estadia do seu jeito. Um espaço
             para preparar suas refeições, tomar café da manhã com calma e
@@ -947,7 +984,7 @@
              mosaico chico. Ninguna repite las fotos ya usadas en Sobre
              (entrada_06, patio_02). -->
         <div class="galeria__block">
-          <p class="galeria__block-heading" data-i18n="gal_area_heading">Área externa e recepção</p>
+          <h3 class="galeria__block-heading" data-i18n="gal_area_heading">Área externa e recepção</h3>
           <p class="galeria__block-body" data-i18n="gal_area_text">
             Onde a sua experiência no Home começa. Do primeiro contato até
             um momento de pausa ao ar livre — o ponto de partida para viver
@@ -1001,7 +1038,7 @@
              fotos generales horizontales (transmiten limpieza y espacio)
              y menos detalle, por pedido específico del cliente. -->
         <div class="galeria__block">
-          <p class="galeria__block-heading" data-i18n="gal_banheiro_heading">Banheiros</p>
+          <h3 class="galeria__block-heading" data-i18n="gal_banheiro_heading">Banheiros</h3>
           <p class="galeria__block-body" data-i18n="gal_banheiro_text">
             Conforto e praticidade em cada detalhe. Toalhas limpas para
             cada hóspede e papel higiênico sempre à disposição — porque os
