@@ -1,0 +1,39 @@
+# ==========================================================================
+# .htaccess -- Home Hostel Maceió (Hostinger / LiteSpeed)
+# 1) Fuerza HTTPS  2) Unifica www -> sin www (coincide con el canonical)
+# 3) Compresión  4) Caché del navegador para imágenes/fuentes
+# Ver docs/MIGRACION-HOSTINGER.md
+# ==========================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # www.homehostelmcz.com.br -> homehostelmcz.com.br (301, conserva la ruta)
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # http -> https (301)
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# No listar el contenido de carpetas sin index
+Options -Indexes
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/ld+json application/xml image/svg+xml
+</IfModule>
+
+# Caché: imágenes 30 días. CSS/JS 1 día (se editan sin versionado en el
+# nombre del archivo, un caché largo haría que los cambios tarden en verse).
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

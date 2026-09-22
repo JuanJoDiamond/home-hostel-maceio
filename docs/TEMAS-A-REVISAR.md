@@ -15,7 +15,6 @@ la fecha y la decisión tomada, para que quede el historial.
 | Tema | Dónde impacta | Detalle |
 |---|---|---|
 | Número de WhatsApp | Botón del header, botón del hero | ~~Hoy usan el placeholder~~ **Resuelto y aplicado 2026-08-08**: `https://wa.me/5582991280921` (número real: `082 99128 0921`) ya está en las 2 ubicaciones de `index.html`. |
-| Dominio definitivo | `<link rel="canonical">`, `og:url`, `og:image` en `index.html` | **Actualizado 2026-08-07**: mientras no exista el dominio real, las 3 etiquetas apuntan a la URL viva de GitHub Pages (`https://juanjodiamond.github.io/home-hostel-maceio/`) en vez de al placeholder — un canonical a un dominio inexistente podía hacer que Google no indexara la página, ahora que el sitio ya está público. Cuando el dominio real esté activo, hay que reemplazar las 3 URLs (buscar "juanjodiamond.github.io" en `index.html`). |
 | Dirección física completa | Futuro Schema.org / SEO local, sección Ubicación (Sprint 5) | Necesaria para que Google muestre el hostel con dirección/mapa en los resultados de búsqueda. |
 | Teléfono / email de contacto | Futuro Schema.org, sección de contacto | Mismo caso que la dirección. |
 
@@ -37,11 +36,14 @@ la fecha y la decisión tomada, para que quede el historial.
 |---|---|
 | Paleta de acento vs. rojo del logo | La paleta del sitio usa un coral anaranjado (`#E8604C`); el logo real tiene un rojo puro más saturado (`#D71B19`). Conviven bien porque el logo es una insignia autocontenida, pero si se busca coherencia total de marca, en algún momento conviene correr el acento del sitio hacia ese rojo. Implica tocar `variables.css` y los botones. |
 | Tipografías: Google Fonts (CDN) vs. self-hosteadas | Hoy se cargan desde Google Fonts. Queda `assets/fonts/` vacía por si se decide self-hostearlas más adelante (menos dependencia de terceros, mejor tiempo de carga). |
+| GitHub Pages sigue online tras la migración | Desde el 2026-09-22 el sitio oficial es `https://homehostelmcz.com.br`, pero `juanjodiamond.github.io/home-hostel-maceio/` sigue sirviendo una copia. El canonical ya apunta al dominio nuevo, así que no es urgente, pero dos copias públicas no suman nada. Recomendación: desactivar Pages (repo → Settings → Pages). Ver `MIGRACION-HOSTINGER.md`. |
 
 ## 🟢 Mejora opcional a futuro (no urgente)
 
 | Tema | Detalle |
 |---|---|
+| Google Search Console | Dar de alta `homehostelmcz.com.br` y enviar `sitemap.xml`. Gratis, sin banner de cookies, y es la forma de pedirle a Google que indexe el dominio nuevo. Primer paso natural de la fase de analytics. |
+| Lighthouse contra producción | Correr el checklist de `QA-FINAL-RELEASE-CANDIDATE.md` contra `https://homehostelmcz.com.br` (ya con compresión, caché y CDN reales) para confirmar la mejora esperada en Performance mobile. |
 | Foto del hero en mayor resolución | El archivo actual es de 1365px de ancho. Se ve bien hasta laptops estándar; en monitores grandes/4K puede notarse escalado. Reemplazar por una versión de ≥2400px cuando esté disponible — no requiere tocar código, mismo nombre de archivo. |
 | Datos estructurados (Schema.org / JSON-LD) | Tipo `LodgingBusiness`. Mejora de SEO de mayor impacto para negocios de hospedaje local, pero depende de tener dirección y teléfono reales (ver arriba). |
 | `og:site_name` + Twitter/X Card | Meta tags chicas, mejoran cómo se ve el link al compartirlo en redes. Cinco minutos de trabajo cuando se decida sumarlas. |
@@ -112,3 +114,4 @@ la fecha y la decisión tomada, para que quede el historial.
 | 2026-08-29 | Footer funcional (Sprint 8) | Marca + tagline, Navegação, Reservas, Onde estamos, Siga o Home, copyright + microfrase. Solo tipografía Manrope, corta el tono emocional del resto del sitio a propósito. Ver `AUDITORIA-SPRINT8.md`. |
 | 2026-08-29 | Botón "volver arriba" | Nuevo en el sitio, mobile y desktop. Semi-transparente en mobile, más grande y sólido en desktop -- ajustado a pedido del cliente tras la primera versión. |
 | 2026-08-29 | FAB de WhatsApp se ocultaba tapando el copyright del footer | Corregido con espacio extra abajo del todo en mobile. Además, el FAB ahora se oculta contextualmente cerca de Contato/Footer (ya hay botones de WhatsApp propios ahí). |
+| 2026-09-22 | Dominio definitivo y migración a Hostinger | Sitio en producción en `https://homehostelmcz.com.br` (sin `www`). Reemplazadas las 8 URLs de GitHub Pages en `index.html` (canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` e `image`), `sitemap.xml` y `robots.txt`. Nuevo `.htaccess` con redirecciones 301 `www`→sin `www` y `http`→`https`, compresión y caché. Verificado en producción en incógnito. Ver `MIGRACION-HOSTINGER.md`. |

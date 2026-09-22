@@ -13,7 +13,7 @@
   <!-- Open Graph: og:image usa URL absoluta a propósito (no relativa).
        WhatsApp/Facebook/Twitter piden esta URL directamente, sin contexto
        de navegador, así que una ruta relativa no les resuelve la imagen.
-       Actualizar junto con el canonical cuando esté el dominio real. -->
+       Si cambia el dominio, actualizar junto con el canonical. -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Home Hostel Maceió | Hospedagem no Farol com clima de casa" />
@@ -21,15 +21,14 @@
     property="og:description"
     content="Sua casa em Maceió. Um hostel acolhedor no Farol para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
   />
-  <meta property="og:image" content="https://juanjodiamond.github.io/home-hostel-maceio/assets/images/hero/og-cover.jpg" />
-  <meta property="og:url" content="https://juanjodiamond.github.io/home-hostel-maceio/" />
+  <meta property="og:image" content="https://homehostelmcz.com.br/assets/images/hero/og-cover.jpg" />
+  <meta property="og:url" content="https://homehostelmcz.com.br/" />
 
-  <!-- TEMPORAL: canonical apunta a la URL real de GitHub Pages mientras no
-       exista el dominio definitivo (homehostelmaceio.com). Un canonical a
-       un dominio que no existe puede hacer que Google no indexe la página.
-       Reemplazar por el dominio real ni bien esté activo -- ver
-       docs/TEMAS-A-REVISAR.md. -->
-  <link rel="canonical" href="https://juanjodiamond.github.io/home-hostel-maceio/" />
+  <!-- Canonical: dominio definitivo en Hostinger (sin www, sin subpath).
+       Migrado desde GitHub Pages el 2026-09-22 -- el canonical le indica
+       a Google que esta es la URL oficial aunque la copia vieja de
+       GitHub Pages siga online. Ver docs/MIGRACION-HOSTINGER.md. -->
+  <link rel="canonical" href="https://homehostelmcz.com.br/" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/images/logo/home-hostel-logo.png" />
   <meta name="theme-color" content="#2f6b4a" />
@@ -43,7 +42,7 @@
     name="twitter:description"
     content="Sua casa em Maceió. Um hostel acolhedor no Farol para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
   />
-  <meta name="twitter:image" content="https://juanjodiamond.github.io/home-hostel-maceio/assets/images/hero/og-cover.jpg" />
+  <meta name="twitter:image" content="https://homehostelmcz.com.br/assets/images/hero/og-cover.jpg" />
 
   <!-- Schema.org (JSON-LD): le dice a Google explícitamente que esto es
        un hostel real, con dirección y ubicación -- habilita resultados
@@ -57,8 +56,8 @@
       "@context": "https://schema.org",
       "@type": "LodgingBusiness",
       "name": "Home Hostel Maceió",
-      "image": "https://juanjodiamond.github.io/home-hostel-maceio/assets/images/hero/og-cover.jpg",
-      "url": "https://juanjodiamond.github.io/home-hostel-maceio/",
+      "image": "https://homehostelmcz.com.br/assets/images/hero/og-cover.jpg",
+      "url": "https://homehostelmcz.com.br/",
       "telephone": "+5582991280921",
       "address": {
         "@type": "PostalAddress",
