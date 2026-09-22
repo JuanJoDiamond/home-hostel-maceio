@@ -13,15 +13,23 @@
   <!-- Open Graph: og:image usa URL absoluta a propósito (no relativa).
        WhatsApp/Facebook/Twitter piden esta URL directamente, sin contexto
        de navegador, así que una ruta relativa no les resuelve la imagen.
-       Si cambia el dominio, actualizar junto con el canonical. -->
+       Si cambia el dominio, actualizar junto con el canonical.
+       og:description es más corta (99 caract.) que la meta description
+       (142) a propósito: WhatsApp/mobile cortan cerca de 125 caracteres,
+       mientras que para Google 120-160 es lo ideal. Ver
+       docs/TEMAS-A-REVISAR.md. -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Home Hostel Maceió" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Home Hostel Maceió | Hospedagem no Farol com clima de casa" />
   <meta
     property="og:description"
-    content="Sua casa em Maceió. Um hostel acolhedor no Farol para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
+    content="Hostel acolhedor no Farol, em Maceió. Conheça pessoas, viva Alagoas e reserve direto pelo WhatsApp."
   />
   <meta property="og:image" content="https://homehostelmcz.com.br/assets/images/hero/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Orla de Maceió vista do alto, com mar azul-turquesa, coqueiros e a cidade ao fundo" />
   <meta property="og:url" content="https://homehostelmcz.com.br/" />
 
   <!-- Canonical: dominio definitivo en Hostinger (sin www, sin subpath).
@@ -40,7 +48,7 @@
   <meta name="twitter:title" content="Home Hostel Maceió | Hospedagem no Farol com clima de casa" />
   <meta
     name="twitter:description"
-    content="Sua casa em Maceió. Um hostel acolhedor no Farol para viver Alagoas, conhecer pessoas e criar memórias em uma experiência autêntica de viagem."
+    content="Hostel acolhedor no Farol, em Maceió. Conheça pessoas, viva Alagoas e reserve direto pelo WhatsApp."
   />
   <meta name="twitter:image" content="https://homehostelmcz.com.br/assets/images/hero/og-cover.jpg" />
 

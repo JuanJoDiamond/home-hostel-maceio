@@ -104,7 +104,7 @@ Chequeado con Playwright en los 8 anchos pedidos, midiendo
 | Ítem | Resultado |
 |---|---|
 | Title | ✅ 60 caracteres (ideal), ahora incluye "Farol" (barrio, búsqueda local) |
-| Meta description | ✅ 133 caracteres (rango ideal 120-160), sincronizada con el title |
+| Meta description | ✅ 142 caracteres (rango ideal 120-160), sincronizada con el title. *Corregido 2026-09-22: este reporte decía 133, el conteo real es 142 -- ver `MIGRACION-HOSTINGER.md` §8.* |
 | Canonical | ✅ Presente, con nota explícita de que es temporal hasta el dominio real |
 | H1 | ✅ Único, contenido descriptivo |
 | Open Graph | ✅ Completo (type, locale, title, description, image, url) + Twitter Card agregado en este QA (no existía) |

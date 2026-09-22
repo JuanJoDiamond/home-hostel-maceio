@@ -192,3 +192,37 @@ Se suman a `TEMAS-A-REVISAR.md`:
    en Performance mobile.
 4. **Analytics (segunda fase):** sigue pendiente de decisión del dueño
    (Search Console / GA4 con consentimiento LGPD / Plausible).
+
+---
+
+## 8. Ajuste post-migración: vista previa al compartir (Open Graph)
+
+Con el sitio ya en el dominio definitivo, se probó la vista previa del
+link en **opengraph.xyz** (simula WhatsApp, Facebook, X, LinkedIn y
+Discord). Devolvió 3 avisos:
+
+| Aviso | Evaluación | Acción |
+|---|---|---|
+| Falta `og:site_name` | Real. Ya figuraba como pendiente desde el Sprint 1 | Agregado: `Home Hostel Maceió` |
+| `og:description` muy larga (142 caract.) | Real para redes: WhatsApp y mobile cortan cerca de 125, y se perdía el final del texto. Para Google, en cambio, 120-160 es lo ideal | Se separan los dos textos: `og:description` + `twitter:description` a 99 caracteres; la `meta description` de Google queda igual |
+| Imagen sin texto de "conversión" | Sugerencia genérica de marketing, no un error. La foto real de la orla funciona bien como vista previa | No se aplica por ahora. Queda como idea en `TEMAS-A-REVISAR.md` ("Imagen cabecera para compartir") |
+
+Texto nuevo para redes, elegido por el desarrollador entre 3 opciones
+(la única con llamada a la acción, alineada con el objetivo principal
+del sitio: reservas directas por WhatsApp):
+
+```
+Hostel acolhedor no Farol, em Maceió. Conheça pessoas, viva Alagoas e reserve direto pelo WhatsApp.
+```
+
+Se agregaron también `og:image:width` (1200), `og:image:height` (630) y
+`og:image:alt`. Con las medidas declaradas, Facebook muestra la imagen
+desde el primer compartido, sin esperar a procesarla.
+
+Corrección de documentación: `QA-FINAL-RELEASE-CANDIDATE.md` decía que
+la meta description tenía 133 caracteres; el conteo real es 142.
+
+**Cómo verificar después de subir:** WhatsApp y Facebook guardan en
+caché la vista previa de cada link. Para ver la versión nueva, probar
+con `https://homehostelmcz.com.br/?v=2`, o en el Facebook Sharing
+Debugger tocar "Volver a extraer".
